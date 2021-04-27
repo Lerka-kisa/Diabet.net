@@ -1,7 +1,7 @@
 ﻿using DevExpress.Mvvm;
-using Plan4Food.DB;
-using Plan4Food.Models;
-using Plan4Food.Views;
+using Diabet.net.DB;
+using Diabet.net.Models;
+using Diabet.net.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Plan4Food.ViewModels
+namespace Diabet.net.View_Models
 {
     class Update : ViewModelBase
     {

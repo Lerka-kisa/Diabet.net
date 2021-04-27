@@ -90,7 +90,7 @@
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                         </Button.Background>
-                        <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
+                        <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Resources\injection.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
                     </Button>
                 <Label VerticalContentAlignment="Center" FontSize="14" Margin="250, 5, 320, 4">
                     <Label.Foreground>
@@ -134,8 +134,7 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
                         <DataGrid FontSize="10"  CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
-                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#
-                                  "  Height="180" VerticalAlignment="Bottom" 
+                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
@@ -166,8 +165,7 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
                         <DataGrid FontSize="10" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
-                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB
-                                  "  Height="180" VerticalAlignment="Bottom" IsReadOnly="True">
+                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" IsReadOnly="True">
 
                         </DataGrid>
                     </Grid>
@@ -193,8 +191,7 @@
                         </Button>
 
                         <DataGrid FontSize="10"  CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#
-                                  "  Height="180" VerticalAlignment="Bottom" 
+                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               IsReadOnly="True">
 
                         </DataGrid>

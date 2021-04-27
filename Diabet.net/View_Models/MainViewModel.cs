@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using System.Windows.Input;
-using Plan4Food.DB;
+using Diabet.net.DB;
 using System.Collections.ObjectModel;
-using Plan4Food.Models;
-using Plan4Food.Views;
+using Diabet.net.Models;
+using Diabet.net.Views;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Plan4Food.ViewModels
+namespace Diabet.net.View_Models
 {
     public class MainViewModel : ViewModelBase
     {
@@ -61,7 +61,7 @@ namespace Plan4Food.ViewModels
         private void Logout()
         {
 
-            AuthView _win = new AuthView();
+            AuthorizationWindow _win = new AuthorizationWindow();
             _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _win.Show();
             Close();
