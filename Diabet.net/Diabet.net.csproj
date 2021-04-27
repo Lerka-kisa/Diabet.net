@@ -75,6 +75,23 @@
     <Compile Include="Views\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View_Models\AddFoodViewModel.cs" />
+    <Compile Include="View_Models\AddRecipeAdminViewModel.cs" />
+    <Compile Include="View_Models\AllProductAdminViewModel.cs" />
+    <Compile Include="View_Models\AllRecipeAdminViewModel.cs" />
+    <Compile Include="View_Models\AllRecipeViewModel.cs" />
+    <Compile Include="View_Models\ApproveAdminViewModel.cs" />
+    <Compile Include="View_Models\AuthViewModel.cs" />
+    <Compile Include="View_Models\MainPageViewModel.cs" />
+    <Compile Include="View_Models\MainViewModel.cs" />
+    <Compile Include="View_Models\MainWindowAdminViewModel.cs" />
+    <Compile Include="View_Models\NewFoodViewModel.cs" />
+    <Compile Include="View_Models\RecipeInfoViewModel.cs" />
+    <Compile Include="View_Models\RecipePageViewModel.cs" />
+    <Compile Include="View_Models\RegistrViewModel.cs" />
+    <Compile Include="View_Models\StatisticsViewModel.cs" />
+    <Compile Include="View_Models\Update.cs" />
+    <Compile Include="View_Models\UserPageViewModel.cs" />
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,9 +144,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View_Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="flash_silhouette_hand_drawn_abstraction_icon_177419.ico" />
   </ItemGroup>
