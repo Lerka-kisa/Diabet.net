@@ -15,8 +15,8 @@
             <ImageBrush ImageSource="RegisterWallpaper.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <TextBox Padding="2, 0,0,0" Height="30" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center" x:Name="login_textbox" Background="#FFD2D6D2" Margin="50,260,90,240.4" SelectionBrush="{x:Null}" />
-        <PasswordBox Padding="2, 0,0,0" Height="30" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" x:Name="password_textbox" Background="#FFD2D6D2" Margin="50,300,90,200.4" RenderTransformOrigin="0.5,0.5" PasswordChanged="PasswordBox_PasswordChanged">
+        <TextBox Padding="2, 0,0,0" Height="30" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center" x:Name="login_textbox" Background="#edeff2" Margin="50,260,90,240.4" SelectionBrush="{x:Null}" />
+        <PasswordBox Padding="2, 0,0,0" Height="30" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" x:Name="password_textbox" Background="#edeff2" Margin="50,300,90,200.4" RenderTransformOrigin="0.5,0.5" PasswordChanged="PasswordBox_PasswordChanged">
         </PasswordBox>
 
         <TextBlock Text="{Binding ErrorMes}" Foreground="Black" 
@@ -28,7 +28,7 @@
                 <SolidColorBrush Color="{DynamicResource backgr}"/>
             </Button.Background>
         </Button>
-        <Button  Command="{Binding close}"  Background="#0B7FAB"  Height="Auto" Margin="343,10,10,506.4"  materialDesign:ButtonAssist.CornerRadius="8" Foreground="#1B1B1B" >
+        <Button  Command="{Binding close}"  Background="#0B7FAB"  Height="Auto" Margin="342,10,9,506.4"  materialDesign:ButtonAssist.CornerRadius="8" Foreground="#1B1B1B" >
             <materialDesign:PackIcon Kind="CloseBox" />
         </Button>
         <Button    Command="{Binding auth}"  Height="Auto" Margin="200,390,30,122.4"  materialDesign:ButtonAssist.CornerRadius="20" Content="Войти" Foreground="#1B1B1B" >

@@ -6,50 +6,61 @@
         xmlns:local="clr-namespace:Diabet.net"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Diabet.net" Height="600" Width="650" WindowStyle="None" ResizeMode="NoResize">
+        Title="Diabet.net" Height="600" Width="690" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-        <Color x:Key="Background1">#FF252423</Color>
-        <Color x:Key="Green_color">#FFCB4D3F</Color>
+        <Color x:Key="Background1">#F4D75E</Color>
+        <Color x:Key="Green_color">#0B7FAB</Color>
     </Window.Resources>
 
     <Grid >
         <Grid.Background>
-            <SolidColorBrush Color="#FF252423"/>
+            <SolidColorBrush Color="#F4D75E"/>
         </Grid.Background>
 
-        <Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="600*" MinWidth="200"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="560" />
             <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
         <Frame Grid.Row="0" Content="{Binding CurrentPage}" Margin="0,0,0,0"
                NavigationUIVisibility="Hidden"/>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Vertical">
 
-            <Separator Width="125" Opacity="0"/>
-            <Button Command="{Binding open_Main}" Background="#FFCB4D3F" Width="50">
-                <materialDesign:PackIcon Kind="Bar" />
+            <Separator Width="125" Opacity="0" Height="10"/>
+            <Button Command="{Binding open_InfoUser}" Height="50" Width="50" Background="#0B7FAB">
+                <materialDesign:PackIcon Kind="FileUser" Width="40" Height="40" Margin="-13"/>
             </Button>
-            <Separator Opacity="0" Width="20"/>
-            <Button Command="{Binding open_InfoUser}" Width="50" Background="#FFCB4D3F">
-                <materialDesign:PackIcon Kind="FileUser" />
+            
+            <Separator Opacity="0" Height="5"/>
+            <Button Command="{Binding open_Recipe}" Height="50"  Width="50"  Background="#0B7FAB">
+                <materialDesign:PackIcon Kind="Cookie" Width="40" Height="40" Margin="-13"/>
             </Button>
-            <Separator Opacity="0" Width="20"/>
-            <Button Width="50" Command="{Binding open_Stat}" Background="#FFCB4D3F">
-                <materialDesign:PackIcon Kind="ChartLineStacked" />
+            <Separator Opacity="0" Height="5"/>
+            <Button Command="{Binding open_Main}" Background="#0B7FAB" Width="50" Height="50">
+                <materialDesign:PackIcon Kind="injection" Width="40" Height="40" Margin="-13"/>
             </Button>
-            <Separator Opacity="0" Width="20"/>
-            <Button Command="{Binding open_Recipe}"  Width="50"  Background="#FFCB4D3F">
-                <materialDesign:PackIcon Kind="Cookie" />
+            <Separator Opacity="0" Height="5" />
+            <Button Command="{Binding open_Main}" Background="#0B7FAB" Width="50" Height="50">
+                <materialDesign:PackIcon Kind="Bar" Width="40" Height="40" Margin="-13"/>
             </Button>
-            <Separator Opacity="0" Width="20"/>
-            <Button Command="{Binding logout}"  Width="50"  Background="#FFCB4D3F">
-                <materialDesign:PackIcon Kind="UserMultipleMinus" />
+            <Separator Opacity="0" Height="5"/>
+            <Button Width="50" Height="50" Command="{Binding open_Stat}" Background="#0B7FAB">
+                <materialDesign:PackIcon Kind="ChartLineStacked" Width="40" Height="40" Margin="-13" />
             </Button>
-            <Separator Opacity="0" Width="20"/>
-            <Button Command="{Binding close}"  Width="50"  Background="#FFCB4D3F">
-                <materialDesign:PackIcon Kind="LogoutVariant" />
+
+            <Separator Opacity="0" Height="5"/>
+            <Button Command="{Binding logout}" Height="50" Width="50"  Background="#0B7FAB">
+                <materialDesign:PackIcon Kind="UserMultipleMinus" Width="40" Height="40" Margin="-13"/>
+            </Button>
+            <Separator Opacity="0" Height="5"/>
+            <Button Command="{Binding close}" Height="50" Width="50"  Background="#0B7FAB">
+                <materialDesign:PackIcon Kind="LogoutVariant" Width="40" Height="40" Margin="-13"/>
             </Button>
 
         </StackPanel>

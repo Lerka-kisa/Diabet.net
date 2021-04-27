@@ -23,23 +23,23 @@
         <Image Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Resources\eyes_face_smile.png" Margin="20,38,230,359.4" RenderTransformOrigin="0.5,0.5" >
 
         </Image>
-        <TextBox Padding="2, 0,0,0" Height="30" Width="170" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center"  x:Name="login_textbox" Background="#FFD2D6D2" Margin="20,215,250,305.4" SelectionBrush="{x:Null}" />
-        <PasswordBox Padding="2, 0,0,0" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" Height="30" Width="170" PasswordChanged="PasswordBox_PasswordChanged" x:Name="password_textbox" Background="#FFD2D6D2" Margin="20,265,250,255.4" RenderTransformOrigin="0.5,0.5" >
+        <TextBox Padding="2, 0,0,0" Height="30" Width="170" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center"  x:Name="login_textbox" Background="#edeff2" Margin="20,215,250,305.4" SelectionBrush="{x:Null}" />
+        <PasswordBox Padding="2, 0,0,0" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" Height="30" Width="170" PasswordChanged="PasswordBox_PasswordChanged" x:Name="password_textbox" Background="#edeff2" Margin="20,265,250,255.4" RenderTransformOrigin="0.5,0.5" >
         </PasswordBox>
-        <TextBox Padding="2, 0,0,0" Text="{Binding firstname}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,35,25,485.4" materialDesign:HintAssist.Hint="Имя"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#FFD2D6D2"/>
+        <TextBox Padding="2, 0,0,0" Text="{Binding firstname}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,35,25,485.4" materialDesign:HintAssist.Hint="Имя"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#edeff2"/>
 
-        <TextBox Padding="2, 0,0,0" Text="{Binding lastname}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,80,25,440.4" materialDesign:HintAssist.Hint="Фамилия"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#FFD2D6D2"/>
+        <TextBox Padding="2, 0,0,0" Text="{Binding lastname}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,80,25,440.4" materialDesign:HintAssist.Hint="Фамилия"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#edeff2"/>
 
-        <TextBox Padding="2, 0,0,0" Text="{Binding height}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,125,25,395.4" materialDesign:HintAssist.Hint="Рост"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#FFD2D6D2"
+        <TextBox Padding="2, 0,0,0" Text="{Binding height}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,125,25,395.4" materialDesign:HintAssist.Hint="Рост"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#edeff2"
                   PreviewTextInput="TextBox_PreviewTextInput_2"/>
 
-        <TextBox Padding="2, 0,0,0" Text="{Binding weight}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,170,25,350.4" materialDesign:HintAssist.Hint="Вес"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#FFD2D6D2"
+        <TextBox Padding="2, 0,0,0" Text="{Binding weight}" Height="30" Width="170" TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,170,25,350.4" materialDesign:HintAssist.Hint="Вес"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#edeff2"
                   PreviewTextInput="TextBox_PreviewTextInput_2"/>
 
-        <TextBox  Padding="2, 0,0,0" Text="{Binding age}" Height="30"  TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,265,25,255.4" materialDesign:HintAssist.Hint="Возраст"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#FFD2D6D2"
+        <TextBox  Padding="2, 0,0,0" Text="{Binding age}" Height="30"  TextWrapping ="Wrap" VerticalContentAlignment="Center" Margin="216,265,25,255.4" materialDesign:HintAssist.Hint="Возраст"  materialDesign:TransitionAssist.DisableTransitions="True" Background="#edeff2"
                    PreviewTextInput="TextBox_PreviewTextInput_1"/>
 
-        <ComboBox  Text="{Binding gender}" Padding="2, 0,0,0" VerticalContentAlignment="Center"  Height="30" materialDesign:HintAssist.Hint="Пол"  Background="#FFD2D6D2" Margin="216,215,25,305.4">
+        <ComboBox  Text="{Binding gender}" Padding="2, 0,0,0" VerticalContentAlignment="Center"  Height="30" materialDesign:HintAssist.Hint="Пол"  Background="#edeff2" Margin="216,215,25,305.4">
             <ComboBoxItem>
                 Мужчина
             </ComboBoxItem>
@@ -48,7 +48,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox  Text="{Binding purpose_of_use}" Padding="2, 0,0,0" VerticalContentAlignment="Center" Height="30" materialDesign:HintAssist.Hint="Моя цель"  Background="#FFD2D6D2" Margin="20,313,250,207.4" >
+        <ComboBox  Text="{Binding purpose_of_use}" Padding="2, 0,0,0" VerticalContentAlignment="Center" Height="30" materialDesign:HintAssist.Hint="Моя цель"  Background="#edeff2" Margin="20,313,250,207.4" >
             <ComboBoxItem>
                 Понизить ежедневный уровень сахара
             </ComboBoxItem>
@@ -60,7 +60,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox Text="{Binding activity}" Padding="2, 0,0,0" VerticalContentAlignment="Center" Height="30" materialDesign:HintAssist.Hint="Уровень подвижности"  Background="#FFD2D6D2" Margin="216,313,25,207.4">
+        <ComboBox Text="{Binding activity}" Padding="2, 0,0,0" VerticalContentAlignment="Center" Height="30" materialDesign:HintAssist.Hint="Уровень подвижности"  Background="#edeff2" Margin="216,313,25,207.4">
             <ComboBoxItem Width="250">
                 мин. уровень физнагрузки (отсутсвие)
             </ComboBoxItem>
