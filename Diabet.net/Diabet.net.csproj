@@ -105,6 +105,9 @@
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Views\AddFood.xaml.cs">
+      <DependentUpon>AddFood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
     <Compile Include="View_Models\StatisticsViewModel.cs" />
     <Compile Include="View_Models\Update.cs" />
     <Compile Include="View_Models\UserPageViewModel.cs" />
+    <Page Include="Views\AddFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

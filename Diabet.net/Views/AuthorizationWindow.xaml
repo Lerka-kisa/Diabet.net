@@ -16,8 +16,9 @@
         </Grid.Background>
 
         <TextBox Padding="2, 0,0,0" Height="30" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center" x:Name="login_textbox" Background="#edeff2" Margin="50,260,90,240.4" SelectionBrush="{x:Null}" />
-        <PasswordBox Padding="2, 0,0,0" Height="30" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" x:Name="password_textbox" Background="#edeff2" Margin="50,300,90,200.4" RenderTransformOrigin="0.5,0.5" PasswordChanged="PasswordBox_PasswordChanged">
-        </PasswordBox>
+        <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" x:Name="password_textbox" Padding="2, 0,0,0" materialDesign:HintAssist.Hint="Пароль" VerticalContentAlignment="Center" Height="30" Background="#edeff2" Margin="50,300,90,200.4" RenderTransformOrigin="0.5,0.5" >
+
+            </PasswordBox>
 
         <TextBlock Text="{Binding ErrorMes}" Foreground="Black" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" TextDecorations="Underline"

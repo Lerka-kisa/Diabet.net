@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diabet.net.View_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Diabet.net
+namespace Diabet.net.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для AuthView.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AutorizationWindow : Window
     {
-        public Window1()
+        AuthViewModel a = new AuthViewModel();
+        public AutorizationWindow()
         {
             InitializeComponent();
+            DataContext = a;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            a.password = password_textbox.Password;
+        }
+
+
     }
 }

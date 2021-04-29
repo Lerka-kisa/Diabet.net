@@ -265,7 +265,7 @@ namespace Diabet.net.View_Models
                     IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, activity, daily_calories);
                     if (IsDone)
                     {
-                        AuthView t = new AuthView();
+                        AutorizationWindow t = new AutorizationWindow();
                         t.Show();
                         Close();
                     }
@@ -290,7 +290,7 @@ namespace Diabet.net.View_Models
 
         public void Back()
         {
-            AuthView t = new AuthView();
+            AutorizationWindow t = new AutorizationWindow();
             t.Show();
             Close();
         }
