@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace Diabet.net.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AuthView.xaml
+    /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
-    public partial class AutorizationWindow : Window
+    public partial class AuthorizationWindow : Window
     {
         AuthViewModel a = new AuthViewModel();
-        public AutorizationWindow()
+        public AuthorizationWindow()
         {
             InitializeComponent();
             DataContext = a;

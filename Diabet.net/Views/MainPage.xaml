@@ -86,7 +86,7 @@
                     <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Resources\plusadditionsigncircle_85721.ico" Margin="157,24,481.6,15.6" />
 
 
-                    <Button x:Name="add_injection"  Height="35" Width="50" VerticalAlignment="Center" Margin="367,5,461.6,4.6" BorderBrush="{x:Null}">
+                    <Button x:Name="add_injection" Panel.ZIndex="9999"  Height="35" Width="50" VerticalAlignment="Center" Margin="367,5,461.6,4.6" BorderBrush="{x:Null}">
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                         </Button.Background>

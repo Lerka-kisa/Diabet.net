@@ -14,13 +14,13 @@
             </Grid.RowDefinitions>
             <Rectangle Fill="#0B7FAB" Height="20" VerticalAlignment="Top"/>
             <Button Command="{Binding close}" Height="20" Width="40" Margin="350,0,10,309.6" Background="#E9723D"></Button>
-            <Label Height="40" Margin="0,25,0,264.6" Content="{Binding Type_of_food}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="19" FontStyle="Italic" Foreground="#FFAE9682"/>
+        <Label Height="40" Margin="0,25,0,264.6" Content="{Binding Type_of_food}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="19" FontStyle="Italic" Foreground="#E9723D"/>
 
             <TextBox Text="{Binding Search_TextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="300" HorizontalAlignment="Left" Margin="10,65,0,234.6" materialDesign:HintAssist.Hint="введите название продукта"
-Padding="5,0,0,0" Background="#edeff2" VerticalContentAlignment="Center" >
+Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" >
 
             </TextBox>
-            <Button Command="{Binding search_product}" Width="70" Height="29" Margin="320,65,10,234.6" Background="#edeff2" RenderTransformOrigin="0.457,0.343">
+            <Button Command="{Binding search_product}" Width="70" Height="29" Margin="320,65,10,234.6" Background="#EDEFF2" RenderTransformOrigin="0.457,0.343">
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB" />
             </Button>
             <DataGrid SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="dg" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="280" Margin="0,105,0,85.4" Grid.RowSpan="2"
@@ -41,7 +41,7 @@ Padding="5,0,0,0" Background="#edeff2" VerticalContentAlignment="Center" >
                    Height="20" FontSize="9" Width="130" HorizontalAlignment="Center" Margin="43,88.4,229,34.4"
                    TextDecorations="Underline" Foreground="#FFCB4D3F" Grid.Row="1" Padding="2,0,0,0"/>
 
-        <TextBox Text="{Binding Mass, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Width="150" Padding="5,0,0,0" Background="#edeff2" VerticalContentAlignment="Center" Margin="42,60.4,208,50.4"
+        <TextBox Text="{Binding Mass, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Width="150" Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" Margin="42,60.4,208,50.4"
             materialDesign:HintAssist.Hint="вес продукта" Grid.Row="1" PreviewTextInput="TextBox_PreviewTextInput_1">
 
         </TextBox>
@@ -50,7 +50,7 @@ Padding="5,0,0,0" Background="#edeff2" VerticalContentAlignment="Center" >
                 VerticalContentAlignment="Center" Foreground="#FF252423" Grid.Row="1">
 
         </Button>
-        <Button Command="{Binding add_product}" Height="50" Width="100" Background="#edeff2" Margin="258,72.4,42,18.4" Grid.Row="1" >
+        <Button Command="{Binding add_product}" Height="50" Width="100" Background="#EDEFF2" Margin="258,72.4,42,18.4" Grid.Row="1" >
             <materialDesign:PackIcon Kind="AddCircle" Height="38" Width="29" Foreground="#E9723D" />
         </Button>
 

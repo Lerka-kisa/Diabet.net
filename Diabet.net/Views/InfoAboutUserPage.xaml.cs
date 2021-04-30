@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diabet.net.View_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,16 @@ using System.Windows.Shapes;
 namespace Diabet.net.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для InfoAboutUserPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InfoAboutUserPage : Page
     {
-        public MainWindow()
+        UserPageViewModel u;
+        public InfoAboutUserPage()
         {
+            u = new UserPageViewModel();
             InitializeComponent();
+            DataContext = u;
         }
     }
 }
