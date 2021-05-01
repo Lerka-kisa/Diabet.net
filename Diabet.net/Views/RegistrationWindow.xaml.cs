@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace Diabet.net.Views
 {
     /// <summary>
-    /// Логика взаимодействия для RegistrView.xaml
+    /// Логика взаимодействия для RegistrationWindow.xaml
     /// </summary>
     public partial class RegistrationWindow : Window
     {

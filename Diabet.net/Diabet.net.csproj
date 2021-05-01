@@ -216,6 +216,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -225,7 +227,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\eyes_face_smile.png" />
+    <Resource Include="Resources\flash_silhouette_hand_drawn_abstraction_icon_177419.ico" />
+    <Resource Include="Resources\glassofwater_84019.ico" />
+    <Resource Include="Resources\injection.ico" />
+    <Resource Include="Resources\plusadditionsigncircle_85721.ico" />
+    <Resource Include="Resources\team_people_icon_176892.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="flash_silhouette_hand_drawn_abstraction_icon_177419.ico" />
   </ItemGroup>

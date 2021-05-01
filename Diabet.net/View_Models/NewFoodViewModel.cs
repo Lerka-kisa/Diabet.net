@@ -36,7 +36,7 @@ namespace Diabet.net.View_Models
 
         public void Back()
         {
-            Add_Food win = new Add_Food(Obj);
+            AddFood win = new AddFood(Obj);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
             Close();

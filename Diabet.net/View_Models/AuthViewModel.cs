@@ -47,7 +47,7 @@ namespace Diabet.net.View_Models
 
         public void Reg()
         {
-            RegistrView r = new RegistrView();
+            RegistrationWindow r = new RegistrationWindow();
             r.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             r.Show();
             Close();

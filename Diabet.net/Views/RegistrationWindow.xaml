@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Diabet.net.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="RegistrView" Height="550" Width="400" WindowStyle="None" ResizeMode="NoResize">
+        Title="RegistrationWindow" Height="550" Width="400" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <Color x:Key="color1">#F4D75E</Color>
         <Color x:Key="green">#0B7FAB</Color>

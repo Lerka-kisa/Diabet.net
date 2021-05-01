@@ -142,7 +142,7 @@ namespace Diabet.net.View_Models
 
             Properties.Settings.Default.IdTypeOfFood = 1;
             Properties.Settings.Default.Save();
-            Add_Food win = new Add_Food(this);
+            AddFood win = new AddFood(this);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
 
@@ -155,7 +155,7 @@ namespace Diabet.net.View_Models
 
             Properties.Settings.Default.IdTypeOfFood = 2;
             Properties.Settings.Default.Save();
-            Add_Food win = new Add_Food(this);
+            AddFood win = new AddFood(this);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
         }
@@ -167,7 +167,7 @@ namespace Diabet.net.View_Models
 
             Properties.Settings.Default.IdTypeOfFood = 3;
             Properties.Settings.Default.Save();
-            Add_Food win = new Add_Food(this);
+            AddFood win = new AddFood(this);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
         }
@@ -179,7 +179,7 @@ namespace Diabet.net.View_Models
 
             Properties.Settings.Default.IdTypeOfFood = 4;
             Properties.Settings.Default.Save();
-            Add_Food win = new Add_Food(this);
+            AddFood win = new AddFood(this);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
         }
