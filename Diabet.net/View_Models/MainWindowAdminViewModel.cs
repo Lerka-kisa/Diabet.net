@@ -37,7 +37,7 @@ namespace Diabet.net.View_Models
         private void Logout()
         {
 
-            AutorizationWindow _win = new AutorizationWindow();
+            AuthorizationWindow _win = new AuthorizationWindow();
             _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _win.Show();
             Close();
