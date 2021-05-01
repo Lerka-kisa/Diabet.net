@@ -123,6 +123,15 @@
     <Compile Include="Views\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateAge.xaml.cs">
+      <DependentUpon>UpdateAge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMass.xaml.cs">
+      <DependentUpon>UpdateMass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdatePurpose.xaml.cs">
+      <DependentUpon>UpdatePurpose.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_Models\AddFoodViewModel.cs" />
     <Compile Include="View_Models\AddRecipeAdminViewModel.cs" />
     <Compile Include="View_Models\AllProductAdminViewModel.cs" />
@@ -173,6 +182,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateMass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdatePurpose.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
