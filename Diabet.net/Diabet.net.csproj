@@ -108,6 +108,12 @@
     <Compile Include="Views\AddFood.xaml.cs">
       <DependentUpon>AddFood.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AllRecipeAdminPage.xaml.cs">
+      <DependentUpon>AllRecipeAdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllRecipePage.xaml.cs">
+      <DependentUpon>AllRecipePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +125,12 @@
     </Compile>
     <Compile Include="Views\NewFood.xaml.cs">
       <DependentUpon>NewFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecipeInfoPage.xaml.cs">
+      <DependentUpon>RecipeInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecipePage.xaml.cs">
+      <DependentUpon>RecipePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
@@ -153,6 +165,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AllRecipeAdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllRecipePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\InfoAboutUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +198,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecipeInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecipePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

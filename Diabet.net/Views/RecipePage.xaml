@@ -1,0 +1,25 @@
+﻿<Page x:Class="Diabet.net.Views.RecipePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Diabet.net.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="560" d:DesignWidth="650"
+      Title="RecipePage">
+        <Page.Resources>
+        <Color x:Key="Backgr">#F4D75E</Color>
+        </Page.Resources>
+
+        <Grid>
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource Backgr}"/>
+            </Grid.Background>
+
+        <Rectangle Height="30" VerticalAlignment="Top" Fill="#0B7FAB"/>
+
+            <Frame Content="{Binding CurrentPage}" Height="530" VerticalAlignment="Bottom"/>
+
+        </Grid>
+    </Page>
