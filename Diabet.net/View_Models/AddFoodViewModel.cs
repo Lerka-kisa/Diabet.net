@@ -211,7 +211,7 @@ namespace Diabet.net.View_Models
 
         public void OpenNewFood()
         {
-            New_Food win = new New_Food(Obj);
+            NewFood win = new NewFood(Obj);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
             Close();

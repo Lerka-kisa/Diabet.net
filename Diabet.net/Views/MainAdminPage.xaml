@@ -1,0 +1,14 @@
+﻿<Page x:Class="Diabet.net.Views.MainAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diabet.net.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="600"
+      Title="MainAdminPage">
+
+    <Grid Background="#E9723D">
+        <Image Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Resources\message_sent_icon_176884.png" Margin="50,94,-100,0"/>
+        </Grid>
+    </Page>
