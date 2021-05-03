@@ -81,7 +81,7 @@
 
         <Button   Command="{Binding register}"   Height="Auto" Margin="57,396,75,116.4"  materialDesign:ButtonAssist.CornerRadius="8" Content="Зарегистрироваться" >
             <Button.Background>
-                <SolidColorBrush Color="#0B7FAB"/>
+                <SolidColorBrush Color="#E9723D"/>
             </Button.Background>
         </Button>
 
@@ -89,7 +89,7 @@
                   CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                   Height="Auto" Margin="57,458,75,54.4"  materialDesign:ButtonAssist.CornerRadius="8" Content="Назад" >
             <Button.Background>
-                <SolidColorBrush Color="{DynamicResource green}"/>
+                <SolidColorBrush Color="#E9723D"/>
             </Button.Background>
         </Button>
 

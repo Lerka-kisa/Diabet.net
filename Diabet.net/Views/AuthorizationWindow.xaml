@@ -20,7 +20,7 @@
 
             </PasswordBox>
 
-        <TextBlock Text="{Binding ErrorMes}" Foreground="Black" 
+        <TextBlock Text="{Binding ErrorMes}" Foreground="Red" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" TextDecorations="Underline"
                    TextAlignment="Center" Margin="72,359,110,165.4"/>
 

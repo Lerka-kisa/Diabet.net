@@ -315,6 +315,9 @@
   <ItemGroup>
     <Resource Include="flash_silhouette_hand_drawn_abstraction_icon_177419.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\RegisterView.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
