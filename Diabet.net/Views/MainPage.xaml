@@ -62,7 +62,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Background="#E9723D">
 
                     <Label VerticalContentAlignment="Center" FontSize="14">
                         <Label.Foreground>
@@ -123,7 +123,7 @@
                         </Rectangle>
                         <Label Name="br" Height="25" Margin="45,5,66.4,180.4" HorizontalAlignment="Center">
                             <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                                <SolidColorBrush Color="Black"/>
                             </Label.Foreground>
                             Завтрак
                         </Label>
@@ -133,7 +133,7 @@
                             </Button.Background>
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
-                        <DataGrid FontSize="10"  CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -153,7 +153,7 @@
                         </Rectangle>
                         <Label Height="25" Margin="0,5,0.4,185.4" HorizontalAlignment="Center">
                             <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                                <SolidColorBrush Color="Black"/>
                             </Label.Foreground>
                             Обед
                         </Label>
@@ -164,7 +164,7 @@
                             </Button.Background>
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
-                        <DataGrid FontSize="10" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
+                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
                               GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" IsReadOnly="True">
 
                         </DataGrid>
@@ -176,9 +176,9 @@
                                 <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                             </Rectangle.Fill>
                         </Rectangle>
-                        <Label Height="25" Margin="59,5,65.4,180.4" HorizontalAlignment="Center">
+                        <Label Height="25" Margin="57,5,67,180" HorizontalAlignment="Center">
                             <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                                <SolidColorBrush Color="Black"/>
                             </Label.Foreground>
                             Ужин
                         </Label>
@@ -190,7 +190,7 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
 
-                        <DataGrid FontSize="10"  CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               IsReadOnly="True">
 
@@ -204,7 +204,7 @@
                         </Rectangle>
                         <Label Height="25" Margin="48,5,60.4,180.4" HorizontalAlignment="Center">
                             <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                                <SolidColorBrush Color="Black"/>
                             </Label.Foreground>
                             Перекус
                         </Label>
@@ -216,7 +216,7 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
 
-                        <DataGrid FontSize="10" CanUserAddRows="False" ItemsSource="{Binding Name_food_snack, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_snack, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" 
                               VerticalAlignment="Bottom" IsReadOnly="True" >
 

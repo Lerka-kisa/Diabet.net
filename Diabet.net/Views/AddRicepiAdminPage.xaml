@@ -20,7 +20,7 @@
 
             <Button Command="{Binding addIngr}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="211,66,372,417" >
                 <Button.Background>
-                    <SolidColorBrush Color="#FFD2D6D2"/>
+                <SolidColorBrush Color="#EDEFF2"/>
                 </Button.Background>
                 <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
             </Button>
@@ -37,7 +37,7 @@
                    Padding="10,0,0,0" Foreground="#FF252423">  Способ приготовления:</TextBlock>
 
         <TextBox Background="#EDEFF2" Padding="2,2,2,2" 
-                 Margin="33,279,43,55" Foreground="#FFD2D6D2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Margin="33,279,43,55" Foreground="#EDEFF2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                ScrollViewer.VerticalScrollBarVisibility="Auto" 
                TextWrapping="WrapWithOverflow"              
                Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
