@@ -8,12 +8,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Diabet.net.DB
 {
     class DataBaseUser
     {
-        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
 
         public bool GiveUserByLoginAndPassword(string login, string password)
         {
@@ -90,37 +91,37 @@ namespace Diabet.net.DB
 
         internal bool GetIsAdminUser(string id_user)
         {
-           
-                using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-                {
-                    try
-                    {
-                        sqlCon.Open();
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = sqlCon;
-                        command.CommandText = @"Select is_admin From Users Where id_user = @id_user";
-                        command.Parameters.Add("@id_user", SqlDbType.Int);
 
-                        command.Parameters["@id_user"].Value = id_user;
-                        SqlDataReader info = command.ExecuteReader();
-                        object id = -1;
-                        while (info.Read())
-                        {
-                            id = info["is_admin"];
-                            break;
-                        }
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"Select is_admin From Users Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    SqlDataReader info = command.ExecuteReader();
+                    object id = -1;
+                    while (info.Read())
+                    {
+                        id = info["is_admin"];
+                        break;
+                    }
                     if (Convert.ToInt32(id) == 1)
                         return true;
                     else
                         return false;
-                    }
-                    catch (Exception e)
-                    {
-                        return false ;
-                    }
                 }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
 
-            
+
         }
 
         internal bool UpdatePurposeUser(string id_user, string new_purpose)
@@ -173,7 +174,8 @@ namespace Diabet.net.DB
                     while (info.Read())
                     {
                         date = info["Date_of_Change"];
-                        if (i == 1) {
+                        if (i == 1)
+                        {
                             spam.Add(Convert.ToDateTime(date).ToShortDateString());
                             i++;
                         }
@@ -181,7 +183,7 @@ namespace Diabet.net.DB
                         {
                             spam.Add(Convert.ToDateTime(date).ToShortDateString());
                         }
-                        
+
                     }
 
                     return spam;
@@ -195,8 +197,8 @@ namespace Diabet.net.DB
 
         public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, string activity, int daily_calories)
         {
-            
-            
+
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
@@ -205,7 +207,7 @@ namespace Diabet.net.DB
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
                     command.CommandText = @"INSERT INTO Users (login, password, is_admin, First_Name, Last_Name,  Height, Weight, Daily_Calories,  Age, Gender, Activity, Purpose_of_Use) VALUES (@login,@password,@is_admin,@First_Name,@Last_Name,  @Height, @Weight, @Daily_Calories, @Age, @Gender, @Activity, @Purpose_of_Use)";
-               
+
                     command.Parameters.Add("@login", SqlDbType.NVarChar, 20);
                     command.Parameters.Add("@password", SqlDbType.NVarChar, 100);
                     command.Parameters.Add("@is_admin", SqlDbType.Bit);
@@ -218,7 +220,7 @@ namespace Diabet.net.DB
                     command.Parameters.Add("@Gender", SqlDbType.NVarChar, 5);
                     command.Parameters.Add("@Activity", SqlDbType.Float);
                     command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
-                                                            
+
                     command.Parameters["@login"].Value = login;
                     command.Parameters["@password"].Value = password;
                     command.Parameters["@is_admin"].Value = 0;
@@ -231,20 +233,21 @@ namespace Diabet.net.DB
                     command.Parameters["@Gender"].Value = gender;
                     command.Parameters["@Activity"].Value = activity;
                     command.Parameters["@Purpose_of_Use"].Value = purpose_of_use;
-                    
+
                     command.ExecuteNonQuery();
 
                     return true;
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return false;
                 }
-                
+
             }
 
         }
-     
+
         public string GetIdUserByLogin(string login)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
@@ -316,20 +319,30 @@ namespace Diabet.net.DB
                             activ = "Тренировки 5 раза в недел";
                         else if (Convert.ToString(info["Activity"]) == "1,64")
                             activ = "Тренеровки каждый день";
-                        else 
+                        else
                             activ = "Ежедневная нагрузка + физ.работа";
 
                         if (Convert.ToString(info["Purpose_of_Use"]) == "1")
                             p = "Сбросить вес";
                         else if (Convert.ToString(info["Purpose_of_Use"]) == "2")
                             p = "Поддерживать вес";
-                        else 
+                        else
                             p = "Набрать вес";
 
-                        spam = new Users{ Id_user = Convert.ToInt32(id_user), Login = Convert.ToString(l), LastName = Convert.ToString(ln),
-                                               FirstName = Convert.ToString(fn), Height = Convert.ToString(h), Weight = Convert.ToString(w),
-                                               Daily_Calories = Convert.ToInt16(dc), Age = Convert.ToInt16(a), Gender = g,
-                                               Activity = activ, Purpose_of_Use = p};
+                        spam = new Users
+                        {
+                            Id_user = Convert.ToInt32(id_user),
+                            Login = Convert.ToString(l),
+                            LastName = Convert.ToString(ln),
+                            FirstName = Convert.ToString(fn),
+                            Height = Convert.ToString(h),
+                            Weight = Convert.ToString(w),
+                            Daily_Calories = Convert.ToInt16(dc),
+                            Age = Convert.ToInt16(a),
+                            Gender = g,
+                            Activity = activ,
+                            Purpose_of_Use = p
+                        };
 
                     }
 

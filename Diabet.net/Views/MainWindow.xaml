@@ -11,7 +11,7 @@
         <Color x:Key="Background1">#F4D75E</Color>
         <Color x:Key="Green_color">#0B7FAB</Color>
     </Window.Resources>
-
+    
     <Grid >
         <Grid.Background>
             <SolidColorBrush Color="#F4D75E"/>
