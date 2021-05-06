@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diabet.net.View_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Diabet.net.Views
+namespace Diabet.net
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel m = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = m;
         }
+
     }
 }

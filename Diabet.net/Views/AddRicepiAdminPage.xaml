@@ -11,7 +11,7 @@
 
     <Grid Background="#0B7FAB">
 
-        <TextBox Background="#E9723D" TextAlignment="Center" FontSize="21" FontStyle="Italic" Height="39" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Название рецепта" 
+        <TextBox Background="#EDEFF2" TextAlignment="Center" FontSize="21" FontStyle="Italic" Height="39" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Название рецепта" 
                   HorizontalContentAlignment="Center" Foreground="#FF252423" 
                  Text="{Binding Name_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -22,7 +22,7 @@
                 <Button.Background>
                 <SolidColorBrush Color="#EDEFF2"/>
                 </Button.Background>
-                <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
+            <materialDesign:PackIcon Kind="Add" Foreground="#0B7FAB" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
             </Button>
 
         <DataGrid Background="#EDEFF2" Height="150" Margin="33,89,189,261" HeadersVisibility="None" IsReadOnly="True" AutoGenerateColumns="False"

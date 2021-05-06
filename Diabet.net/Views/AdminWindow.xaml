@@ -23,8 +23,8 @@
             <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Добавить рецепт" Command="{Binding open_AddRecipe}" />
 
                 <Separator Height="252" Margin="0,2,-0.4,2" Opacity="0"/>
-                <Button Width="50" Margin="193,0,6.6,0" Command="{Binding logout}" Background="#EDEFF2">
-                <materialDesign:PackIcon Kind="Logout" Foreground="#0B7FAB"/>
+            <Button Width="50" Margin="193,0,6.6,0" Command="{Binding logout}" Background="#F4D75E">
+                <materialDesign:PackIcon Kind="Logout" Foreground="#FF252423"/>
                 </Button>
             </StackPanel>
 

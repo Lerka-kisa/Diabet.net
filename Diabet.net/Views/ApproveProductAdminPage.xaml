@@ -8,23 +8,18 @@
       d:DesignHeight="500" d:DesignWidth="600"
       Title="ApproveProductAdminPage">
 
-    <Grid Background="#E9723D">
-        <DataGrid Height="350" Width="500" Background="#EDEFF2" Margin="50,55,50,95" ItemsSource="{Binding AllApproveProduct, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+    <Grid Background="#0B7FAB">
+        <DataGrid Height="350" Width="500" Background="#E9723D" Margin="50,55,50,95" ItemsSource="{Binding AllApproveProduct, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                    AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn  Header="Название"  Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Калорийность" Binding="{Binding Calorific }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Белки" Binding="{Binding Protein}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Углеводы" Binding="{Binding Carbs}"></DataGridTextColumn>
-                </DataGrid.Columns>
-
-
-            </DataGrid>
-
-        <Button Background="#0B7FAB" Height="40" Margin="50,434,336,26" Foreground="#FF252423" Content="Добавить" Command="{Binding add_product}"/>
-
-        <Button Background="#0B7FAB" Height="40" Margin="335,434,50,26" Foreground="#FF252423" Content="Удалить" Command="{Binding delete_product}"/>
-        </Grid>
-    </Page>
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Название"  Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Калорийность" Binding="{Binding Calorific }"></DataGridTextColumn>
+                <DataGridTextColumn Header="Белки" Binding="{Binding Protein}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Углеводы" Binding="{Binding Carbs}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="#F4D75E" Height="40" Margin="50,434,336,26" Foreground="#FF252423" Content="Добавить" Command="{Binding add_product}"/>
+        <Button Background="#F4D75E" Height="40" Margin="335,434,50,26" Foreground="#FF252423" Content="Удалить" Command="{Binding delete_product}"/>
+    </Grid>
+</Page>

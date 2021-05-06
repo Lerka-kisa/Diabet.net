@@ -1,4 +1,4 @@
-﻿<Window x:Class="Diabet.net.Views.MainWindow"
+﻿<Window x:Class="Diabet.net.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Diabet.net"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Diabet.net" Height="600" Width="690" WindowStyle="None" ResizeMode="NoResize">
+        Title="MainWindow" Height="540" Width="720" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <Color x:Key="Background1">#F4D75E</Color>
         <Color x:Key="Green_color">#0B7FAB</Color>
     </Window.Resources>
-    
+
     <Grid >
         <Grid.Background>
             <SolidColorBrush Color="#F4D75E"/>
@@ -19,24 +19,23 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="600*" MinWidth="200"/>
-            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="650"/>
         </Grid.ColumnDefinitions>
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="560" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>-->
 
-        <Frame Grid.Row="0" Content="{Binding CurrentPage}" Margin="0,0,0,0"
+        <Frame Grid.Column="1" Content="{Binding CurrentPage}" Margin="0,0,0,0"
                NavigationUIVisibility="Hidden"/>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical">
+        <StackPanel Grid.Column="0" Orientation="Vertical">
 
             <Separator Width="125" Opacity="0" Height="10"/>
             <Button Command="{Binding open_InfoUser}" Height="50" Width="50" Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="FileUser" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
-            
+
             <Separator Opacity="0" Height="5"/>
             <Button Command="{Binding open_Recipe}" Height="50"  Width="50"  Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="Cookie" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>

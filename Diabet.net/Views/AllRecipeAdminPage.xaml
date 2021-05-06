@@ -9,7 +9,7 @@
       d:DesignHeight="500" d:DesignWidth="600"
       Title="AllRecipeAdminPage">
 
-    <Grid Background="#E9723D">
+    <Grid Background="#0B7FAB">
 
         <TextBox Text="{Binding Search_TextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="300" HorizontalAlignment="Left" Margin="86,40,0,430" materialDesign:HintAssist.Hint="введите название рецепта"
                         Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" >
@@ -19,7 +19,7 @@
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB"/>
         </Button>
 
-        <DataGrid Height="350" Background="#0B7FAB" Width="500" Margin="50,94,50,56" ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid Height="350" Background="#E9723D" Width="500" Margin="50,94,50,56" ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                    AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
             <DataGrid.Columns>
