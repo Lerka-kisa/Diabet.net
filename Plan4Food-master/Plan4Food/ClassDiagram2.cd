@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Plan4Food.ViewModels.AllRecipeAdminViewModel">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAggABEAAAAACAAAEAAAAA=</HashCode>
+      <FileName>ViewModels\AllRecipeAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DevExpress.Mvvm.ViewModelBase" Collapsed="true">
+    <Position X="11" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.ViewModels.AllRecipeViewModel">
+    <Position X="2.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAACAgAAAggAAEACAEACEAAAABIAA=</HashCode>
+      <FileName>ViewModels\AllRecipeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.AddFoodViewModel">
+    <Position X="1.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIACAAAAAAAQAAAQAGAAAIAgAAHEAAABQKEAAFCBAAA=</HashCode>
+      <FileName>ViewModels\AddFoodViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.AddRecipeAdminViewModel">
+    <Position X="14.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAAAAEAAAgBAAAIAAAAgQIAAEEACABwAAgAECYAAA=</HashCode>
+      <FileName>ViewModels\AddRecipeAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.AllProductAdminViewModel">
+    <Position X="15" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAEAAAAQAAAEAAAAAAAgAIBEAAAAACEAAECBAAA=</HashCode>
+      <FileName>ViewModels\AllProductAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.ApproveAdminViewModel">
+    <Position X="11.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAAAAQAAAQAAAQAAAAAAAAAAAAAAEACBABAAA=</HashCode>
+      <FileName>ViewModels\ApproveAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.AuthViewModel">
+    <Position X="13" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAwAAAIAAAAAAAAEAAAABEIQAAhCAEAA=</HashCode>
+      <FileName>ViewModels\AuthViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.MainPageViewModel">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICCAQAAAAQAIBABEAAIEAAGAgAAACAYAAWCSCAIAE=</HashCode>
+      <FileName>ViewModels\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.MainViewModel">
+    <Position X="14.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAABACAAAAAgBAAAgAYAAAAAAABAAAAAQBIAAAAI=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.MainWindowAdminViewModel">
+    <Position X="13" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAEAAAAAAgIAIAKAAAIAgAACAJAAAAAI=</HashCode>
+      <FileName>ViewModels\MainWindowAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.NewFoodViewModel">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EUaAABFAAAAAAAAAACAAAAAAgAEAAAARAIAIAADGCAA=</HashCode>
+      <FileName>ViewModels\NewFoodViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.RecipeInfoViewModel">
+    <Position X="4.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AZAAACFAggEAAAAAAAAABAQAAAAEAAAAQBIgAACYAAA=</HashCode>
+      <FileName>ViewModels\RecipeInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.RecipePageViewModel">
+    <Position X="2.25" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ViewModels\RecipePageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.RegistrViewModel">
+    <Position X="7.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQQBEAEBIAjARAQgAIEAgAAAABEAAgihQQAAIgCAEAA=</HashCode>
+      <FileName>ViewModels\RegistrViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.StatisticsViewModel">
+    <Position X="9.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAEAAQAAAAAAAAAAAAAAEAAEAAAASAQAIAAAA=</HashCode>
+      <FileName>ViewModels\StatisticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.UserPageViewModel">
+    <Position X="3.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAABAAAQACAAEkAAAACACEICgAgAAAAAECAQQg=</HashCode>
+      <FileName>ViewModels\UserPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.ViewModels.Update">
+    <Position X="5.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAEAIAUQQAAQAAAACgHAAAEIAAAJAAAAAACAAAA=</HashCode>
+      <FileName>ViewModels\Update.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.DB.DataBaseUser">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAQAABCAQAIACABAgAAAAAAAQCCA=</HashCode>
+      <FileName>DB\DataBaseUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.DB.DB">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAICAAAABAAAAAAQAAAAAAAAgAABAAAAAAA=</HashCode>
+      <FileName>DB\DB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.DB.DB_Main">
+    <Position X="19" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GEAAAAAAAAAAAAgBAgABAArQAAAAAAAAAABAACAACgA=</HashCode>
+      <FileName>DB\DB_Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.DB.DB_AddFood">
+    <Position X="20.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAgAAAkAAYAAAAAAACAQCCAAAAIAAABACAAAAEA=</HashCode>
+      <FileName>DB\DB_AddFood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.DB.DB_NewFood">
+    <Position X="20.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQEARAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>DB\DB_NewFood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.Models.Food">
+    <Position X="19" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Food.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.Models.Ingredients">
+    <Position X="20.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAABAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Ingredients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.Models.Product">
+    <Position X="20.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAggAAAAAAAAAQCAAAAAMAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.Models.Users">
+    <Position X="19" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAJAAAAACAAEAAAAACACAAAAAAAAAQAGAAAAg=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plan4Food.Views.Add_Food">
+    <Position X="25.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Add_Food.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.MainWindow">
+    <Position X="20" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.AddIngridient">
+    <Position X="23.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAA=</HashCode>
+      <FileName>Views\AddIngridient.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.AllProductAdminPage">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AllProductAdminPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.ApproveProductAdminPage">
+    <Position X="23.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ApproveProductAdminPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.MainPage">
+    <Position X="25.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Views\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Controls.Page" Collapsed="true">
+    <Position X="24.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.RecipeInfoPage">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\RecipeInfoPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.RecipePage">
+    <Position X="25.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\RecipePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.StatisticsPage">
+    <Position X="25.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Views\StatisticsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.InfoAboutUserPage">
+    <Position X="23.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Views\InfoAboutUserPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.MainAdminPage">
+    <Position X="25.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainAdminPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.AllRecipePage">
+    <Position X="23.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\AllRecipePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Plan4Food.Views.AdminWindow">
+    <Position X="24.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Views\AdminWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="22.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

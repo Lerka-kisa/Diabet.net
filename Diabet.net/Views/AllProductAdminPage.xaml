@@ -19,7 +19,7 @@ Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" >
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB"/>
             </Button>
 
-        <DataGrid Height="350" Width="500" Background="#EDEFF2" Margin="50,94,50,56" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid Height="350" Width="500" Background="#0B7FAB" Margin="50,94,50,56" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                    AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
                 <DataGrid.Columns>

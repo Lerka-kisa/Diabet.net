@@ -1,0 +1,33 @@
+﻿<Window x:Class="Plan4Food.Views.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Plan4Food.Views"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="500" Width="850" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Background="#FF252423">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Separator Opacity="0" Height="20"/>
+            <Separator Height="50" Opacity="0" Margin="0,2,-0.4,2"/>
+
+            <Button Background="#FFAE9682" Height="30" Content="Одобрить" Command="{Binding open_Approve}" />
+            <Button Background="#FFAE9682" Height="30" Content="Продукты" Command="{Binding open_AllProduct}"  />
+            <Button Background="#FFAE9682" Height="30" Content="Рецепты" Command="{Binding open_AllRecipe}" />
+            <Button Background="#FFAE9682" Height="30" Content="Добавить рецепт" Command="{Binding open_AddRecipe}" />
+
+            <Separator Height="252" Margin="0,2,-0.4,2" Opacity="0"/>
+            <Button Width="50" Margin="193,0,6.6,0" Command="{Binding logout}" Background="#FFAE9682">
+                <materialDesign:PackIcon Kind="Logout" />
+            </Button>
+        </StackPanel>
+
+        <Frame Grid.Column="1" Content="{Binding CurrentPage}"  NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,36 @@
+﻿<Page x:Class="Plan4Food.Views.AllRecipeAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Plan4Food.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="600"
+      Title="AllRecipeAdminPage">
+
+    <Grid Background="#FFAE9682">
+
+        <TextBox Text="{Binding Search_TextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="300" HorizontalAlignment="Left" Margin="86,40,0,430" materialDesign:HintAssist.Hint="введите название рецепта"
+                        Padding="5,0,0,0" Background="#FFD2D6D2" VerticalContentAlignment="Center" >
+
+        </TextBox>
+        <Button Command="{Binding search_product}" Width="70" Height="30" Margin="444,40,86,430" Background="#FFD2D6D2" RenderTransformOrigin="0.457,0.343">
+            <materialDesign:PackIcon Kind="CloudSearchOutline" />
+        </Button>
+
+        <DataGrid Height="350" Width="500" Margin="50,94,50,56" ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                   AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Название"  Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Калорийность" Binding="{Binding Calorific }"></DataGridTextColumn>
+                <DataGridTextColumn Header="Белки" Binding="{Binding Protein}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Углеводы" Binding="{Binding Carbs}"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+    </Grid>
+</Page>
