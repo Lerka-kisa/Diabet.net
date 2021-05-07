@@ -1,0 +1,14 @@
+﻿<Page x:Class="Plan4Food.Views.MainAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Plan4Food.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="600"
+      Title="MainAdminPage">
+
+    <Grid Background="#FFAE9682">
+        <Image Source="D:\2 курс\курсовой_ооп\Plan4Food\Plan4Food\Resources\plant (1).png" Margin="134,94,-134,0"/>
+    </Grid>
+</Page>

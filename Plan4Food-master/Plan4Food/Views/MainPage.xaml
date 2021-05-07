@@ -1,0 +1,210 @@
+﻿<Page x:Class="Plan4Food.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Plan4Food.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="650"
+      Title="MainPage">
+    <Page.Resources>
+        <Color x:Key="Red_color">#FFCB4D3F</Color>
+        <Color x:Key="Background1">#FF252423</Color>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource Background1}"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition Height="260"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label FontStyle="Italic" FontSize="14" Content="{Binding date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="255,20,255.6,249" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="139" Background="{x:Null}">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                </Label.Foreground>
+            </Label>
+            <Ellipse HorizontalAlignment="Center" Height="139"  VerticalAlignment="Center" Width="139">
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{DynamicResource Background1}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+
+
+            <Label Content="{Binding daily_cal,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="NumOfCal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="35" Margin="282,130,281.2,135"  Width="80" BorderBrush="{x:Null}" >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                </Label.Foreground>
+
+            </Label>
+
+
+            <Rectangle Height="5" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                </Rectangle.Fill>
+
+            </Rectangle>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Label VerticalContentAlignment="Center" FontSize="14">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                    </Label.Foreground>
+                    Выпитая вода
+                </Label>
+                <Label Content="{Binding str_water,  Mode=TwoWay}" FontSize ="13" Height="30" Width="60" Margin="96,10,495.6,9.6" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                         VerticalContentAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                    </Label.Foreground>
+
+                </Label>
+                <Button x:Name="add_water"  Command="{Binding add_water}"  Height="35" Width="50" VerticalAlignment="Center" Margin="138,5,461.6,4.6" BorderBrush="{x:Null}">
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                    </Button.Background>
+                    <Image HorizontalAlignment="Center" Source="D:\2 курс\курсовой_ооп\Plan4Food\Plan4Food\Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
+                </Button>
+
+                <Image Height="10" Width="12" Source="D:\2 курс\курсовой_ооп\Plan4Food\Plan4Food\Resources\plusadditionsigncircle_85721.ico" Margin="157,24,481.6,15.6" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Rectangle Height="5" VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Name="br" Height="25" Margin="45,5,66.4,180.4" HorizontalAlignment="Center">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Label.Foreground>
+                        Завтрак
+                    </Label>
+                    <Button Command="{Binding add_breakfast}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="99,8,45.4,184.4" >
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Button.Background>
+                        <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <DataGrid FontSize="10"  CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F"  Height="180" VerticalAlignment="Bottom" 
+                              AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Mass, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Cal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Rectangle Height="5" VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Height="25" Margin="0,5,0.4,185.4" HorizontalAlignment="Center">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Label.Foreground>
+                        Обед
+                    </Label>
+
+                    <Button Command="{Binding add_lunch}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="107,8,38.4,184.4" >
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Button.Background>
+                        <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <DataGrid FontSize="10" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
+                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F"  Height="180" VerticalAlignment="Bottom" IsReadOnly="True">
+
+                    </DataGrid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Rectangle Height="5" VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Height="25" Margin="59,5,65.4,180.4" HorizontalAlignment="Center">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Label.Foreground>
+                        Ужин
+                    </Label>
+
+                    <Button Command="{Binding add_dinner}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="99,8,46.4,184.4" >
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Button.Background>
+                        <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+
+                    <DataGrid FontSize="10"  CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F"  Height="180" VerticalAlignment="Bottom" 
+                              IsReadOnly="True">
+
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Rectangle Height="5" VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Height="25" Margin="48,5,60.4,180.4" HorizontalAlignment="Center">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Label.Foreground>
+                        Перекус
+                    </Label>
+
+                    <Button Command="{Binding add_snack}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="105,8,40.4,184.4" >
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Red_color}"/>
+                        </Button.Background>
+                        <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+
+                    <DataGrid FontSize="10" CanUserAddRows="False" ItemsSource="{Binding Name_food_snack, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                              HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F"  Height="180" 
+                              VerticalAlignment="Bottom" IsReadOnly="True" >
+
+                    </DataGrid>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="Plan4Food.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Plan4Food"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="650" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <Color x:Key="Background1">#FF252423</Color>
+        <Color x:Key="Green_color">#FFCB4D3F</Color>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.Background>
+            <SolidColorBrush Color="#FF252423"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="560" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Content="{Binding CurrentPage}" Margin="0,0,0,0"
+               NavigationUIVisibility="Hidden"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+
+            <Separator Width="125" Opacity="0"/>
+            <Button Command="{Binding open_Main}" Background="#FFCB4D3F" Width="50">
+                <materialDesign:PackIcon Kind="Bar" />
+            </Button>
+            <Separator Opacity="0" Width="20"/>
+            <Button Command="{Binding open_InfoUser}" Width="50" Background="#FFCB4D3F"> 
+                <materialDesign:PackIcon Kind="FileUser" />
+            </Button>
+            <Separator Opacity="0" Width="20"/>
+            <Button Width="50" Command="{Binding open_Stat}" Background="#FFCB4D3F">
+                <materialDesign:PackIcon Kind="ChartLineStacked" />
+            </Button>
+            <Separator Opacity="0" Width="20"/>
+            <Button Command="{Binding open_Recipe}"  Width="50"  Background="#FFCB4D3F">
+                <materialDesign:PackIcon Kind="Cookie" />
+            </Button>
+            <Separator Opacity="0" Width="20"/>
+            <Button Command="{Binding logout}"  Width="50"  Background="#FFCB4D3F">
+                <materialDesign:PackIcon Kind="UserMultipleMinus" />
+            </Button>
+            <Separator Opacity="0" Width="20"/>
+            <Button Command="{Binding close}"  Width="50"  Background="#FFCB4D3F">
+                <materialDesign:PackIcon Kind="LogoutVariant" />
+            </Button>
+            
+        </StackPanel>
+    </Grid>
+
+</Window>
