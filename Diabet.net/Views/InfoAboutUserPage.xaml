@@ -66,6 +66,6 @@
         <Button Height="30" Content="Изменить цель" Background="#F4D75E"
                 Foreground="#FF252423" Margin="332,252,109.6,247.6" Command="{Binding update_purpose}"/>
 
-        <Image Source="Resources\team_people_icon_176892.png" Margin="96,309,283.6,40"/>
+        <Image Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\team_people_icon_176892.png" Margin="96,309,283.6,40"/>
         </Grid>
     </Page>

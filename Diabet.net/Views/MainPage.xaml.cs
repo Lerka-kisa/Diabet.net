@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diabet.net.View_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Diabet.net.Views
     /// </summary>
     public partial class MainPage : Page
     {
+        MainPageViewModel m;
         public MainPage()
         {
+            m = new MainPageViewModel();
             InitializeComponent();
+            DataContext = m;
         }
     }
 }

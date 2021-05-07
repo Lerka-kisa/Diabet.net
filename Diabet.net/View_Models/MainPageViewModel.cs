@@ -145,7 +145,6 @@ namespace Diabet.net.View_Models
             AddFood win = new AddFood(this);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
-
         }
 
         public ICommand add_lunch => new DelegateCommand(Add_Lunch);

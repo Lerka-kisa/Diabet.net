@@ -9,6 +9,6 @@
       Title="MainAdminPage">
 
     <Grid Background="#E9723D">
-        <Image Source="Resources\message_sent_icon_176884.png" Margin="50,94,-100,0"/>
+        <Image Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\message_sent_icon_176884.png" Margin="50,94,-100,0"/>
         </Grid>
     </Page>

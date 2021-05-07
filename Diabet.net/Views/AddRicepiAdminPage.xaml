@@ -25,7 +25,7 @@
             <materialDesign:PackIcon Kind="Add" Foreground="#0B7FAB" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
             </Button>
 
-        <DataGrid Background="#EDEFF2" Height="150" Margin="33,89,189,261" HeadersVisibility="None" IsReadOnly="True" AutoGenerateColumns="False"
+        <DataGrid Background="#E9723D" Height="150" Margin="33,89,189,261" HeadersVisibility="None" IsReadOnly="True" AutoGenerateColumns="False"
                   ItemsSource="{Binding ingredients, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn  Binding="{Binding Name_Product}"></DataGridTextColumn>
@@ -36,7 +36,7 @@
             <TextBlock TextAlignment="Left" FontSize="18"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,244,0,0"
                    Padding="10,0,0,0" Foreground="#FF252423">  Способ приготовления:</TextBlock>
 
-        <TextBox Background="#EDEFF2" Padding="2,2,2,2" 
+        <TextBox Background="#E9723D" Padding="2,2,2,2" 
                  Margin="33,279,43,55" Foreground="#EDEFF2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                ScrollViewer.VerticalScrollBarVisibility="Auto" 
                TextWrapping="WrapWithOverflow"              

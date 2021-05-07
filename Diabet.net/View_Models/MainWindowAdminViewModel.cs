@@ -54,6 +54,8 @@ namespace Diabet.net.View_Models
                 }
             }
         }
+        public ICommand close => new DelegateCommand(Close);
+
         private Page currentpage;
         public Page CurrentPage
         {

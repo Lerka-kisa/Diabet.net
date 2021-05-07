@@ -13,8 +13,8 @@ namespace Plan4Food.DB
 {
     class DataBaseUser
     {
-        private const string StringConnection = @"Data Source=DESKTOP-DN7MK5L\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
-
+        //private const string StringConnection = @"Data Source=DESKTOP-DN7MK5L\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
         public bool GiveUserByLoginAndPassword(string login, string password)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))

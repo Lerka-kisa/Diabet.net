@@ -7,12 +7,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Diabet.net.DB
 {
     class DB_Main
     {
-        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
 
         public bool GetDateForWater(string id_user, string date)
         {
@@ -48,6 +49,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -90,6 +92,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -123,6 +126,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -162,6 +166,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -206,6 +211,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -234,7 +240,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    
+                    MessageBox.Show(e.Message);
                 }
 
             }
@@ -264,6 +270,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                 }
 
             }
@@ -294,7 +301,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    
+                    MessageBox.Show(e.Message);
                 }
 
             }
@@ -329,6 +336,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -391,6 +399,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -423,6 +432,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -455,6 +465,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -487,6 +498,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -519,6 +531,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -558,6 +571,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return spam;
                 }
             }

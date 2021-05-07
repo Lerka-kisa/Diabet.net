@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plan4Food.DB
 {
@@ -38,15 +39,11 @@ namespace Plan4Food.DB
                     command.Parameters["@fat_product"].Value = f;
                     command.Parameters["@carbs_product"].Value = c;
 
-
-
                     command.ExecuteNonQuery();
-
-
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -83,7 +80,7 @@ namespace Plan4Food.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -121,6 +118,7 @@ namespace Plan4Food.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -158,7 +156,7 @@ namespace Plan4Food.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }

@@ -7,12 +7,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plan4Food.DB
 {
     class DB_AddFood
     {
-        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=Lekra_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
 
         public string GetTypeOfFoodById(int id_type)
         {
@@ -117,7 +118,7 @@ namespace Plan4Food.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }

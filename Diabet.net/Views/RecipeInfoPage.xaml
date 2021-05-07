@@ -47,7 +47,7 @@
                HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Ингридиенты:">
             </Label>
 
-        <DataGrid Height="150" Width="450" Background="#EDEFF2" Margin="42,95,157.6,284.6" HeadersVisibility="None"
+        <DataGrid Height="150" Width="450" Background="#0B7FAB" Margin="42,95,157.6,284.6" HeadersVisibility="None"
                   ItemsSource="{Binding Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"
                   GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F" FontSize="10"
@@ -64,10 +64,10 @@
                HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Приготовление:"></Label>
 
             <!--<ScrollViewer  Height="150" Width="550" Margin="42,276,57.6,73.6" VerticalScrollBarVisibility="Visible" >-->
-        <TextBox Height="180" Width="550" Background="#EDEFF2" Padding="2,2,2,2" IsReadOnly="True"
+        <TextBox Height="180" Width="550" Background="#0B7FAB" Padding="2,2,2,2" IsReadOnly="True"
                      Margin="42,276,57.6,73.6"
                Text="{Binding Description_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-               Foreground="#FF252423" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+               Foreground="#EDEFF2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                ScrollViewer.VerticalScrollBarVisibility="Auto" 
                TextWrapping="WrapWithOverflow"></TextBox>
             <!--</ScrollViewer>-->

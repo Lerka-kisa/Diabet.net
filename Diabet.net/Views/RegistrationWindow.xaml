@@ -20,7 +20,7 @@
                 <SolidColorBrush Color="{DynamicResource green}"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="Resources\eyes_face_smile.png" Margin="20,38,230,359.4" RenderTransformOrigin="0.5,0.5" >
+        <Image Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\eyes_face_smile.png" Margin="20,38,230,359.4" RenderTransformOrigin="0.5,0.5" >
 
         </Image>
         <TextBox Padding="2, 0,0,0" Height="30" Width="170" Text="{Binding login}" materialDesign:HintAssist.Hint="Логин" VerticalContentAlignment="Center"  x:Name="login_textbox" Background="#EDEFF2" Margin="20,215,250,305.4" SelectionBrush="{x:Null}" />

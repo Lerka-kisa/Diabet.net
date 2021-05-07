@@ -17,7 +17,7 @@
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB"/>
             </Button>
 
-            <DataGrid Height="350" HeadersVisibility="None" Width="600"
+        <DataGrid Background="#0B7FAB" Height="350" HeadersVisibility="None" Width="600"
                   FontSize="10" CanUserAddRows="False" AutoGenerateColumns="False"
                     GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F"
                   SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

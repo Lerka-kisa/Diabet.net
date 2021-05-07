@@ -24,27 +24,23 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Label FontStyle="Italic" FontSize="14" Content="{Binding date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="255,20,255.6,249" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="139" Background="{x:Null}">
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
-                    </Label.Foreground>
-                </Label>
+            <Label Content="{Binding date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontStyle="Italic" FontSize="20" Margin="255,20,255.6,219" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="139" Background="{x:Null}">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                </Label.Foreground>
+            </Label>
                 <Ellipse HorizontalAlignment="Center" Height="139"  VerticalAlignment="Center" Width="139">
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
-                    </Ellipse.Stroke>
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="#E9723D"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
 
 
-                <Label Content="{Binding daily_cal,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="NumOfCal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="35" Margin="282,130,281.2,135"  Width="80" BorderBrush="{x:Null}" >
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
-                    </Label.Foreground>
-
-                </Label>
+            <Label Content="{Binding daily_cal,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  x:Name="NumOfCal" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="35" Margin="285,122,285,123"  Width="80" BorderBrush="{x:Null}" >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                </Label.Foreground>
+            </Label>
 
 
                 <Rectangle Height="5" VerticalAlignment="Bottom">
@@ -81,12 +77,12 @@
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                         </Button.Background>
-                        <Image HorizontalAlignment="Center" Source="Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
+                    <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
                     </Button>
-                    <Image Height="10" Width="12" Source="Resources\plusadditionsigncircle_85721.ico" Margin="157,24,481.6,15.6" />
+                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="157,24,481.6,15.6" />
 
 
-                    <Button x:Name="add_injection" Panel.ZIndex="9999"  Height="35" Width="50" VerticalAlignment="Center" Margin="367,5,461.6,4.6" BorderBrush="{x:Null}">
+                <Button x:Name="add_injection"  Command="{Binding add_water}"  Height="35" Width="50" VerticalAlignment="Center" Margin="367,5,461.6,4.6" BorderBrush="{x:Null}">
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                         </Button.Background>
@@ -115,7 +111,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0">
+                <Grid Grid.Column="0" Background="#E9723D">
                         <Rectangle Height="5" VerticalAlignment="Top">
                             <Rectangle.Fill>
                                 <SolidColorBrush Color="{DynamicResource Blue_color}"/>
@@ -133,7 +129,7 @@
                             </Button.Background>
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
-                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                    <DataGrid BorderThickness="5" BorderBrush="#F4D75E" FontSize="10" Background="#0B7FAB" CanUserAddRows="False"  ItemsSource="{Binding Name_food_breakfast, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -145,13 +141,13 @@
 
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Background="#E9723D">
                         <Rectangle Height="5" VerticalAlignment="Top">
                             <Rectangle.Fill>
                                 <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                             </Rectangle.Fill>
                         </Rectangle>
-                        <Label Height="25" Margin="0,5,0.4,185.4" HorizontalAlignment="Center">
+                    <Label Height="25" Margin="0,5,0.4,185.4" HorizontalAlignment="Center" >
                             <Label.Foreground>
                                 <SolidColorBrush Color="Black"/>
                             </Label.Foreground>
@@ -164,13 +160,13 @@
                             </Button.Background>
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
-                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
+                    <DataGrid BorderThickness="5" BorderBrush="#F4D75E" FontSize="10" Background="#0B7FAB" CanUserAddRows="False" ItemsSource="{Binding Name_food_lunch,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HeadersVisibility="None"
                               GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" IsReadOnly="True">
 
                         </DataGrid>
                     </Grid>
 
-                    <Grid Grid.Column="2">
+                <Grid Grid.Column="2" Background="#E9723D">
                         <Rectangle Height="5" VerticalAlignment="Top">
                             <Rectangle.Fill>
                                 <SolidColorBrush Color="{DynamicResource Blue_color}"/>
@@ -190,13 +186,13 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
 
-                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <DataGrid BorderThickness="5" BorderBrush="#F4D75E" FontSize="10" Background="#0B7FAB" CanUserAddRows="False" ItemsSource="{Binding Name_food_dinner,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" VerticalAlignment="Bottom" 
                               IsReadOnly="True">
 
                         </DataGrid>
                     </Grid>
-                    <Grid Grid.Column="3">
+                <Grid Grid.Column="3" Background="#E9723D">
                         <Rectangle Height="5" VerticalAlignment="Top">
                             <Rectangle.Fill>
                                 <SolidColorBrush Color="{DynamicResource Blue_color}"/>
@@ -216,7 +212,7 @@
                             <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
 
-                    <DataGrid BorderThickness="5" BorderBrush="#E9723D" FontSize="10" Background="#EDEFF2" CanUserAddRows="False" ItemsSource="{Binding Name_food_snack, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
+                    <DataGrid BorderThickness="5" BorderBrush="#F4D75E" FontSize="10" Background="#0B7FAB" CanUserAddRows="False" ItemsSource="{Binding Name_food_snack, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" 
                               HeadersVisibility="None" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#0B7FAB"  Height="180" 
                               VerticalAlignment="Bottom" IsReadOnly="True" >
 
