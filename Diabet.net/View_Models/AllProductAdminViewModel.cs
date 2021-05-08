@@ -108,5 +108,14 @@ namespace Diabet.net.View_Models
                 }
             }
         }
-    }
+        public ICommand openNewFood => new DelegateCommand(OpenNewFood);
+        private MainPageViewModel Obj;
+        public void OpenNewFood()
+        {
+            NewFood win = new NewFood(Obj);
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+            Close();
         }
+    }
+ }
