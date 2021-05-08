@@ -123,6 +123,9 @@
     <Compile Include="View_Models\MainPageViewModel.cs" />
     <Compile Include="View_Models\MainViewModel.cs" />
     <Compile Include="View_Models\MainWindowAdminViewModel.cs" />
+    <Compile Include="Views\NewFoodAdmin.xaml.cs">
+      <DependentUpon>NewFoodAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_Models\NewFoodViewModel.cs" />
     <Compile Include="View_Models\RecipeInfoViewModel.cs" />
     <Compile Include="View_Models\RecipePageViewModel.cs" />
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UpdatePurpose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewFoodAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

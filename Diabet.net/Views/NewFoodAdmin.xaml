@@ -1,0 +1,45 @@
+﻿<Window x:Class="Diabet.net.Views.NewFoodAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Diabet.net.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    mc:Ignorable="d"
+    Title="NewFoodAdmin" Height="470" Width="400" WindowStyle="None" ResizeMode="NoResize">
+
+    <Grid Background="#F4D75E">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#0B7FAB" Height="20" VerticalAlignment="Top"/>
+        <Button Command="{Binding close}" Height="20" Width="40" Margin="350,0,10,378" Background="#E9723D"></Button>
+
+        <TextBox Text="{Binding Name_Product, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Height="30" VerticalContentAlignment="Center" Padding="5, 0,0,0" 
+                materialDesign:HintAssist.Hint="Введите название продукта" Background="#EDEFF2" 
+                Width="250" Margin="75,50,75,249.6"></TextBox>
+        <TextBox Text="{Binding Cal_Product, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" VerticalContentAlignment="Center" Padding="5, 0,0,0" 
+                materialDesign:HintAssist.Hint="Ккал/100г" Background="#EDEFF2" 
+                Width="250" Margin="75,110,75,189.6" PreviewTextInput="TextBox_PreviewTextInput_2"></TextBox>
+        <TextBox Text="{Binding Protein_Product, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" VerticalContentAlignment="Center" Padding="5, 0,0,0" 
+                materialDesign:HintAssist.Hint="Белки/100г" Background="#EDEFF2" 
+                Width="250" Margin="75,170,75,129.6" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
+        <TextBox Text="{Binding Fat_Product, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" VerticalContentAlignment="Center" Padding="5, 0,0,0" 
+                materialDesign:HintAssist.Hint="Жиры/100г" Background="#EDEFF2" 
+                Width="250" Margin="75,230,75,69.6" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
+        <TextBox Text="{Binding Carb_Product, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" VerticalContentAlignment="Center" Padding="5, 0,0,0" 
+                materialDesign:HintAssist.Hint="Углеводы/100г" Background="#EDEFF2" 
+                Width="250" Margin="75,290,75,9.6" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
+
+        <Button Command="{Binding clear}" Background="#E9723D" Width="100" Margin="75,-20,225,50.4" Grid.Row="1"
+            Content="Очистить" Foreground="#FF252423"/>
+        <Button Command="{Binding addadmin}" Background="#E9723D" Width="100" Margin="225,-20,75,50.4" Grid.Row="1"
+            Content="Добавить" Foreground="#FF252423"/>
+
+        <TextBlock Text="{Binding ErrorMes}" Foreground="Red" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="85,59,85,56"
+                TextAlignment="Left" TextDecorations="Underline" Grid.Row="1" />
+
+
+    </Grid>
+</Window>

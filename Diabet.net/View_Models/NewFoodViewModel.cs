@@ -1,8 +1,10 @@
 ﻿using DevExpress.Mvvm;
 using Diabet.net.DB;
+using Diabet.net.Models;
 using Diabet.net.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +17,13 @@ namespace Diabet.net.View_Models
     {
         MainPageViewModel Obj;
         DB_NewFood dB_NewFood = new DB_NewFood();
+        public ObservableCollection<Product> AllApproveProduct { get; set; }
         public NewFoodViewModel(MainPageViewModel obj)
         {
             Obj = obj;
+
         }
+
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -64,6 +69,24 @@ namespace Diabet.net.View_Models
 
             else { 
                 dB_NewFood.AddProductInApproval(Name_Product, Cal_Product, Protein_Product, Fat_Product, Carb_Product);
+                Clear();
+                ErrorMes = Properties.Resources.approve;
+            }
+        }
+
+        public ICommand addadmin => new DelegateCommand(AddAdmin);
+
+        public void AddAdmin()
+        {
+            if (Name_Product == String.Empty || Name_Product == null || Cal_Product == String.Empty || Cal_Product == null || Protein_Product == String.Empty || Protein_Product == null
+                                             || Fat_Product == String.Empty || Fat_Product == null || Carb_Product == String.Empty || Carb_Product == null)
+
+                ErrorMes = Properties.Resources.emptyfield;
+
+            else
+            {
+                //dB_NewFood.AddProductInApproval(Name_Product, Cal_Product, Protein_Product, Fat_Product, Carb_Product);
+                dB_NewFood.AddProduct(Name_Product, Cal_Product.Replace("ккал", ""), Protein_Product.Replace("г", ""), Fat_Product.Replace("г", ""), Carb_Product.Replace("г", ""));
                 Clear();
                 ErrorMes = Properties.Resources.approve;
             }

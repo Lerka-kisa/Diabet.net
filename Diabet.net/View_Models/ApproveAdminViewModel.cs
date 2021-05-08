@@ -46,6 +46,7 @@ namespace Diabet.net.View_Models
 
         private void Add_Product()
         {
+
             dB_NewFood.AddProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
             dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
             AllApproveProduct.RemoveAt(Index);
