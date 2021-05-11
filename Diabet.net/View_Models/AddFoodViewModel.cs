@@ -28,8 +28,6 @@ namespace Diabet.net.View_Models
             All_Product = GetAllProduct();
             Index = new int();
 
-          
-
             Obj = obj;
 
         }
@@ -78,11 +76,6 @@ namespace Diabet.net.View_Models
             string type = dB_AddFood.GetTypeOfFoodById(idTypeOfFood);
             return type;
         }
-
-       
-       
-
-        
 
         private ObservableCollection<Product> GetAllProduct()
         {

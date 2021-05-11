@@ -16,13 +16,12 @@ namespace Diabet.net.View_Models
     public class MainPageViewModel : ViewModelBase
     {
         DB_Main db = new DB_Main();
+        DB_AddInsulin db_i = new DB_AddInsulin();
         DateTime today = DateTime.Today;
-        //       public int daily_cal { get; set; }
         public ObservableCollection<Food> Name_food_breakfast { get; set; }
         public ObservableCollection<Food> Name_food_lunch { get; set; }
         public ObservableCollection<Food> Name_food_dinner { get; set; }
         public ObservableCollection<Food> Name_food_snack { get; set; }
-        //  public int cal;
 
         public MainPageViewModel()
         {
@@ -36,12 +35,7 @@ namespace Diabet.net.View_Models
             Name_food_snack = GetNameFood(4);
             daily_cal = new int();
             daily_cal = db.GetDailyCal(id_user, today.ToString());
-            // cal = db.GetDailyCal(id_user, today.ToString());
-            //daily_cal = cal;
-
         }
-
-
 
         private int _daily_cal;
         public int daily_cal
@@ -56,8 +50,6 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(daily_cal));
             }
         }
-
-
 
         #region Дата
         private string _date;
@@ -104,7 +96,7 @@ namespace Diabet.net.View_Models
         private string _str_water;
         public string str_water
         {
-            get => Convert.ToString(water) + "л";
+            get => Convert.ToString(water) + " л";
             set
             {
                 this._str_water = value;
@@ -120,10 +112,131 @@ namespace Diabet.net.View_Models
             float up_water = water + (float)0.25;
             db.UpdateWater(id_user, today.ToString(), up_water);
             water = up_water;
-            str_water = Convert.ToString(water) + "л";
+            str_water = Convert.ToString(water) + " л";
 
         }
         #endregion
+
+        #region Таблетки
+        private float _pill;
+        public float pill
+        {
+            get => float.Parse(db.GetPill(id_user, today.ToString()));
+            set
+            {
+                this._pill = value;
+                RaisePropertiesChanged(nameof(pill));
+            }
+        }
+
+        private string _str_pill;
+        public string str_pill
+        {
+            get => Convert.ToString(pill) + " шт.";
+            set
+            {
+                this._str_pill = value;
+                RaisePropertiesChanged(nameof(str_pill));
+            }
+        }
+
+        public ICommand add_pill => new DelegateCommand(Add_Pill);
+
+        private void Add_Pill()
+        {
+
+            float up_pill = pill + (float)1;
+            db.UpdatePill(id_user, today.ToString(), up_pill);
+            pill = up_pill;
+            str_pill = Convert.ToString(pill) + " шт.";
+
+        }
+        #endregion
+
+        #region Дневной инсулин
+        public ICommand add_insulin_day => new DelegateCommand(Add_Insulin_Day);
+
+        private void Add_Insulin_Day()
+        {
+            AddInsulin win = new AddInsulin(this, 1);
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+        }
+
+        private float up_insulin_day;
+        public float Up_Insulin_Day
+        {
+            get { return up_insulin_day; }
+            set
+            {
+                this.up_insulin_day = value;
+                RaisePropertiesChanged(nameof(Up_Insulin_Day));
+            }
+        }
+
+        private float _insulin_day;
+        public float insulin_day
+        {
+            get => float.Parse(db_i.GetInsulinDay(id_user, today.ToString(),1));
+            set
+            {
+                this._insulin_day = value;
+                RaisePropertiesChanged(nameof(insulin_day));
+            }
+        }
+
+        private string _str_insulin_day;
+        public string str_insulin_day
+        {
+            get => Convert.ToString(insulin_day) + " ед.";
+            set
+            {
+                this._str_insulin_day = value;
+                RaisePropertiesChanged(nameof(str_insulin_day));
+            }
+        }
+        #endregion
+
+        public ICommand add_insulin_night => new DelegateCommand(Add_Insulin_Night);
+
+        private void Add_Insulin_Night()
+        {
+            AddInsulin win = new AddInsulin(this,2);
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+        }
+
+        private float up_insulin_night;
+        public float Up_Insulin_Night
+        {
+            get { return up_insulin_night; }
+            set
+            {
+                this.up_insulin_night = value;
+                RaisePropertiesChanged(nameof(Up_Insulin_Night));
+            }
+        }
+        private float _insulin_night;
+        public float insulin_night
+        {
+            get => float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 2));
+            set
+            {
+                this._insulin_night = value;
+                RaisePropertiesChanged(nameof(insulin_night));
+            }
+        }
+
+        private string _str_insulin_night;
+        public string str_insulin_night
+        {
+            get => Convert.ToString(insulin_night) + " ед.";
+            set
+            {
+                this._str_insulin_night = value;
+                RaisePropertiesChanged(nameof(str_insulin_night));
+            }
+        }
 
 
         #region Еда
@@ -183,6 +296,29 @@ namespace Diabet.net.View_Models
             win.Show();
         }
         #endregion
+
+        //public ICommand add_insulin_day => new DelegateCommand(Add_Insulin_Day);
+
+        //private void Add_Insulin_Day()
+        //{
+
+        //    Properties.Settings.Default.IdTypeOfInsulin = 1;
+        //    Properties.Settings.Default.Save();
+        //    AddFood win = new AddFood(this);
+        //    win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        //    win.Show();
+        //}
+        //public ICommand add_insulin_night => new DelegateCommand(Add_Insulin_Night);
+
+        //private void Add_Insulin_Night()
+        //{
+
+        //    Properties.Settings.Default.IdTypeOfInsulin = 2;
+        //    Properties.Settings.Default.Save();
+        //    AddFood win = new AddFood(this);
+        //    win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        //    win.Show();
+        //}
     }
 }
 

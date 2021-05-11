@@ -74,12 +74,29 @@ namespace Diabet.net.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int CalEat {
-            get {
+        public int CalEat
+        {
+            get
+            {
                 return ((int)(this["CalEat"]));
             }
-            set {
+            set
+            {
                 this["CalEat"] = value;
+            }
+        }
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdTypeOfInsulin
+        {
+            get
+            {
+                return ((int)(this["IdTypeOfInsulin"]));
+            }
+            set
+            {
+                this["IdTypeOfInsulin"] = value;
             }
         }
     }

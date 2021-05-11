@@ -47,6 +47,7 @@
     <Compile Include="DB\DataBaseUser.cs" />
     <Compile Include="DB\DB.cs" />
     <Compile Include="DB\DB_AddFood.cs" />
+    <Compile Include="DB\DB_AddInsulin.cs" />
     <Compile Include="DB\DB_Main.cs" />
     <Compile Include="DB\DB_NewFood.cs" />
     <Compile Include="Models\Food.cs" />
@@ -58,6 +59,9 @@
     </Compile>
     <Compile Include="Views\AddIngridient.xaml.cs">
       <DependentUpon>AddIngridient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddInsulin.xaml.cs">
+      <DependentUpon>AddInsulin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddRicepiAdminPage.xaml.cs">
       <DependentUpon>AddRicepiAdminPage.xaml</DependentUpon>
@@ -114,6 +118,7 @@
       <DependentUpon>UpdatePurpose.xaml</DependentUpon>
     </Compile>
     <Compile Include="View_Models\AddFoodViewModel.cs" />
+    <Compile Include="View_Models\AddInsulinViewModel.cs" />
     <Compile Include="View_Models\AddRecipeAdminViewModel.cs" />
     <Compile Include="View_Models\AllProductAdminViewModel.cs" />
     <Compile Include="View_Models\AllRecipeAdminViewModel.cs" />
@@ -138,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddIngridient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddInsulin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,9 +270,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="flash_silhouette_hand_drawn_abstraction_icon_177419.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Views\RegisterView.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

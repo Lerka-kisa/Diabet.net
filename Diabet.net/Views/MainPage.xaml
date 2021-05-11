@@ -69,7 +69,7 @@
                 <Label Content="{Binding str_water,  Mode=TwoWay}" FontSize ="13" Height="30" Width="60" Margin="100,11,490,9" VerticalAlignment="Center" BorderBrush="{x:Null}" 
                              VerticalContentAlignment="Center">
                     <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                        <SolidColorBrush Color="Black"/>
                     </Label.Foreground>
                 </Label>
 
@@ -81,46 +81,70 @@
                 </Button>
                 <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="166,25,472,15" RenderTransformOrigin="-8.25,0.333" />
 
-                <Label VerticalContentAlignment="Center" FontSize="14" Margin="231,5,111,4">
+                <Label VerticalContentAlignment="Center" FontSize="14" Margin="207,5,135,4">
                     <Label.Foreground>
                         <SolidColorBrush Color="Black"/>
                     </Label.Foreground>
                     Лекарства
                 </Label>
-                <Label Content="{Binding str_water,  Mode=TwoWay}" FontSize ="13" Height="30" Width="60" Margin="309,10,281,10" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                <Label Content="{Binding str_pill,  Mode=TwoWay}" FontSize ="13" Height="30" Width="60" Margin="288,10,302,10" VerticalAlignment="Center" BorderBrush="{x:Null}" 
                                          VerticalContentAlignment="Center">
                     <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                        <SolidColorBrush Color="Black"/>
                     </Label.Foreground>
                 </Label>
-                <Button x:Name="add_injection"  Command="{Binding add_water}"  Height="35" Width="50" VerticalAlignment="Center" Margin="358,8,242,7" BorderBrush="{x:Null}">
+                <Button x:Name="add_pill"  Command="{Binding add_pill}"  Height="35" Width="50" VerticalAlignment="Center" Margin="338,8,262,7" BorderBrush="{x:Null}">
                     <Button.Background>
                         <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                     </Button.Background>
                     <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\pill.ico" Height="23" Width="25" RenderTransformOrigin="-0.152,0.47" />
                 </Button>
-                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="386,15,252,25" />
+                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="369,15,269,25" />
 
-                <Label VerticalContentAlignment="Center" FontSize="14" Margin="450,5,-52,4">
+                <Label VerticalContentAlignment="Center" FontSize="14" Margin="404,5,-6,4">
                     <Label.Foreground>
                         <SolidColorBrush Color="Black"/>
                     </Label.Foreground>
                     Инсулин
                 </Label>
-                <Label Content="{Binding str_water,  Mode=TwoWay}" FontSize ="13" Height="30" Width="60" Margin="525,10,65,10" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                <Label FontSize ="13" Height="24"  Margin="465,1,119,25" VerticalAlignment="Center" BorderBrush="{x:Null}" 
                                          VerticalContentAlignment="Center">
                     <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                        <SolidColorBrush Color="Black"/>
+                    </Label.Foreground>
+                    дневной:
+                </Label>
+                <Label FontSize ="13" Height="24" Margin="465,26,127,0" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                                         VerticalContentAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="Black"/>
+                    </Label.Foreground>
+                    ночной:
+                </Label>
+                <Label Content="{Binding str_insulin_day,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize ="13" Height="24" Width="60" Margin="527,0,63,26" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                             VerticalContentAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="Black"/>
                     </Label.Foreground>
                 </Label>
-                <Button x:Name="add_insulin"  Command="{Binding add_water}"  Height="35" Width="50" VerticalAlignment="Center" Margin="567,8,33,7" BorderBrush="{x:Null}">
+                <Button x:Name="add_insulin_day" Command="{Binding add_insulin_day}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="581,7,52,26" >
                     <Button.Background>
                         <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                     </Button.Background>
-                    <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\injection.ico" Height="23" Width="25" RenderTransformOrigin="-0.152,0.47" />
+                    <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
-                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="595,25,43,15" RenderTransformOrigin="15.75,0.95" />
-
+                <Label Content="{Binding str_insulin_night, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize ="13" Height="24" Width="60" Margin="527,26,63,0" VerticalAlignment="Center" BorderBrush="{x:Null}" 
+                             VerticalContentAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="Black"/>
+                    </Label.Foreground>
+                </Label>
+                <Button x:Name="add_insulin_night" Command="{Binding add_insulin_night}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="581,31,52,2" >
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                    </Button.Background>
+                    <materialDesign:PackIcon Kind="Add" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
             </Grid>
 
             <Grid Grid.Row="1">

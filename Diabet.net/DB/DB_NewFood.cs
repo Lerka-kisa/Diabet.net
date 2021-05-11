@@ -51,6 +51,8 @@ namespace Diabet.net.DB
             }
         }
 
+
+
         internal void DeleteFromApproveProduct(string name, string cal, string p, string f, string c)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))

@@ -140,16 +140,11 @@ namespace Diabet.net.DB
                     command.Parameters.Add("@id_recipe", SqlDbType.Int);
                     command.Parameters.Add("@weight_product", SqlDbType.Int);
 
-
                     command.Parameters["@id_product"].Value = id_product;
                     command.Parameters["@id_recipe"].Value = id_recipe;
                     command.Parameters["@weight_product"].Value = mass;
 
-
-
                     command.ExecuteNonQuery();
-
-                    
                 }
                 catch (Exception e)
                 {
