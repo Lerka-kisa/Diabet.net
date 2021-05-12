@@ -29,7 +29,7 @@
                     <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                 </Label.Foreground>
             </Label>
-            <CheckBox x:Name="_NotifyIsEnabled" Content="Disable" Margin="10,240,563,12" Foreground="#0B7FAB"/>
+            <CheckBox x:Name="_notifyIsEnabled" Content="Disable" Margin="10,240,563,12" Foreground="#0B7FAB"/>
             <Ellipse HorizontalAlignment="Center" Height="139"  VerticalAlignment="Center" Width="139">
                 <Ellipse.Stroke>
                     <SolidColorBrush Color="{DynamicResource Blue_color}"/>

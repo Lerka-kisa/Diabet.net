@@ -305,6 +305,9 @@
     <PackageReference Include="DevExpressMvvm">
       <Version>20.2.3</Version>
     </PackageReference>
+    <PackageReference Include="Enterwell.Clients.Wpf.Notifications">
+      <Version>1.4.2</Version>
+    </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
     </PackageReference>

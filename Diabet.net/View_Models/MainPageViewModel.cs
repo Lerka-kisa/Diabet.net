@@ -10,6 +10,9 @@ using System.Collections.ObjectModel;
 using Diabet.net.Models;
 using Diabet.net.Views;
 using System.Windows;
+using Enterwell.Clients.Wpf.Notifications;
+using LiveCharts;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace Diabet.net.View_Models
 {
@@ -22,6 +25,7 @@ namespace Diabet.net.View_Models
         public ObservableCollection<Food> Name_food_lunch { get; set; }
         public ObservableCollection<Food> Name_food_dinner { get; set; }
         public ObservableCollection<Food> Name_food_snack { get; set; }
+
 
         public MainPageViewModel()
         {

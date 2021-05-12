@@ -144,7 +144,32 @@ water real,
 now_date date default CONVERT (date, SYSDATETIME()) not null,
 )
 
+create table Daily_Pill
+(
+id int identity(1,1) primary key,
+id_user int foreign key (id_user) references Users(id_user), 
+pill real,
+now_date date default CONVERT (date, SYSDATETIME()) not null,
+)
 
+drop table Type_of_Insulin
+create table Type_of_Insulin
+(
+id_type int identity(1,1) primary key,
+type_of_Insulin nvarchar(40)
+);
+insert into Type_of_Insulin (type_of_insulin) values ('Дневной (быстрого действия)'),('Ночной (длительного действия)');
+
+create table Daily_Insulin
+(
+id int identity(1,1) primary key,
+id_user int foreign key (id_user) references Users(id_user), 
+id_type_of_insulin int foreign key (id_type_of_insulin) references Type_of_Insulin(id_type),
+now_date date default CONVERT (date, SYSDATETIME()) not null,
+weight real not null
+);
+
+Select sum (weight) insulin From Daily_Insulin Where id_user = 3 and now_date='12.05.2021' and id_type_of_insulin=1
 
 insert into  Users  ( login,   password, is_admin, First_Name, Last_Name )
 	values	( 'Lerka', '5442488l', 1,'Админ', 'Админский' );
