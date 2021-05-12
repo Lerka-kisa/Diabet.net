@@ -29,7 +29,7 @@ namespace Diabet.net.View_Models
         public ObservableCollection<Food> Name_food_lunch { get; set; }
         public ObservableCollection<Food> Name_food_dinner { get; set; }
         public ObservableCollection<Food> Name_food_snack { get; set; }
-
+        private bool _notifyIsEnabled = Properties.Settings.Default.SysNotificationsIsEnabled;
 
         public MainPageViewModel()
         {
@@ -45,6 +45,7 @@ namespace Diabet.net.View_Models
             daily_cal = db.GetDailyCal(id_user, today.ToString());
             user = db_u.GetUserInfo(Properties.Settings.Default.IdUser);
             Blood_sugar = db_u.GetSugar(id_user);
+
         }
         #region Сахар
         private string blood_sugar;
@@ -56,6 +57,18 @@ namespace Diabet.net.View_Models
                 this.blood_sugar = value;
                 RaisePropertiesChanged(nameof(Blood_sugar));
 
+            }
+        }
+        public bool NotifyIsEnabled
+        {
+            get => _notifyIsEnabled;
+            set
+            {
+                _notifyIsEnabled = value;
+                
+                Properties.Settings.Default.SysNotificationsIsEnabled = value;
+                Properties.Settings.Default.Save();
+                RaisePropertiesChanged(nameof(NotifyIsEnabled));
             }
         }
         public ICommand update_blood_sugar => new DelegateCommand(Update_Blood_Sugar);

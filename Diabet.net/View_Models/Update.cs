@@ -184,24 +184,28 @@ namespace Diabet.net.View_Models
                     {
                         Obj.Blood_sugar = dbu.GetSugar(ID_user);
                         float sugar = float.Parse(Obj.Blood_sugar);
-                        if (sugar > 9.0)
+                        if (Obj.NotifyIsEnabled)
                         {
-                            new ToastContentBuilder()
-                            .AddArgument("action", "viewConversation")
-                            .AddArgument("conversationId", 9813)
-                            .AddText("Уровень сахара слишком высокий!")
-                            .AddText("Необходимо срочно сделать укол инсулина")
-                            .Show();
+                            if (sugar > 9.0)
+                            {
+                                new ToastContentBuilder()
+                                .AddArgument("action", "viewConversation")
+                                .AddArgument("conversationId", 9813)
+                                .AddText("Уровень сахара слишком высокий!")
+                                .AddText("Необходимо срочно сделать укол инсулина")
+                                .Show();
+                            }
+                            if (sugar < 4.0)
+                            {
+                                new ToastContentBuilder()
+                                .AddArgument("action", "viewConversation")
+                                .AddArgument("conversationId", 9813)
+                                .AddText("Уровень сахара слишком низкий!")
+                                .AddText("Необходимо срочно съесть что-нибудь сладкое")
+                                .Show();
+                            }
                         }
-                        if (sugar < 4.0)
-                        {
-                            new ToastContentBuilder()
-                            .AddArgument("action", "viewConversation")
-                            .AddArgument("conversationId", 9813)
-                            .AddText("Уровень сахара слишком низкий!")
-                            .AddText("Необходимо срочно съесть что-нибудь сладкое")
-                            .Show();
-                        }
+                        
 
                         Close();
 
