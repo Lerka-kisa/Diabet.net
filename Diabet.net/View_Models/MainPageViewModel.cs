@@ -35,7 +35,6 @@ namespace Diabet.net.View_Models
             Name_food_snack = GetNameFood(4);
             daily_cal = new int();
             daily_cal = db.GetDailyCal(id_user, today.ToString());
-            insulin_day = float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 1));
 
         }
 
@@ -163,6 +162,8 @@ namespace Diabet.net.View_Models
             AddInsulin win = new AddInsulin(this, 1);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
+            float insulin_day_up = float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 1));
+            str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
         }
 
         private float up_insulin_day;

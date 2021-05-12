@@ -60,6 +60,7 @@ namespace Diabet.net.View_Models
 
         public void Add_Day()
         {
+
             if (Up_Insulin == String.Empty || Up_Insulin == null)
 
                 ErrorMes = Properties.Resources.emptyfield;
@@ -67,6 +68,10 @@ namespace Diabet.net.View_Models
             else
             {
                 dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), type, Up_Insulin);
+                float insulin_day_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 1));
+                Obj.str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
+                float insulin_night_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 2));
+                Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
                 Close();
             }
         }
@@ -78,7 +83,9 @@ namespace Diabet.net.View_Models
 
             else
             {
-                dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), 2, Up_Insulin);
+                dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), type, Up_Insulin);
+                float insulin_night_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 2));
+                Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
                 Close();
             }
         }
