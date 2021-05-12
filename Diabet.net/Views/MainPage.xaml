@@ -29,13 +29,25 @@
                     <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                 </Label.Foreground>
             </Label>
-            <CheckBox x:Name="_notifyIsEnabled" Content="Disable" Margin="10,240,563,12" Foreground="#0B7FAB"/>
+            <CheckBox x:Name="_notifyIsEnabled" Content="Уведомления" Margin="10,240,535,12" Foreground="#0B7FAB"/>
             <Ellipse HorizontalAlignment="Center" Height="139"  VerticalAlignment="Center" Width="139">
                 <Ellipse.Stroke>
                     <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                 </Ellipse.Stroke>
             </Ellipse>
-
+            <Label VerticalContentAlignment="Center" FontSize="14" Margin="296,240,180,12">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Blue_color}"/>
+                </Label.Foreground>
+                Уровень сахара в крови:
+            </Label>
+            <Label Height="30" Width="49" Foreground="#0B7FAB" Content="{Binding Blood_sugar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Margin="449,240,152,10" 
+               HorizontalContentAlignment="Right" RenderTransformOrigin="0.51,0.483"/>
+            <Label Height="30" Foreground="#0B7FAB" Content="мг%" FontSize="14" Margin="492,241,122,9" 
+               HorizontalContentAlignment="Left" RenderTransformOrigin="0.123,0.3"/>
+            <Button Height="30" Content="Изменить" Background="#0B7FAB"
+                Foreground="Black" Margin="538,238,10,12"
+                Command="{Binding update_blood_sugar}"/>
 
             <Label Content="{Binding daily_cal,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  x:Name="NumOfCal" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="35" Margin="285,122,285,123"  Width="80" BorderBrush="{x:Null}" >
                 <Label.Foreground>

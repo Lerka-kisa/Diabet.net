@@ -20,7 +20,10 @@ namespace Diabet.net.View_Models
     {
         DB_Main db = new DB_Main();
         DB_AddInsulin db_i = new DB_AddInsulin();
+        DataBaseUser db_u = new DataBaseUser();
         DateTime today = DateTime.Today;
+        
+        Users user;
         public ObservableCollection<Food> Name_food_breakfast { get; set; }
         public ObservableCollection<Food> Name_food_lunch { get; set; }
         public ObservableCollection<Food> Name_food_dinner { get; set; }
@@ -39,7 +42,39 @@ namespace Diabet.net.View_Models
             Name_food_snack = GetNameFood(4);
             daily_cal = new int();
             daily_cal = db.GetDailyCal(id_user, today.ToString());
+            user = db_u.GetUserInfo(Properties.Settings.Default.IdUser);
+            Blood_sugar = db_u.GetSugar(id_user);
+        }
 
+        private string blood_sugar;
+        public string Blood_sugar
+        {
+            get { return blood_sugar; }
+            set
+            {
+                this.blood_sugar = value;
+                RaisePropertiesChanged(nameof(Blood_sugar));
+
+            }
+        }
+        public ICommand update_blood_sugar => new DelegateCommand(Update_Blood_Sugar);
+
+        private void Update_Blood_Sugar()
+        {
+            UpdateSugar _win = new UpdateSugar(this);
+            _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            _win.Show();
+            
+        }
+        private float _sugar;
+        public float sugar
+        {
+            get => float.Parse(db_u.GetSugar(id_user));
+            set
+            {
+                this._sugar = value;
+                RaisePropertiesChanged(nameof(sugar));
+            }
         }
 
         private int _daily_cal;

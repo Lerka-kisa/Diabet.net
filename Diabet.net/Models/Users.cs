@@ -19,9 +19,9 @@ namespace Diabet.net.Models
         public string Gender { get; set; } //0-male, 1 - female
         public string Activity { get; set; }
         public string Purpose_of_Use { get; set; } //0-похудеть, 1 - держать вес, 2- набрать вес
+        public string Blood_Sugar { get; set; }
 
-      
-    
+
     }
 }
 

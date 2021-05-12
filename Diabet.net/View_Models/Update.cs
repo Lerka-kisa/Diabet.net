@@ -22,10 +22,16 @@ namespace Diabet.net.View_Models
         DB_Main db = new DB_Main();
         DateTime today = DateTime.Today;
         UserPageViewModel activUser;
+        MainPageViewModel Obj;
         string ID_user = Properties.Settings.Default.IdUser;
         public Update(UserPageViewModel user)
         {
             activUser = user;
+        }
+        
+        public Update(MainPageViewModel obj)
+        {
+            Obj = obj;
         }
 
         private string up_weight;
@@ -64,6 +70,17 @@ namespace Diabet.net.View_Models
             }
         }
 
+        private string up_sugar;
+        public string Up_Sugar
+        {
+            get { return up_sugar; }
+            set
+            {
+                this.up_sugar = value;
+                RaisePropertiesChanged(nameof(Up_Sugar));
+
+            }
+        }
         private string errorMes;
         public string ErrorMes
         {
@@ -147,6 +164,43 @@ namespace Diabet.net.View_Models
                 }
                
             }     
+        }
+
+        public ICommand updatesugar => new DelegateCommand(Update_Sugar);
+
+        private void Update_Sugar()
+        {
+            if (Up_Sugar == String.Empty || Up_Sugar == null)
+                ErrorMes = Properties.Resources.emptyfield;
+            else if (Obj.Blood_sugar == Up_Sugar)
+                ErrorMes = Properties.Resources.olddata;
+            else
+            {
+
+                try
+                {
+                    if (dbu.UpdateSugarUser(ID_user, Convert.ToDouble(Up_Sugar)))
+                    {
+                        Obj.Blood_sugar = dbu.GetSugar(ID_user);
+                        //activUserS.Blood_sugar = dbu.GetSugar(ID_user);
+                        //int remain_cal = db.GetDailyCal(ID_user, today.ToString());
+                        //int new_cal = 0;
+                        //int now_day_cal = activUser.D_Cal;
+                        //int eat_cal = now_day_cal - remain_cal;
+
+                        //new_cal = GetNewDayCal(activUser.Gender, activUser.Purpose_of_Use, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
+                        //db.UpdateDailyCal(ID_user, today.ToString(), new_cal - eat_cal);
+                        //if (dbu.UpdateDailyCalUser(ID_user, new_cal))
+                        Close();
+
+                    }
+                }
+                catch (SystemException e)
+                {
+                    ErrorMes = Properties.Resources.errordata;
+                }
+
+            }
         }
 
 
@@ -273,5 +327,6 @@ namespace Diabet.net.View_Models
                 }
             }
         }
+
     }
 }

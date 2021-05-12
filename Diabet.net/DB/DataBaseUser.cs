@@ -422,6 +422,35 @@ namespace Diabet.net.DB
 
             }
         }
+        public bool UpdateSugarUser(string id_user, double sugar)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set blood_sugar = @blood_sugar Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@blood_sugar", SqlDbType.Real);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@blood_sugar"].Value = sugar;
+
+                    command.ExecuteNonQuery();
+                    return true;
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
 
         public bool UpdateDailyCalUser(string id_user, int daily_cal)
         {
@@ -450,6 +479,38 @@ namespace Diabet.net.DB
                     return false;
                 }
 
+            }
+        }
+
+        public string GetSugar(string id_user)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                        sqlCon.Open();
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = sqlCon;
+                        command.CommandText = @"Select blood_sugar From Users Where id_user = @id_user";
+                        command.Parameters.Add("@id_user", SqlDbType.Int);
+
+                        command.Parameters["@id_user"].Value = id_user;
+
+
+                        SqlDataReader info = command.ExecuteReader();
+                        object w = -1;
+                        while (info.Read())
+                        {
+                            w = info["blood_sugar"];
+                            break;
+                        }
+                        return Convert.ToString(w);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return "";
+                }
             }
         }
     }
