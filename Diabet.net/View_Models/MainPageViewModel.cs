@@ -35,6 +35,8 @@ namespace Diabet.net.View_Models
             Name_food_snack = GetNameFood(4);
             daily_cal = new int();
             daily_cal = db.GetDailyCal(id_user, today.ToString());
+            insulin_day = float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 1));
+
         }
 
         private int _daily_cal;
@@ -197,6 +199,7 @@ namespace Diabet.net.View_Models
         }
         #endregion
 
+        #region Ночной инсулин
         public ICommand add_insulin_night => new DelegateCommand(Add_Insulin_Night);
 
         private void Add_Insulin_Night()
@@ -237,7 +240,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(str_insulin_night));
             }
         }
-
+#endregion
 
         #region Еда
         private ObservableCollection<Food> GetNameFood(int type_of_food)
@@ -296,28 +299,12 @@ namespace Diabet.net.View_Models
             win.Show();
         }
         #endregion
-
-        //public ICommand add_insulin_day => new DelegateCommand(Add_Insulin_Day);
-
-        //private void Add_Insulin_Day()
+        //private async void StartNotifyTimer()
         //{
+        //    if (_NotifyIsEnabled)
+        //    {
 
-        //    Properties.Settings.Default.IdTypeOfInsulin = 1;
-        //    Properties.Settings.Default.Save();
-        //    AddFood win = new AddFood(this);
-        //    win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        //    win.Show();
-        //}
-        //public ICommand add_insulin_night => new DelegateCommand(Add_Insulin_Night);
-
-        //private void Add_Insulin_Night()
-        //{
-
-        //    Properties.Settings.Default.IdTypeOfInsulin = 2;
-        //    Properties.Settings.Default.Save();
-        //    AddFood win = new AddFood(this);
-        //    win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        //    win.Show();
+        //    }
         //}
     }
 }
