@@ -200,7 +200,7 @@ namespace Diabet.net.DB
             }
         }
 
-        public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, string activity, int daily_calories)
+        public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, string activity, int daily_calories, string sugar)
         {
 
 
@@ -211,7 +211,7 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"INSERT INTO Users (login, password, is_admin, First_Name, Last_Name,  Height, Weight, Daily_Calories,  Age, Gender, Activity, Purpose_of_Use) VALUES (@login,@password,@is_admin,@First_Name,@Last_Name,  @Height, @Weight, @Daily_Calories, @Age, @Gender, @Activity, @Purpose_of_Use)";
+                    command.CommandText = @"INSERT INTO Users (login, password, is_admin, First_Name, Last_Name,  Height, Weight, Daily_Calories,  Age, Gender, Activity, Purpose_of_Use, blood_sugar) VALUES (@login,@password,@is_admin,@First_Name,@Last_Name,  @Height, @Weight, @Daily_Calories, @Age, @Gender, @Activity, @Purpose_of_Use, @Sugar)";
 
                     command.Parameters.Add("@login", SqlDbType.NVarChar, 20);
                     command.Parameters.Add("@password", SqlDbType.NVarChar, 100);
@@ -225,6 +225,7 @@ namespace Diabet.net.DB
                     command.Parameters.Add("@Gender", SqlDbType.NVarChar, 5);
                     command.Parameters.Add("@Activity", SqlDbType.Float);
                     command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
+                    command.Parameters.Add("@Sugar", SqlDbType.Real);
 
                     command.Parameters["@login"].Value = login;
                     command.Parameters["@password"].Value = password;
@@ -238,6 +239,7 @@ namespace Diabet.net.DB
                     command.Parameters["@Gender"].Value = gender;
                     command.Parameters["@Activity"].Value = activity;
                     command.Parameters["@Purpose_of_Use"].Value = purpose_of_use;
+                    command.Parameters["@Sugar"].Value = sugar;
 
                     command.ExecuteNonQuery();
 

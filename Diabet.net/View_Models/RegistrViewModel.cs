@@ -197,6 +197,16 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(password));
             }
         }
+        private string _sugar;
+        public string sugar
+        {
+            get { return _sugar; }
+            set
+            {
+                this._sugar = value;
+                RaisePropertiesChanged(nameof(sugar));
+            }
+        }
 
         private string _firstname;
         public string firstname
@@ -251,7 +261,7 @@ namespace Diabet.net.View_Models
                 }
                 if (password == String.Empty || password == null || lastname == String.Empty || lastname == null || gender == null || gender == String.Empty ||
                     purpose_of_use == String.Empty || purpose_of_use == null || age == null || age == String.Empty || height == null || height == String.Empty ||
-                    activity == String.Empty || activity == null || firstname == null || firstname == String.Empty)
+                    activity == String.Empty || activity == null || firstname == null || firstname == String.Empty || sugar == null || sugar == String.Empty)
                 {
                     fl = false;
                     ErrorMes = Properties.Resources.emptyfield;
@@ -262,7 +272,7 @@ namespace Diabet.net.View_Models
                 {
                     DataBaseUser spam = new DataBaseUser();
                     string Pass = DB.DB.Hash(password).ToString();
-                    IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, activity, daily_calories);
+                    IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, activity, daily_calories, sugar);
                     if (IsDone)
                     {
                         AuthorizationWindow t = new AuthorizationWindow();

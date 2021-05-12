@@ -23,6 +23,7 @@ namespace Diabet.net.View_Models
         DataBaseUser db_u = new DataBaseUser();
         DateTime today = DateTime.Today;
         
+
         Users user;
         public ObservableCollection<Food> Name_food_breakfast { get; set; }
         public ObservableCollection<Food> Name_food_lunch { get; set; }
@@ -45,7 +46,7 @@ namespace Diabet.net.View_Models
             user = db_u.GetUserInfo(Properties.Settings.Default.IdUser);
             Blood_sugar = db_u.GetSugar(id_user);
         }
-
+        #region Сахар
         private string blood_sugar;
         public string Blood_sugar
         {
@@ -76,6 +77,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(sugar));
             }
         }
+        #endregion
 
         private int _daily_cal;
         public int daily_cal
@@ -339,13 +341,6 @@ namespace Diabet.net.View_Models
             win.Show();
         }
         #endregion
-        //private async void StartNotifyTimer()
-        //{
-        //    if (_NotifyIsEnabled)
-        //    {
-
-        //    }
-        //}
     }
 }
 

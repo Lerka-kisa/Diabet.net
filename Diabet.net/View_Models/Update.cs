@@ -2,6 +2,7 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -182,15 +183,26 @@ namespace Diabet.net.View_Models
                     if (dbu.UpdateSugarUser(ID_user, Convert.ToDouble(Up_Sugar)))
                     {
                         Obj.Blood_sugar = dbu.GetSugar(ID_user);
-                        //activUserS.Blood_sugar = dbu.GetSugar(ID_user);
-                        //int remain_cal = db.GetDailyCal(ID_user, today.ToString());
-                        //int new_cal = 0;
-                        //int now_day_cal = activUser.D_Cal;
-                        //int eat_cal = now_day_cal - remain_cal;
+                        float sugar = float.Parse(Obj.Blood_sugar);
+                        if (sugar > 9.0)
+                        {
+                            new ToastContentBuilder()
+                            .AddArgument("action", "viewConversation")
+                            .AddArgument("conversationId", 9813)
+                            .AddText("Уровень сахара слишком высокий!")
+                            .AddText("Необходимо срочно сделать укол инсулина")
+                            .Show();
+                        }
+                        if (sugar < 4.0)
+                        {
+                            new ToastContentBuilder()
+                            .AddArgument("action", "viewConversation")
+                            .AddArgument("conversationId", 9813)
+                            .AddText("Уровень сахара слишком низкий!")
+                            .AddText("Необходимо срочно съесть что-нибудь сладкое")
+                            .Show();
+                        }
 
-                        //new_cal = GetNewDayCal(activUser.Gender, activUser.Purpose_of_Use, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
-                        //db.UpdateDailyCal(ID_user, today.ToString(), new_cal - eat_cal);
-                        //if (dbu.UpdateDailyCalUser(ID_user, new_cal))
                         Close();
 
                     }
