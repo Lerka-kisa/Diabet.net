@@ -20,12 +20,10 @@ namespace Diabet.net.View_Models
         public ObservableCollection<Product> AllApproveProduct { get; set; }
         DB_NewFood dB_NewFood = new DB_NewFood();
 
-
         public ApproveAdminViewModel()
         {
             AllApproveProduct = new ObservableCollection<Product>();
             AllApproveProduct = dB_NewFood.GetAllApproveProduct();
-          
         }
 
         private int index;
@@ -43,7 +41,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand add_product => new DelegateCommand(Add_Product);
-
         private void Add_Product()
         {
 
@@ -53,7 +50,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand delete_product => new DelegateCommand(Delete_Product);
-
         private void Delete_Product()
         {
             dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал",""), AllApproveProduct[Index].Protein.Replace("г",""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
@@ -64,7 +60,6 @@ namespace Diabet.net.View_Models
         private int MyToInt(string str)
         {
             int result = 0;
-
 
             return result;
         }

@@ -47,7 +47,6 @@ namespace Diabet.net.View_Models
             }
         }
 
-
         private string search_textBox;
         public string Search_TextBox
         {
@@ -63,7 +62,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand search_recipe => new DelegateCommand(Search_Recipe);
-
         private void Search_Recipe()
         {
             if (Search_TextBox == "")
@@ -79,7 +77,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand open_info_recipe => new DelegateCommand(OpenInfoRecipe);
-
         private void OpenInfoRecipe()
         {
           Page RecipeInfo = new RecipeInfoPage(All_Recipe[Index], Obj);

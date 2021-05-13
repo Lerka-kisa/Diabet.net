@@ -47,50 +47,6 @@ namespace Diabet.net.View_Models
             Blood_sugar = db_u.GetSugar(id_user);
 
         }
-        #region Сахар
-        private string blood_sugar;
-        public string Blood_sugar
-        {
-            get { return blood_sugar; }
-            set
-            {
-                this.blood_sugar = value;
-                RaisePropertiesChanged(nameof(Blood_sugar));
-
-            }
-        }
-        public bool NotifyIsEnabled
-        {
-            get => _notifyIsEnabled;
-            set
-            {
-                _notifyIsEnabled = value;
-                
-                Properties.Settings.Default.SysNotificationsIsEnabled = value;
-                Properties.Settings.Default.Save();
-                RaisePropertiesChanged(nameof(NotifyIsEnabled));
-            }
-        }
-        public ICommand update_blood_sugar => new DelegateCommand(Update_Blood_Sugar);
-
-        private void Update_Blood_Sugar()
-        {
-            UpdateSugar _win = new UpdateSugar(this);
-            _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            _win.Show();
-            
-        }
-        private float _sugar;
-        public float sugar
-        {
-            get => float.Parse(db_u.GetSugar(id_user));
-            set
-            {
-                this._sugar = value;
-                RaisePropertiesChanged(nameof(sugar));
-            }
-        }
-        #endregion
 
         private int _daily_cal;
         public int daily_cal
@@ -105,6 +61,52 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(daily_cal));
             }
         }
+
+        #region Сахар
+        private string blood_sugar;
+        public string Blood_sugar
+        {
+            get { return blood_sugar; }
+            set
+            {
+                this.blood_sugar = value;
+                RaisePropertiesChanged(nameof(Blood_sugar));
+
+            }
+        }
+
+        public bool NotifyIsEnabled
+        {
+            get => _notifyIsEnabled;
+            set
+            {
+                _notifyIsEnabled = value;
+                
+                Properties.Settings.Default.SysNotificationsIsEnabled = value;
+                Properties.Settings.Default.Save();
+                RaisePropertiesChanged(nameof(NotifyIsEnabled));
+            }
+        }
+        public ICommand update_blood_sugar => new DelegateCommand(Update_Blood_Sugar);
+        private void Update_Blood_Sugar()
+        {
+            UpdateSugar _win = new UpdateSugar(this);
+            _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            _win.Show();
+            
+        }
+
+        private float _sugar;
+        public float sugar
+        {
+            get => float.Parse(db_u.GetSugar(id_user));
+            set
+            {
+                this._sugar = value;
+                RaisePropertiesChanged(nameof(sugar));
+            }
+        }
+        #endregion
 
         #region Дата
         private string _date;
@@ -210,13 +212,12 @@ namespace Diabet.net.View_Models
 
         #region Дневной инсулин
         public ICommand add_insulin_day => new DelegateCommand(Add_Insulin_Day);
-
         private void Add_Insulin_Day()
         {
             AddInsulin win = new AddInsulin(this, 1);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
-            float insulin_day_up = float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 1));
+            float insulin_day_up = float.Parse(db_i.GetInsulin(id_user, today.ToString(), 1));
             str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
         }
 
@@ -234,7 +235,7 @@ namespace Diabet.net.View_Models
         private float _insulin_day;
         public float insulin_day
         {
-            get => float.Parse(db_i.GetInsulinDay(id_user, today.ToString(),1));
+            get => float.Parse(db_i.GetInsulin(id_user, today.ToString(),1));
             set
             {
                 this._insulin_day = value;
@@ -274,10 +275,11 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Up_Insulin_Night));
             }
         }
+
         private float _insulin_night;
         public float insulin_night
         {
-            get => float.Parse(db_i.GetInsulinDay(id_user, today.ToString(), 2));
+            get => float.Parse(db_i.GetInsulin(id_user, today.ToString(), 2));
             set
             {
                 this._insulin_night = value;
@@ -295,7 +297,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(str_insulin_night));
             }
         }
-#endregion
+        #endregion
 
         #region Еда
         private ObservableCollection<Food> GetNameFood(int type_of_food)

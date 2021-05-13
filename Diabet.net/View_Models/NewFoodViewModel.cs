@@ -21,9 +21,9 @@ namespace Diabet.net.View_Models
         public NewFoodViewModel(MainPageViewModel obj)
         {
             Obj = obj;
-
         }
 
+        public ICommand close => new DelegateCommand(Close);
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -35,10 +35,7 @@ namespace Diabet.net.View_Models
             }
         }
 
-        public ICommand close => new DelegateCommand(Close);
-
         public ICommand back => new DelegateCommand(Back);
-
         public void Back()
         {
             AddFood win = new AddFood(Obj);
@@ -48,7 +45,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand clear => new DelegateCommand(Clear);
-
         public void Clear()
         {
             Name_Product = "";
@@ -59,7 +55,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand add => new DelegateCommand(Add);
-
         public void Add()
         {
             if (Name_Product == String.Empty || Name_Product == null || Cal_Product == String.Empty || Cal_Product == null || Protein_Product == String.Empty || Protein_Product == null
@@ -75,7 +70,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand addadmin => new DelegateCommand(AddAdmin);
-
         public void AddAdmin()
         {
             if (Name_Product == String.Empty || Name_Product == null || Cal_Product == String.Empty || Cal_Product == null || Protein_Product == String.Empty || Protein_Product == null
@@ -92,7 +86,7 @@ namespace Diabet.net.View_Models
             }
         }
 
-
+        #region Data from the form.
         private string name_product;
         public string Name_Product
         {
@@ -162,6 +156,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Carb_Product));
             }
         }
+        #endregion
 
         private string errorMes;
         public string ErrorMes
@@ -173,6 +168,5 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(ErrorMes));
             }
         }
-
     }
 }

@@ -17,18 +17,11 @@ namespace Diabet.net.View_Models
     public class RecipePageViewModel : ViewModelBase
     {
         private Page AllRecipe;
-        private Page RecipeInfo;
-     
 
         public RecipePageViewModel()
         {
-            
             AllRecipe = new AllRecipePage(this);
-          //  RecipeInfo = new RecipeInfoPage();
-            
             CurrentPage = AllRecipe;
-
-            
         }
 
        

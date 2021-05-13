@@ -38,7 +38,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand search_product => new DelegateCommand(Search_Product);
-
         private void Search_Product()
         {
             if (Search_TextBox == "")
@@ -51,7 +50,6 @@ namespace Diabet.net.View_Models
                     All_Recipe.Add(i);
             }
         }
-
     }
 }
 

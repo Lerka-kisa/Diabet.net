@@ -40,6 +40,7 @@ namespace Diabet.net.View_Models
             return Item;
         }
 
+        #region Data from the form.
         private string name_recipe;
         public string Name_Recipe
         {
@@ -53,6 +54,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Name_Recipe));
             }
         }
+
         private string cal_recipe;
         public string Cal_Recipe
         {
@@ -66,6 +68,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Cal_Recipe));
             }
         }
+
         private string protein_recipe;
         public string Protein_Recipe
         {
@@ -107,6 +110,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Carb_Recipe));
             }
         }
+
         private string description_recipe;
         public string Description_Recipe
         {
@@ -120,9 +124,9 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Description_Recipe));
             }
         }
+        #endregion
 
         public ICommand back => new DelegateCommand(Back);
-
         private void Back()
         {
             Page Recipes = new AllRecipePage(boss_page);

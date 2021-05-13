@@ -14,37 +14,19 @@ namespace Diabet.net.View_Models
     class AuthViewModel : ViewModelBase
     {
         public string login { get; set; }
+
         public string password { get; set; }
-        private string errorMes;
-        public string ErrorMes
-        {
-            get { return errorMes; }
-            set
-            {
-                this.errorMes = value;
-                RaisePropertiesChanged(nameof(ErrorMes));
-            }
-        }
+
         bool flag = false;
+
         bool canreg = true;
-        public string Error => throw new NotImplementedException();
+
         public AuthViewModel()
         {
 
         }
-        public void Close()
-        {
-            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-            {
-                if (window.DataContext == this)
-                {
-                    window.Close();
-                }
-            }
-        }
-        public ICommand close => new DelegateCommand(Close);
-        public ICommand registration => new DelegateCommand(Reg);
 
+        public ICommand registration => new DelegateCommand(Reg);
         public void Reg()
         {
             RegistrationWindow r = new RegistrationWindow();
@@ -54,9 +36,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand auth => new DelegateCommand(Auth);
-
-
-
         public void Auth()
         {
             bool fl = true;
@@ -107,6 +86,30 @@ namespace Diabet.net.View_Models
 
                 flag = false;
                 canreg = true;
+            }
+        }
+
+        public string Error => throw new NotImplementedException();
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
+            }
+        }
+
+        public ICommand close => new DelegateCommand(Close);
+        public void Close()
+        {
+            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+            {
+                if (window.DataContext == this)
+                {
+                    window.Close();
+                }
             }
         }
     }

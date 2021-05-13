@@ -45,7 +45,8 @@ namespace Diabet.net.DB
                 }
             }
         }
-        public string GetInsulinDay(string id_user, string date, int type)
+
+        public string GetInsulin(string id_user, string date, int type)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
@@ -87,6 +88,7 @@ namespace Diabet.net.DB
                 }
             }
         }
+        
         public bool GetDateForInsulin(string id_user, string date)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))

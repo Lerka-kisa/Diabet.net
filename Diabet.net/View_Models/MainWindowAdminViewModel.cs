@@ -32,18 +32,17 @@ namespace Diabet.net.View_Models
 
             CurrentPage = Main;
         }
-        public ICommand logout => new DelegateCommand(Logout);
 
+        public ICommand logout => new DelegateCommand(Logout);
         private void Logout()
         {
-
             AuthorizationWindow _win = new AuthorizationWindow();
             _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _win.Show();
             Close();
         }
 
-
+        public ICommand close => new DelegateCommand(Close);
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -54,7 +53,7 @@ namespace Diabet.net.View_Models
                 }
             }
         }
-        public ICommand close => new DelegateCommand(Close);
+
 
         private Page currentpage;
         public Page CurrentPage
@@ -71,7 +70,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand open_Approve => new DelegateCommand(Open_Approve);
-
         private void Open_Approve()
         {
             Approve = new ApproveProductAdminPage();
@@ -80,7 +78,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand open_AllProduct => new DelegateCommand(Open_AllProduct);
-
         private void Open_AllProduct()
         {
             AllProduct = new AllProductAdminPage(new ObservableCollection<Ingredients>());
@@ -88,7 +85,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand open_AllRecipe => new DelegateCommand(Open_AllRecipe);
-
         private void Open_AllRecipe()
         {
             AllRecipe = new AllRecipeAdminPage();
@@ -96,14 +92,9 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand open_AddRecipe => new DelegateCommand(Open_AddRecipe);
-
         private void Open_AddRecipe()
         {
-
             CurrentPage = AddRecipe;
         }
-
-
-
     }
 }

@@ -21,7 +21,8 @@ namespace Diabet.net.View_Models
         {
             ingredients = new ObservableCollection<Ingredients>();
         }
-     
+
+        #region Data from the form.
         private string description;
         public string Description
         {
@@ -35,6 +36,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(description));
             }
         }
+
 
         private string name_Recipe;
         public string Name_Recipe
@@ -50,6 +52,7 @@ namespace Diabet.net.View_Models
             }
         }
 
+
         private string cal_Recipe;
         public string Cal_Recipe
         {
@@ -63,6 +66,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Cal_Recipe));
             }
         }
+
 
         private string protein_Recipe;
         public string Protein_Recipe
@@ -78,6 +82,7 @@ namespace Diabet.net.View_Models
             }
         }
 
+
         private string fat_Recipe;
         public string Fat_Recipe
         {
@@ -92,6 +97,7 @@ namespace Diabet.net.View_Models
             }
         }
 
+
         private string carb_Recipe;
         public string Carb_Recipe
         {
@@ -105,6 +111,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Carb_Recipe));
             }
         }
+        #endregion
 
         private string errorMes;
         public string ErrorMes
@@ -116,8 +123,8 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(ErrorMes));
             }
         }
-        public ICommand addIngr => new DelegateCommand(AddIngr);
 
+        public ICommand addIngr => new DelegateCommand(AddIngr);
         private void AddIngr()
         {
             AddIngridient _win = new AddIngridient(ingredients);
@@ -126,7 +133,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand new_recipe => new DelegateCommand(New_Recipe);
-
         private void New_Recipe()
         {
             DB_AddFood dB_AddFood = new DB_AddFood();
@@ -150,7 +156,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand clearForm => new DelegateCommand(ClearForm);
-
         private void ClearForm()
         {
             Name_Recipe = "";

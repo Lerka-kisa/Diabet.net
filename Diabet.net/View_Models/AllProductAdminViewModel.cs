@@ -18,6 +18,7 @@ namespace Diabet.net.View_Models
         public ObservableCollection<Product> All_Product { get; set; }
         DB_AddFood dB_AddFood = new DB_AddFood();
         public ObservableCollection<Ingredients> ALL_Ingredients;
+        private MainPageViewModel Obj;
 
         public AllProductAdminViewModel(ObservableCollection<Ingredients> ingredients)
         {
@@ -54,7 +55,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand search_product => new DelegateCommand(Search_Product);
-
         private void Search_Product()
         {
             if (Search_TextBox == "")
@@ -83,7 +83,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand new_ingr => new DelegateCommand(New_Ingr);
-
         private void New_Ingr()
         {
             if (ALL_Ingredients == null)
@@ -96,8 +95,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand back => new DelegateCommand(Close);
-
-       
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -108,8 +105,8 @@ namespace Diabet.net.View_Models
                 }
             }
         }
+
         public ICommand openNewFood => new DelegateCommand(OpenNewFood);
-        private MainPageViewModel Obj;
         public void OpenNewFood()
         {
             NewFoodAdmin win = new NewFoodAdmin(Obj);

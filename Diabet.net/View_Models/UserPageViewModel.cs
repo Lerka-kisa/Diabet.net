@@ -21,7 +21,6 @@ namespace Diabet.net.View_Models
         
         DataBaseUser db_user = new DataBaseUser();
         Users user;
-        
 
         public UserPageViewModel()
         {
@@ -37,10 +36,15 @@ namespace Diabet.net.View_Models
             D_Cal = user.Daily_Calories;
         }
 
+        #region Info about user
         public string LastName { get; set; }
+
         public string FirstName { get; set; }
+        
         public string Height { get; set; }
+        
         public string Activity { get; set; }
+        
         public string Gender { get; set; }
 
         private string weight;
@@ -67,8 +71,6 @@ namespace Diabet.net.View_Models
             }
         }
 
-
-
         private short age;
         public short Age
         {
@@ -92,9 +94,9 @@ namespace Diabet.net.View_Models
 
             }
         }
+        #endregion
 
         public ICommand update_age => new DelegateCommand(Update_Age);
-
         private void Update_Age()
         {
             UpdateAge _win = new UpdateAge(this);
@@ -104,7 +106,6 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand update_mass => new DelegateCommand(Update_Mass);
-
         private void Update_Mass()
         {
             UpdateMass _win = new UpdateMass(this);
@@ -114,16 +115,12 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand update_purpose => new DelegateCommand(Update_Purpose);
-
         private void Update_Purpose()
         {
             UpdatePurpose _win = new UpdatePurpose(this);
             _win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _win.Show();
-
         }
-
-
 
         public void Close()
         {
@@ -135,6 +132,5 @@ namespace Diabet.net.View_Models
                 }
             }
         }
-
     }
 }

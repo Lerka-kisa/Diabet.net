@@ -29,7 +29,6 @@ namespace Diabet.net.View_Models
             Index = new int();
 
             Obj = obj;
-
         }
 
         private string errorMes;
@@ -42,6 +41,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(ErrorMes));
             }
         }
+
 
         private string search_textbox;
         public string Search_TextBox
@@ -57,6 +57,7 @@ namespace Diabet.net.View_Models
             }
         }
 
+
         private string type_of_food;
         public string Type_of_food
         {
@@ -71,11 +72,13 @@ namespace Diabet.net.View_Models
             }
         }
 
+
         private string GetTypeOfFood(int idTypeOfFood)
         {
             string type = dB_AddFood.GetTypeOfFoodById(idTypeOfFood);
             return type;
         }
+
 
         private ObservableCollection<Product> GetAllProduct()
         {
@@ -88,6 +91,7 @@ namespace Diabet.net.View_Models
             return ItemsDB;
 
         }
+
 
         private string mass;
         public string Mass
@@ -102,6 +106,8 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Mass));
             }
         }
+
+
         private int index;
         public int Index
         {
@@ -117,9 +123,7 @@ namespace Diabet.net.View_Models
         }
 
        
-
         public ICommand add_product => new DelegateCommand(Add_Product);
-
         private void Add_Product()
         {
             try
@@ -169,8 +173,8 @@ namespace Diabet.net.View_Models
             }
         }
 
-        public ICommand search_product => new DelegateCommand(Search_Product);
 
+        public ICommand search_product => new DelegateCommand(Search_Product);
         private void Search_Product()
         {
             if (Search_TextBox == "")
@@ -187,6 +191,18 @@ namespace Diabet.net.View_Models
             }
         }
 
+
+        public ICommand openNewFood => new DelegateCommand(OpenNewFood);
+        public void OpenNewFood()
+        {
+            NewFood win = new NewFood(Obj);
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+            Close();
+        }
+
+
+        public ICommand close => new DelegateCommand(Close);
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -196,18 +212,6 @@ namespace Diabet.net.View_Models
                     window.Close();
                 }
             }
-        }
-
-        public ICommand close => new DelegateCommand(Close);
-
-        public ICommand openNewFood => new DelegateCommand(OpenNewFood);
-
-        public void OpenNewFood()
-        {
-            NewFood win = new NewFood(Obj);
-            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            win.Show();
-            Close();
         }
 
     }

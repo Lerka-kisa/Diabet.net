@@ -31,57 +31,13 @@ namespace Diabet.net.DB
                     command.Parameters.Add("@fat_product", SqlDbType.Real);
                     command.Parameters.Add("@carbs_product", SqlDbType.Real);
 
-
                     command.Parameters["@name_product"].Value = name;
                     command.Parameters["@calorific_product"].Value = cal;
                     command.Parameters["@protein_product"].Value = p;
                     command.Parameters["@fat_product"].Value = f;
                     command.Parameters["@carbs_product"].Value = c;
 
-
-
                     command.ExecuteNonQuery();
-
-
-                }
-                catch (Exception e)
-                {
-
-                }
-            }
-        }
-
-
-
-        internal void DeleteFromApproveProduct(string name, string cal, string p, string f, string c)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Delete From Products_Awaiting_Approval Where name_product = @name_product and calorific_product = @calorific_product and protein_product = @protein_product and fat_product = @fat_product and carbs_product = @carbs_product";
-
-                    command.Parameters.Add("@name_product", SqlDbType.NVarChar, 70);
-                    command.Parameters.Add("@calorific_product", SqlDbType.Int);
-                    command.Parameters.Add("@protein_product", SqlDbType.Real);
-                    command.Parameters.Add("@fat_product", SqlDbType.Real);
-                    command.Parameters.Add("@carbs_product", SqlDbType.Real);
-
-
-                    command.Parameters["@name_product"].Value = name;
-                    command.Parameters["@calorific_product"].Value = cal;
-                    command.Parameters["@protein_product"].Value = p;
-                    command.Parameters["@fat_product"].Value = f;
-                    command.Parameters["@carbs_product"].Value = c;
-
-
-
-                    command.ExecuteNonQuery();
-
-
                 }
                 catch (Exception e)
                 {
@@ -124,6 +80,43 @@ namespace Diabet.net.DB
                 catch (Exception e)
                 {
                     return spam;
+                }
+            }
+        }
+
+        internal void DeleteFromApproveProduct(string name, string cal, string p, string f, string c)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"Delete From Products_Awaiting_Approval Where name_product = @name_product and calorific_product = @calorific_product and protein_product = @protein_product and fat_product = @fat_product and carbs_product = @carbs_product";
+
+                    command.Parameters.Add("@name_product", SqlDbType.NVarChar, 70);
+                    command.Parameters.Add("@calorific_product", SqlDbType.Int);
+                    command.Parameters.Add("@protein_product", SqlDbType.Real);
+                    command.Parameters.Add("@fat_product", SqlDbType.Real);
+                    command.Parameters.Add("@carbs_product", SqlDbType.Real);
+
+
+                    command.Parameters["@name_product"].Value = name;
+                    command.Parameters["@calorific_product"].Value = cal;
+                    command.Parameters["@protein_product"].Value = p;
+                    command.Parameters["@fat_product"].Value = f;
+                    command.Parameters["@carbs_product"].Value = c;
+
+
+
+                    command.ExecuteNonQuery();
+
+
+                }
+                catch (Exception e)
+                {
+
                 }
             }
         }

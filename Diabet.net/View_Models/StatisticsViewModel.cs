@@ -45,11 +45,8 @@ namespace Diabet.net.View_Models
 
             ((LineSeries)SeriesCollection[0]).Stroke = MyColorForStroke;
             ((LineSeries)SeriesCollection[0]).Fill = MyColorForFill;
-
-
         }
 
-       
         private ChartValues<double> GetMassParam(string idUser)
         {
             ChartValues<double> Item = dbu.GetMassFromHistory(idUser);

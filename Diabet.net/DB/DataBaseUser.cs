@@ -129,36 +129,6 @@ namespace Diabet.net.DB
 
         }
 
-        internal bool UpdatePurposeUser(string id_user, string new_purpose)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-
-                    command.CommandText = @"Update Users Set Purpose_of_Use = @Purpose_of_Use Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@Purpose_of_Use"].Value = new_purpose;
-
-                    command.ExecuteNonQuery();
-                    return true;
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-
-            }
-        }
-
         internal List<string> GetDateFromHistory(string id_user)
         {
             List<string> spam = new List<string>();
@@ -365,125 +335,6 @@ namespace Diabet.net.DB
 
         }
 
-        public bool UpdateAgeUser(string id_user, short age)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-
-                    command.CommandText = @"Update Users Set Age = @age Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@age", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@age"].Value = age;
-
-                    command.ExecuteNonQuery();
-                    return true;
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-
-            }
-        }
-
-        public bool UpdateMassUser(string id_user, double mass)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-
-                    command.CommandText = @"Update Users Set Weight = @mass Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@mass", SqlDbType.Real);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@mass"].Value = mass;
-
-                    command.ExecuteNonQuery();
-                    return true;
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-
-            }
-        }
-        public bool UpdateSugarUser(string id_user, double sugar)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-
-                    command.CommandText = @"Update Users Set blood_sugar = @blood_sugar Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@blood_sugar", SqlDbType.Real);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@blood_sugar"].Value = sugar;
-
-                    command.ExecuteNonQuery();
-                    return true;
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-
-            }
-        }
-
-        public bool UpdateDailyCalUser(string id_user, int daily_cal)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-
-                    command.CommandText = @"Update Users Set Daily_Calories = @daily_cal Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@daily_cal", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@daily_cal"].Value = daily_cal;
-
-                    command.ExecuteNonQuery();
-                    return true;
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-
-            }
-        }
-
         public string GetSugar(string id_user)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
@@ -515,5 +366,153 @@ namespace Diabet.net.DB
                 }
             }
         }
+
+        #region Updating user data
+        public bool UpdateAgeUser(string id_user, short age)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set Age = @age Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@age", SqlDbType.SmallInt);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@age"].Value = age;
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
+
+        public bool UpdateMassUser(string id_user, double mass)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set Weight = @mass Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@mass", SqlDbType.Real);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@mass"].Value = mass;
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
+        
+        internal bool UpdatePurposeUser(string id_user, string new_purpose)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set Purpose_of_Use = @Purpose_of_Use Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@Purpose_of_Use"].Value = new_purpose;
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
+        
+        public bool UpdateSugarUser(string id_user, double sugar)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set blood_sugar = @blood_sugar Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@blood_sugar", SqlDbType.Real);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@blood_sugar"].Value = sugar;
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
+        
+        public bool UpdateDailyCalUser(string id_user, int daily_cal)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+
+                    command.CommandText = @"Update Users Set Daily_Calories = @daily_cal Where id_user = @id_user";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    command.Parameters.Add("@daily_cal", SqlDbType.SmallInt);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters["@daily_cal"].Value = daily_cal;
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+
+            }
+        }
+        #endregion
+
     }
 }

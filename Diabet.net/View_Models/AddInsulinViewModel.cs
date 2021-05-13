@@ -56,9 +56,9 @@ namespace Diabet.net.View_Models
         }
         #endregion
 
-        public ICommand add_insulin => new DelegateCommand(Add_Day);
-
-        public void Add_Day()
+        #region Insulin
+        public ICommand add_insulin => new DelegateCommand(Add_Insulin);
+        public void Add_Insulin()
         {
 
             if (Up_Insulin == String.Empty || Up_Insulin == null)
@@ -68,37 +68,15 @@ namespace Diabet.net.View_Models
             else
             {
                 dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), type, Up_Insulin);
-                float insulin_day_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 1));
+                float insulin_day_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 1));
                 Obj.str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
-                float insulin_night_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 2));
+                float insulin_night_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 2));
                 Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
                 Close();
             }
         }
-        public void Add_Night()
-        {
-            if (Up_Insulin == String.Empty || Up_Insulin == null)
 
-                ErrorMes = Properties.Resources.emptyfield;
 
-            else
-            {
-                dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), type, Up_Insulin);
-                float insulin_night_up = float.Parse(dB.GetInsulinDay(id_user, today.ToString(), 2));
-                Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
-                Close();
-            }
-        }
-        private string errorMes;
-        public string ErrorMes
-        {
-            get { return errorMes; }
-            set
-            {
-                this.errorMes = value;
-                RaisePropertiesChanged(nameof(ErrorMes));
-            }
-        }
         private string up_insulin;
         public string Up_Insulin
         {
@@ -112,6 +90,27 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Up_Insulin));
             }
         }
+        #endregion
+
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
+            }
+        }
+
+
+        public ICommand back => new DelegateCommand(Back);
+        private void Back()
+        {
+            Close();
+        }
+
+
         public void Close()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
@@ -121,13 +120,6 @@ namespace Diabet.net.View_Models
                     window.Close();
                 }
             }
-        }
-        public ICommand back => new DelegateCommand(Back);
-
-        private void Back()
-        {
-            Close();
-
         }
     }
 }

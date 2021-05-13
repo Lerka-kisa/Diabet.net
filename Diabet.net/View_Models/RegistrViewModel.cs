@@ -22,17 +22,7 @@ namespace Diabet.net.View_Models
 
         }
 
-        public void Close()
-        {
-            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-            {
-                if (window.DataContext == this)
-                {
-                    window.Close();
-                }
-            }
-        }
-        
+        #region Data from the form.
         private string _weight;
         public string weight
         {
@@ -56,6 +46,7 @@ namespace Diabet.net.View_Models
 
             }
         }
+
         private int _daily_calories;
         public int daily_calories
         {
@@ -197,6 +188,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(password));
             }
         }
+
         private string _sugar;
         public string sugar
         {
@@ -229,6 +221,7 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(lastname));
             }
         }
+        #endregion
 
         private string errorMes;
         public string ErrorMes
@@ -240,7 +233,9 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(ErrorMes));
             }
         }
+
         bool flag;
+        
         bool canreg = true;
 
         public ICommand register => new DelegateCommand(RegisterCommand);
@@ -297,12 +292,22 @@ namespace Diabet.net.View_Models
         }
 
         public ICommand back => new DelegateCommand(Back);
-
         public void Back()
         {
             AuthorizationWindow t = new AuthorizationWindow();
             t.Show();
             Close();
+        }
+
+        public void Close()
+        {
+            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+            {
+                if (window.DataContext == this)
+                {
+                    window.Close();
+                }
+            }
         }
     }
 }
