@@ -8,31 +8,30 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="500" Width="850" ResizeMode="NoResize" WindowStyle="None">
     <Grid Background="#E9723D">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Orientation="Vertical">
-                <Separator Opacity="0" Height="20"/>
-                <Separator Height="50" Opacity="0" Margin="0,2,-0.4,2"/>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Separator Opacity="0" Height="20"/>
+            <Separator Height="50" Opacity="0" Margin="0,2,-0.4,2"/>
 
             <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Одобрить" Command="{Binding open_Approve}" />
             <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Продукты" Command="{Binding open_AllProduct}"  />
             <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Рецепты" Command="{Binding open_AllRecipe}" />
             <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Добавить рецепт" Command="{Binding open_AddRecipe}" />
 
-                <Separator Height="252" Margin="0,2,-0.4,2" Opacity="0"/>
+            <Separator Height="252" Margin="0,2,-0.4,2" Opacity="0"/>
             <DockPanel>
                 <Button Command="{Binding logout}" Width="50" Margin="140,0,0,0"  Background="#F4D75E">
                     <materialDesign:PackIcon Kind="UserMultipleMinus"  Foreground="#FF252423"/>
-            </Button>
-                <Button Width="50" Margin="0,0,0,0" Command="{Binding close}" Background="#F4D75E">
-                <materialDesign:PackIcon Kind="Logout" Foreground="#FF252423"/>
                 </Button>
-                </DockPanel>
+                <Button Width="50" Margin="0,0,0,0" Command="{Binding close}" Background="#F4D75E">
+                    <materialDesign:PackIcon Kind="Logout" Foreground="#FF252423"/>
+                </Button>
+            </DockPanel>
         </StackPanel>
-
-            <Frame Grid.Column="1" Content="{Binding CurrentPage}"  NavigationUIVisibility="Hidden"/>
-        </Grid>
-    </Window>
+        <Frame Grid.Column="1" Content="{Binding CurrentPage}"  NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -53,7 +53,9 @@ Weight real
  
  drop table Recipe
 
- alter table Products add name_product nvarchar(50)
+alter table Products add name_product nvarchar(50)
+alter table Users add blood_sugar real null
+alter table Users add notifications bit
 alter table Products drop column name_product
 
 create table Products
@@ -170,6 +172,14 @@ weight real not null
 );
 
 Select sum (weight) insulin From Daily_Insulin Where id_user = 3 and now_date='12.05.2021' and id_type_of_insulin=1
+
+
+create table History_Blood_Sugar
+(
+Date_of_Change date, 
+id_user int,
+blood_shugar real
+);
 
 insert into  Users  ( login,   password, is_admin, First_Name, Last_Name )
 	values	( 'Lerka', '5442488l', 1,'Админ', 'Админский' );

@@ -14,26 +14,24 @@
         <TextBox Background="#EDEFF2" TextAlignment="Center" FontSize="21" FontStyle="Italic" Height="39" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Название рецепта" 
                   HorizontalContentAlignment="Center" Foreground="#FF252423" 
                  Text="{Binding Name_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-            <TextBlock TextAlignment="Left" FontSize="18"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,59,0,0"
+        <TextBlock TextAlignment="Left" FontSize="18"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,59,0,0"
                    Padding="10,0,0,0" Foreground="#FF252423">  Добавить ингридиенты</TextBlock>
-
-            <Button Command="{Binding addIngr}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="211,66,372,417" >
-                <Button.Background>
+        <Button Command="{Binding addIngr}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="17" Width="17" BorderBrush="{x:Null}" Margin="211,66,372,417" >
+            <Button.Background>
                 <SolidColorBrush Color="#EDEFF2"/>
-                </Button.Background>
+            </Button.Background>
             <materialDesign:PackIcon Kind="Add" Foreground="#0B7FAB" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
-            </Button>
+        </Button>
 
         <DataGrid Background="#E9723D" Height="150" Margin="33,89,189,261" HeadersVisibility="None" IsReadOnly="True" AutoGenerateColumns="False"
                   ItemsSource="{Binding ingredients, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn  Binding="{Binding Name_Product}"></DataGridTextColumn>
-                    <DataGridTextColumn  Binding="{Binding Mass}"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding Name_Product}"></DataGridTextColumn>
+                <DataGridTextColumn  Binding="{Binding Mass}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
-            <TextBlock TextAlignment="Left" FontSize="18"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,244,0,0"
+        <TextBlock TextAlignment="Left" FontSize="18"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,244,0,0"
                    Padding="10,0,0,0" Foreground="#FF252423">  Способ приготовления:</TextBlock>
 
         <TextBox Background="#E9723D" Padding="2,2,2,2" 
@@ -43,32 +41,31 @@
                Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
 
-            <TextBox Padding="2, 0,0,0" Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Калорийность(на100г)"  
-                 materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,89,43,381" PreviewTextInput="TextBox_PreviewTextInput_1"
-                Text="{Binding Cal_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Padding="2, 0,0,0" Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Калорийность(на100г)"  
+                materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,89,43,381" PreviewTextInput="TextBox_PreviewTextInput_1"
+            Text="{Binding Cal_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBox Padding="2, 0,0,0" Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Белки(на100г)"  
-                 materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,129,43,341" PreviewTextInput="TextBox_PreviewTextInput_2"
-                 Text="{Binding Protein_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Padding="2, 0,0,0" Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Белки(на100г)"  
+                materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,129,43,341" PreviewTextInput="TextBox_PreviewTextInput_2"
+                Text="{Binding Protein_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBox Padding="2, 0,0,0"  Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Жиры(на100г)"  
-                 materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,170,43,300" PreviewTextInput="TextBox_PreviewTextInput_2"
-                 Text="{Binding Fat_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Padding="2, 0,0,0"  Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Жиры(на100г)"  
+                materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,170,43,300" PreviewTextInput="TextBox_PreviewTextInput_2"
+                Text="{Binding Fat_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBox Padding="2, 0,0,0"  Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Углеводы(на100г)"  
-                 materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,209,43,261" PreviewTextInput="TextBox_PreviewTextInput_2"
-                 Text="{Binding Carb_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Padding="2, 0,0,0"  Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Углеводы(на100г)"  
+                materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,209,43,261" PreviewTextInput="TextBox_PreviewTextInput_2"
+                Text="{Binding Carb_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button  Content="Очистить" Height="Auto" Foreground="#FF252423" BorderBrush="{x:Null}" Margin="77,457,372,15" Command="{Binding clearForm}">
-                <Button.Background>
+            <Button.Background>
                 <SolidColorBrush Color="#F4D75E"/>
-                </Button.Background>
-            </Button>
+            </Button.Background>
+        </Button>
 
         <Button  Command="{Binding new_recipe}" Content="Добавить рецепт" Foreground="#FF252423"  Height="Auto" BorderBrush="{x:Null}" Margin="308,457,43,15" >
-                <Button.Background >
+            <Button.Background >
                 <SolidColorBrush Color="#F4D75E" />
-                </Button.Background>
-            </Button>
-        </Grid>
-    </Page>
-
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>
