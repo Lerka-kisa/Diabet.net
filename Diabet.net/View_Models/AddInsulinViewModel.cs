@@ -68,10 +68,17 @@ namespace Diabet.net.View_Models
             else
             {
                 dB.AddInsulin(Properties.Settings.Default.IdUser, today.ToString(), type, Up_Insulin);
-                float insulin_day_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 1));
-                Obj.str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
-                float insulin_night_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 2));
-                Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
+                if(type == 1)
+                {
+                    float insulin_day_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 1) ?? "0.0");
+                    Obj.str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
+
+                }
+                else
+                {
+                    float insulin_night_up = float.Parse(dB.GetInsulin(id_user, today.ToString(), 2) ?? "0.0");
+                    Obj.str_insulin_night = Convert.ToString(insulin_night_up) + " ед.";
+                }
                 Close();
             }
         }

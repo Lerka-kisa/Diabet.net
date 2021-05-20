@@ -43,17 +43,28 @@ namespace Diabet.net.View_Models
         public ICommand add_product => new DelegateCommand(Add_Product);
         private void Add_Product()
         {
+            if (dB_NewFood.GetAddProduct()) 
+            {
+                dB_NewFood.AddProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
+                dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
+                AllApproveProduct.RemoveAt(Index);
+            }
+            else ErrorMes = Properties.Resources.emptytable;
 
-            dB_NewFood.AddProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
-            dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
-            AllApproveProduct.RemoveAt(Index);
+            
         }
 
         public ICommand delete_product => new DelegateCommand(Delete_Product);
         private void Delete_Product()
         {
-            dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал",""), AllApproveProduct[Index].Protein.Replace("г",""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
-            AllApproveProduct.RemoveAt(Index);
+            if (dB_NewFood.GetAddProduct())
+            {
+                dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
+                AllApproveProduct.RemoveAt(Index);
+            }
+            else ErrorMes = Properties.Resources.emptytable;
+
+
 
         }
 
@@ -62,6 +73,16 @@ namespace Diabet.net.View_Models
             int result = 0;
 
             return result;
+        }
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
+            }
         }
     }
 }

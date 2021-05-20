@@ -97,6 +97,15 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Таблица пуста, нет продуктов для одобрения.
+        /// </summary>
+        internal static string emptytable {
+            get {
+                return ResourceManager.GetString("emptytable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Некорректные данные.
         /// </summary>
         internal static string errordata {

@@ -129,6 +129,9 @@
   <data name="emptyfield" xml:space="preserve">
     <value>Присутствуют пустые поля</value>
   </data>
+  <data name="emptytable" xml:space="preserve">
+    <value>Таблица пуста, нет продуктов для одобрения</value>
+  </data>
   <data name="errordata" xml:space="preserve">
     <value>Некорректные данные</value>
   </data>

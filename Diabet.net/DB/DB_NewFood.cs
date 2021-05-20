@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Diabet.net.DB
 {
@@ -145,10 +146,7 @@ namespace Diabet.net.DB
                     command.Parameters["@fat_product"].Value = f;
                     command.Parameters["@carbs_product"].Value = c;
 
-
-
                     command.ExecuteNonQuery();
-
 
                 }
                 catch (Exception e)
@@ -158,5 +156,39 @@ namespace Diabet.net.DB
             }
         }
 
+
+        /*********/
+        //public bool GetAddProduct(string name, string cal, string p, string f, string c)
+        public bool GetAddProduct()
+        {
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"select count(*) count_product from Products_Awaiting_Approval";
+
+                    SqlDataReader info = command.ExecuteReader();
+                    int w = -1;
+                    bool a = false;
+                    while (info.Read())
+                    {
+                        w = (int)info["count_product"];
+                        if (w!=0) a = true; 
+                        break;
+                    }
+                    return a;
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+            /****/
+        }
     }
 }

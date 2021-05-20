@@ -217,8 +217,6 @@ namespace Diabet.net.View_Models
             AddInsulin win = new AddInsulin(this, 1);
             win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.Show();
-            float insulin_day_up = float.Parse(db_i.GetInsulin(id_user, today.ToString(), 1));
-            str_insulin_day = Convert.ToString(insulin_day_up) + " ед.";
         }
 
         private float up_insulin_day;
@@ -235,7 +233,7 @@ namespace Diabet.net.View_Models
         private float _insulin_day;
         public float insulin_day
         {
-            get => float.Parse(db_i.GetInsulin(id_user, today.ToString(),1));
+            get => float.Parse(db_i.GetInsulin(id_user, today.ToString(), 1));
             set
             {
                 this._insulin_day = value;

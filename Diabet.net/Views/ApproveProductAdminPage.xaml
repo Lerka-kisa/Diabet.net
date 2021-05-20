@@ -19,6 +19,8 @@
                 <DataGridTextColumn Header="Углеводы" Binding="{Binding Carbs}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock Text="{Binding ErrorMes}" Foreground="White" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="57,406,18,65"
+                   TextAlignment="Left" TextDecorations="Underline" />
         <Button Background="#F4D75E" Height="40" Margin="50,434,336,26" Foreground="#FF252423" Content="Добавить" Command="{Binding add_product}"/>
         <Button Background="#F4D75E" Height="40" Margin="335,434,50,26" Foreground="#FF252423" Content="Удалить" Command="{Binding delete_product}"/>
     </Grid>
