@@ -22,25 +22,46 @@ namespace Diabet.net.View_Models
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
         public DataBaseUser dbu = new DataBaseUser();
-        public SolidColorBrush MyColorForFill = new SolidColorBrush(Color.FromArgb(56,174,150,130));
-        public SolidColorBrush MyColorForStroke = new SolidColorBrush(Color.FromRgb(174, 150, 130));
-        public SolidColorBrush MyColorForPoint = new SolidColorBrush(Color.FromRgb(203, 77, 63));
+        public SolidColorBrush MyColorForFill;
+        public SolidColorBrush MyColorForStroke;
+        public SolidColorBrush MyColorForPoint;
 
-        public StatisticsViewModel()
+        public StatisticsViewModel(int x)
         {
-            Labels = GetDateParam(Properties.Settings.Default.IdUser);
-            SeriesCollection = new SeriesCollection
+            if (x == 1)
             {
-                new LineSeries{
-                    Title = Properties.Settings.Default.User,
-                    Values = GetMassParam(Properties.Settings.Default.IdUser),
-                    PointGeometry = DefaultGeometries.Circle,
-                    PointGeometrySize = 10,
-                    PointForeground = MyColorForPoint
-                    
-                }
-               
-            };
+                MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
+                MyColorForStroke = new SolidColorBrush(Color.FromRgb(233, 114, 61));
+                MyColorForPoint = new SolidColorBrush(Color.FromRgb(244, 215, 94));
+                Labels = GetDateParam(Properties.Settings.Default.IdUser);
+                SeriesCollection = new SeriesCollection
+                {
+                    new LineSeries{
+                        Title = Properties.Settings.Default.User,
+                        Values = GetMassParam(Properties.Settings.Default.IdUser),
+                        PointGeometry = DefaultGeometries.Circle,
+                        PointGeometrySize = 10,
+                        PointForeground = MyColorForPoint
+                    }
+                };
+            }
+            if (x == 2)
+            {
+                MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
+                MyColorForStroke = new SolidColorBrush(Color.FromRgb(244, 215, 94));
+                MyColorForPoint = new SolidColorBrush(Color.FromRgb(233, 114, 61));
+                Labels = GetDateParamBlood(Properties.Settings.Default.IdUser);
+                SeriesCollection = new SeriesCollection
+                {
+                    new LineSeries{
+                        Title = Properties.Settings.Default.User,
+                        Values = GetBloodParam(Properties.Settings.Default.IdUser),
+                        PointGeometry = DefaultGeometries.Circle,
+                        PointGeometrySize = 10,
+                        PointForeground = MyColorForPoint
+                    }
+                };
+            }
             YFormatter = value => value.ToString("C");
 
             ((LineSeries)SeriesCollection[0]).Stroke = MyColorForStroke;
@@ -52,7 +73,6 @@ namespace Diabet.net.View_Models
             ChartValues<double> Item = dbu.GetMassFromHistory(idUser);
             return Item;
         }
-
         private string[] GetDateParam(string idUser)
         {
             List<string> Item = dbu.GetDateFromHistory(idUser);
@@ -60,7 +80,25 @@ namespace Diabet.net.View_Models
             int i = 0;
             foreach (var j in Item)
             {
-                
+                a[i] = j;
+                i++;
+            }
+            return a;
+        }
+
+        private ChartValues<double> GetBloodParam(string idUser)
+        {
+            ChartValues<double> Item = dbu.GetBloodFromHistory(idUser);
+            return Item;
+        }
+
+        private string[] GetDateParamBlood(string idUser)
+        {
+            List<string> Item = dbu.GetDateFromHistoryBlood(idUser);
+            string[] a = new string[Item.Count];
+            int i = 0;
+            foreach (var j in Item)
+            {
                 a[i] = j;
                 i++;
             }

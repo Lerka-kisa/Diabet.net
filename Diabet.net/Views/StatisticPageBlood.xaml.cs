@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace Diabet.net.Views
 {
     /// <summary>
-    /// Логика взаимодействия для StatisticsPage.xaml
+    /// Логика взаимодействия для StatisticPageBlood.xaml
     /// </summary>
-    public partial class StatisticsPage : Page
+    public partial class StatisticPageBlood : Page
     {
         StatisticsViewModel s;
-        public StatisticsPage()
+        public StatisticPageBlood()
         {
-            s = new StatisticsViewModel(1);
+            s = new StatisticsViewModel(2);
             InitializeComponent();
             DataContext = s;
         }

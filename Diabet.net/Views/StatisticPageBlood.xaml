@@ -1,16 +1,14 @@
-﻿<Page x:Class="Diabet.net.Views.StatisticsPage"
+﻿<Page x:Class="Diabet.net.Views.StatisticPageBlood"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diabet.net.Views"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-     xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="650"
-      Title="StatisticsPage"
-      >
-
+      Title="StatisticPageBlood">
     <Grid Background="#F4D75E">
 
         <Rectangle RadiusY="30" RadiusX="50" Fill="#0B7FAB" Margin="56,59,56,59" />
@@ -18,7 +16,7 @@
         <lvc:CartesianChart Series="{Binding SeriesCollection}"   LegendLocation="None" Margin="70,100,75,100" >
 
             <lvc:CartesianChart.AxisY >
-                <lvc:Axis FontSize="13" Title="Вес(кг)" Foreground="#EDEFF2" Labels="{Binding YFormatter}"></lvc:Axis>
+                <lvc:Axis FontSize="13" Title="Уровень сахара в крови(мг%)" Foreground="#EDEFF2" Labels="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis FontSize="13" Foreground="#EDEFF2" Labels="{Binding Labels}"></lvc:Axis>
@@ -27,4 +25,5 @@
 
     </Grid>
 </Page>
+
 

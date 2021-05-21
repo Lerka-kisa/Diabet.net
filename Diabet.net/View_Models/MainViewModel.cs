@@ -55,6 +55,8 @@ namespace Diabet.net.View_Models
         private Page UserInfo;
         private Page Recipe;
         private Page Statictic;
+        private Page StaticticBlood;
+
 
         public ICommand logout => new DelegateCommand(Logout);
         private void Logout()
@@ -88,6 +90,13 @@ namespace Diabet.net.View_Models
         private void Open_Stat()
         {
             Statictic = new StatisticsPage();
+            CurrentPage = Statictic;
+        }
+
+        public ICommand open_Stat_Blood => new DelegateCommand(Open_Stat_Blood);
+        private void Open_Stat_Blood()
+        {
+            Statictic = new StatisticPageBlood();
             CurrentPage = Statictic;
         }
 

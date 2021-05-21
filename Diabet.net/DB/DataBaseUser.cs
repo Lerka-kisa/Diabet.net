@@ -514,5 +514,93 @@ namespace Diabet.net.DB
         }
         #endregion
 
+
+
+        /*****/
+        internal List<string> GetDateFromHistoryBlood(string id_user)
+        {
+            List<string> spam = new List<string>();
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"Select Date_of_Change From History_Blood_Sugar Where id_user = @id_user;";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    SqlDataReader info = command.ExecuteReader();
+                    object date = -1;
+                    int i = 1;
+
+                    while (info.Read())
+                    {
+                        date = info["Date_of_Change"];
+                        if (i == 1)
+                        {
+                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                            i++;
+                        }
+                        else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
+                        {
+                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        }
+                    }
+                    return spam;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return spam;
+                }
+            }
+        }
+
+        internal ChartValues<double> GetBloodFromHistory(string id_user)
+        {
+            ChartValues<double> spam = new ChartValues<double>();
+
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"Select blood_shugar From History_Blood_Sugar Where id_user = @id_user;";
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    SqlDataReader info = command.ExecuteReader();
+                    object date = -1;
+                    int i = 1;
+
+                    while (info.Read())
+                    {
+                        date = info["blood_shugar"];
+                        if (i == 1)
+                        {
+                            spam.Add(Convert.ToDouble(date));
+                            i++;
+                        }
+                        else if (spam.IndexOf(Convert.ToDouble(date)) == -1)
+                        {
+                            spam.Add(Convert.ToDouble(date));
+                        }
+
+                    }
+
+                    return spam;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return spam;
+                }
+            }
+        }
+        /****/
     }
 }
