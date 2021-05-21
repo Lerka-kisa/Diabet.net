@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using System.Windows.Input;
 using Diabet.net.DB;
-using System.Collections.ObjectModel;
-using Diabet.net.Models;
-using Diabet.net.Views;
-using System.Windows;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Windows.Media;
@@ -24,16 +16,16 @@ namespace Diabet.net.View_Models
         public DataBaseUser dbu = new DataBaseUser();
         public SolidColorBrush MyColorForFill;
         public SolidColorBrush MyColorForStroke;
-        public SolidColorBrush MyColorForPoint;
+        SolidColorBrush orange = new SolidColorBrush(Color.FromRgb(233, 114, 61));
+        SolidColorBrush yellow = new SolidColorBrush(Color.FromRgb(244, 215, 94));
 
         public StatisticsViewModel(int x)
         {
             if (x == 1)
             {
                 MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
-                MyColorForStroke = new SolidColorBrush(Color.FromRgb(233, 114, 61));
-                MyColorForPoint = new SolidColorBrush(Color.FromRgb(244, 215, 94));
-                Labels = GetDateParam(Properties.Settings.Default.IdUser);
+                MyColorForStroke = orange;
+                Labels = GetDateParam(Properties.Settings.Default.IdUser,1);
                 SeriesCollection = new SeriesCollection
                 {
                     new LineSeries{
@@ -41,16 +33,15 @@ namespace Diabet.net.View_Models
                         Values = GetMassParam(Properties.Settings.Default.IdUser),
                         PointGeometry = DefaultGeometries.Circle,
                         PointGeometrySize = 10,
-                        PointForeground = MyColorForPoint
+                        PointForeground = yellow
                     }
                 };
             }
             if (x == 2)
             {
                 MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
-                MyColorForStroke = new SolidColorBrush(Color.FromRgb(244, 215, 94));
-                MyColorForPoint = new SolidColorBrush(Color.FromRgb(233, 114, 61));
-                Labels = GetDateParamBlood(Properties.Settings.Default.IdUser);
+                MyColorForStroke = yellow;
+                Labels = GetDateParam(Properties.Settings.Default.IdUser,2);
                 SeriesCollection = new SeriesCollection
                 {
                     new LineSeries{
@@ -58,7 +49,7 @@ namespace Diabet.net.View_Models
                         Values = GetBloodParam(Properties.Settings.Default.IdUser),
                         PointGeometry = DefaultGeometries.Circle,
                         PointGeometrySize = 10,
-                        PointForeground = MyColorForPoint
+                        PointForeground = orange
                     }
                 };
             }
@@ -73,28 +64,22 @@ namespace Diabet.net.View_Models
             ChartValues<double> Item = dbu.GetMassFromHistory(idUser);
             return Item;
         }
-        private string[] GetDateParam(string idUser)
-        {
-            List<string> Item = dbu.GetDateFromHistory(idUser);
-            string[] a = new string[Item.Count];
-            int i = 0;
-            foreach (var j in Item)
-            {
-                a[i] = j;
-                i++;
-            }
-            return a;
-        }
-
         private ChartValues<double> GetBloodParam(string idUser)
         {
             ChartValues<double> Item = dbu.GetBloodFromHistory(idUser);
             return Item;
         }
-
-        private string[] GetDateParamBlood(string idUser)
+        private string[] GetDateParam(string idUser, int Type)
         {
-            List<string> Item = dbu.GetDateFromHistoryBlood(idUser);
+            List<string> Item = new List<string>();
+            if (Type == 1) 
+            {
+                Item = dbu.GetDateFromHistory(idUser);
+            }
+            if (Type == 2)
+            {
+                Item = dbu.GetDateFromHistoryBlood(idUser);
+            }
             string[] a = new string[Item.Count];
             int i = 0;
             foreach (var j in Item)

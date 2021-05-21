@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using System.Windows.Input;
 using Diabet.net.DB;
@@ -10,9 +6,6 @@ using System.Collections.ObjectModel;
 using Diabet.net.Models;
 using Diabet.net.Views;
 using System.Windows;
-using Enterwell.Clients.Wpf.Notifications;
-using LiveCharts;
-using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace Diabet.net.View_Models
 {

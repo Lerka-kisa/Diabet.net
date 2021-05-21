@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DevExpress.Mvvm;
+﻿using DevExpress.Mvvm;
 using System.Windows.Input;
-using Diabet.net.DB;
-using System.Collections.ObjectModel;
-using Diabet.net.Models;
 using Diabet.net.Views;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,8 +47,6 @@ namespace Diabet.net.View_Models
         private Page UserInfo;
         private Page Recipe;
         private Page Statictic;
-        private Page StaticticBlood;
-
 
         public ICommand logout => new DelegateCommand(Logout);
         private void Logout()

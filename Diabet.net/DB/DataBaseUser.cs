@@ -2,12 +2,8 @@
 using Diabet.net.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Diabet.net.DB
@@ -15,7 +11,6 @@ namespace Diabet.net.DB
     class DataBaseUser
     {
         private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
-        //private const string StringConnection = @"Data Source=DESKTOP-DN7MK5L\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
 
 
         public bool GiveUserByLoginAndPassword(string login, string password)

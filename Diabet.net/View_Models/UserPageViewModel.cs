@@ -2,21 +2,12 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Diabet.net.View_Models
 {
-   public class UserPageViewModel : ViewModelBase
+    public class UserPageViewModel : ViewModelBase
     {
         
         DataBaseUser db_user = new DataBaseUser();

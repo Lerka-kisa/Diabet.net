@@ -51,7 +51,7 @@
                 </Label.Foreground>
                 Осталось ккал на день:
             </Label>
-            <Label Content="2548"  x:Name="NumOfCal" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="226,107,226,111" BorderBrush="{x:Null}" >
+            <Label Content="{Binding daily_cal,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  x:Name="NumOfCal" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="226,107,226,111" BorderBrush="{x:Null}" >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                 </Label.Foreground>

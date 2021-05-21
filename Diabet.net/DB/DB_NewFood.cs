@@ -1,12 +1,8 @@
 ﻿using Diabet.net.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Diabet.net.DB
@@ -42,7 +38,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -80,6 +76,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -117,7 +114,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -151,14 +148,11 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
 
-
-        /*********/
-        //public bool GetAddProduct(string name, string cal, string p, string f, string c)
         public bool GetAddProduct()
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
@@ -188,7 +182,6 @@ namespace Diabet.net.DB
                     return false;
                 }
             }
-            /****/
         }
     }
 }
