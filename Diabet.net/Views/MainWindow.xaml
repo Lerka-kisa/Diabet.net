@@ -53,7 +53,7 @@
                 <materialDesign:PackIcon Kind="UserMultipleMinus" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
             <Separator Opacity="0" Height="5"/>
-            <Button Command="{Binding close}" Height="50" Width="50"  Background="#0B7FAB">
+            <Button Command="{Binding exit}" Height="50" Width="50"  Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="LogoutVariant" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
 

@@ -36,14 +36,14 @@
   <Class Name="Diabet.net.View_Models.AllProductAdminViewModel">
     <Position X="15" Y="7.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AIAAAAEAAAAQAAAEAAAAAAAgAIBEAAAAACEAAECBAAA=</HashCode>
+      <HashCode>AIAAAAEAAAAQAAAEACAAAIAgAIDEAAAAACEAAECBAAA=</HashCode>
       <FileName>View_Models\AllProductAdminViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.ApproveAdminViewModel">
     <Position X="11.25" Y="13" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACBAAAAQAAAQAAAQAAAAAAAAAAAAAAEACBABAAA=</HashCode>
+      <HashCode>AAAAACBAAAAQAAAQAAAQAAAAAAEAAAABAAEACBABAAA=</HashCode>
       <FileName>View_Models\ApproveAdminViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -60,28 +60,28 @@
   <Class Name="Diabet.net.View_Models.MainPageViewModel">
     <Position X="9.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICCAQAAAAQAIBABEAAIEAAGAgAAACAYAAWCSCAIAE=</HashCode>
+      <HashCode>AlqCiAQgCAAQAYBBREAAKUCAOowAACGAYiAXCSCUIQE=</HashCode>
       <FileName>View_Models\MainPageViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.MainViewModel">
     <Position X="14.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAABACAAAAAgBAAAgAYAAAAAAABAAAAAQBIAAAAI=</HashCode>
+      <HashCode>gAAAAABACAAAAAgBAAAgAYIAAEACABBAAIAQBICAAAI=</HashCode>
       <FileName>View_Models\MainViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.MainWindowAdminViewModel">
     <Position X="13" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAEAAAAAAgIAIAKAAAIAgAACAJAAAAAI=</HashCode>
+      <HashCode>AAgAAAAAAAAAAEAAAAAAgIIIAKACAIAgAICAJACAAAI=</HashCode>
       <FileName>View_Models\MainWindowAdminViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.NewFoodViewModel">
     <Position X="7.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EUaAABFAAAAAAAAAACAAAAAAgAEAAAARAIAIAADGCAA=</HashCode>
+      <HashCode>EUaAABFAAAAAAAAAACAQAAAAgAEAAAAxAIAIAADGCAA=</HashCode>
       <FileName>View_Models\NewFoodViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -95,21 +95,21 @@
   <Class Name="Diabet.net.View_Models.RecipePageViewModel">
     <Position X="2.25" Y="6.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>View_Models\RecipePageViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.RegistrViewModel">
     <Position X="7.25" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gQQBEAEBIAjARAQgAIEAgAAAABEAAgihQQAAIgCAEAA=</HashCode>
+      <HashCode>gQQBkAEBIAjARAQgAIEAgAAAABEAAgihQQABIgCAEAA=</HashCode>
       <FileName>View_Models\RegistrViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Diabet.net.View_Models.StatisticsViewModel">
     <Position X="9.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAEAAQAAAAAAAAAAAAAAEAAEAAAASAQAIAAAA=</HashCode>
+      <HashCode>AAAAQAAAEAAQAAAAAAAQAAAAAAEAAEAAIACAQAIAAAg=</HashCode>
       <FileName>View_Models\StatisticsViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -123,42 +123,42 @@
   <Class Name="Diabet.net.View_Models.Update">
     <Position X="5.25" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQACAAEAIAUQQAAQAAAACgHAAAEIAAAJAAAAAACAAAA=</HashCode>
+      <HashCode>AQACAAEAIAUQQAAQACAACgHAAAEIAAAJAAAAAACAAIE=</HashCode>
       <FileName>View_Models\Update.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.DB.DataBaseUser">
+  <Class Name="Diabet.net.DB.DataBaseUser" Collapsed="true">
     <Position X="19" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAQAABCAQAIACABAgAAAAAAAQCCA=</HashCode>
+      <HashCode>AgAAAAAAAAAABAAACQAABCAQAIACIBAgAAAAAAAUCCA=</HashCode>
       <FileName>DB\DataBaseUser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.DB.DB">
+  <Class Name="Diabet.net.DB.DB" Collapsed="true">
     <Position X="20.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAICAAAABAAAAAAQAAAAAAAAgAABAAAAAAA=</HashCode>
       <FileName>DB\DB.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.DB.DB_Main">
+  <Class Name="Diabet.net.DB.DB_Main" Collapsed="true">
     <Position X="19" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>GEAAAAAAAAAAAAgBAgABAArQAAAAAAAAAABAACAACgA=</HashCode>
+      <HashCode>GEAAABAAAAAAAAgBAgAhAAvQAAAAAAAAAABgACAACgA=</HashCode>
       <FileName>DB\DB_Main.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.DB.DB_AddFood">
+  <Class Name="Diabet.net.DB.DB_AddFood" Collapsed="true">
     <Position X="20.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAgAAAkAAYAAAAAAACAQCCAAAAIAAABACAAAAEA=</HashCode>
       <FileName>DB\DB_AddFood.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.DB.DB_NewFood">
+  <Class Name="Diabet.net.DB.DB_NewFood" Collapsed="true">
     <Position X="20.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQEARAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAQEARAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>DB\DB_NewFood.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -176,24 +176,24 @@
       <FileName>Models\Ingredients.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.Models.Product">
+  <Class Name="Diabet.net.Models.Product" Collapsed="true">
     <Position X="20.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAggAAAAAAAAAQCAAAAAMAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.Models.Users">
+  <Class Name="Diabet.net.Models.Users" Collapsed="true">
     <Position X="19" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAJAAAAACAAEAAAAACACAAAAAAAAAQAGAAAAg=</HashCode>
+      <HashCode>AAAAAEAAJAAAAACAAEAAAAACACAAAAAAABAQAGAAAAg=</HashCode>
       <FileName>Models\Users.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Diabet.net.Views.AddFood">
+  <Class Name="Diabet.net.Views.AddFood" Collapsed="true">
     <Position X="25.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAgAAAAAAA=</HashCode>
       <FileName>Views\AddFood.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -206,7 +206,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.AddIngridient">
+  <Class Name="Diabet.net.Views.AddIngridient" Collapsed="true">
     <Position X="23.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAA=</HashCode>
@@ -214,7 +214,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.AllProductAdminPage">
+  <Class Name="Diabet.net.Views.AllProductAdminPage" Collapsed="true">
     <Position X="23.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
@@ -222,7 +222,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.ApproveProductAdminPage">
+  <Class Name="Diabet.net.Views.ApproveProductAdminPage" Collapsed="true">
     <Position X="23.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
@@ -230,7 +230,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.MainPage">
+  <Class Name="Diabet.net.Views.MainPage" Collapsed="true">
     <Position X="25.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
@@ -243,7 +243,7 @@
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.RecipeInfoPage">
+  <Class Name="Diabet.net.Views.RecipeInfoPage" Collapsed="true">
     <Position X="23.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
@@ -251,7 +251,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.RecipePage">
+  <Class Name="Diabet.net.Views.RecipePage" Collapsed="true">
     <Position X="25.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
@@ -259,40 +259,40 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.StatisticsPage">
-    <Position X="25.25" Y="10.75" Width="1.5" />
+  <Class Name="Diabet.net.Views.StatisticsPage" Collapsed="true">
+    <Position X="25.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Views\StatisticsPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.InfoAboutUserPage">
-    <Position X="23.5" Y="10.75" Width="1.5" />
+  <Class Name="Diabet.net.Views.InfoAboutUserPage" Collapsed="true">
+    <Position X="23.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Views\InfoAboutUserPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.MainAdminPage">
-    <Position X="25.25" Y="12.75" Width="1.5" />
+  <Class Name="Diabet.net.Views.MainAdminPage" Collapsed="true">
+    <Position X="25.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\MainAdminPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.AllRecipePage">
-    <Position X="23.5" Y="12.75" Width="1.5" />
+  <Class Name="Diabet.net.Views.AllRecipePage" Collapsed="true">
+    <Position X="23.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Views\AllRecipePage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Diabet.net.Views.AdminWindow">
-    <Position X="24.5" Y="14.5" Width="1.5" />
+  <Class Name="Diabet.net.Views.AdminWindow" Collapsed="true">
+    <Position X="24.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Views\AdminWindow.xaml.cs</FileName>

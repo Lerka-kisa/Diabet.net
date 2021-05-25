@@ -38,7 +38,7 @@
                 <SolidColorBrush Color="{DynamicResource backgr}"/>
             </Button.Background>
         </Button>
-        <Button  Command="{Binding close}"  Background="#E9723D" Width="Auto" Height="Auto" Margin="342,30,9,486.4"  materialDesign:ButtonAssist.CornerRadius="15" Foreground="#1B1B1B" >
+        <Button  Command="{Binding exit}"  Background="#E9723D" Width="Auto" Height="Auto" Margin="342,30,9,486.4"  materialDesign:ButtonAssist.CornerRadius="15" Foreground="#1B1B1B" >
             <materialDesign:PackIcon Kind="CloseBox" />
         </Button>
         <Button    Command="{Binding auth}"  Height="Auto" Margin="200,402,30,110.4"  materialDesign:ButtonAssist.CornerRadius="20" Content="Войти" Foreground="#1B1B1B" >

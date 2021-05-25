@@ -34,6 +34,14 @@ namespace Diabet.net.View_Models
             }
         }
 
+        public ICommand exit => new DelegateCommand(Exit);
+        public void Exit()
+        {
+            Application.Current.Shutdown();
+        }
+
+        
+
         public MainViewModel()
         {
             Main = new MainPage();

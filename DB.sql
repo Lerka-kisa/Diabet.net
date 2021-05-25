@@ -184,5 +184,6 @@ blood_shugar real
 insert into  Users  ( login,   password, is_admin, First_Name, Last_Name )
 	values	( 'Lerka', '5442488l', 1,'Админ', 'Админский' );
 	
+select count(*) count_product from Products_Awaiting_Approval
 
 
