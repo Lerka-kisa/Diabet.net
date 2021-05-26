@@ -44,7 +44,7 @@
                Padding="0,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">на 100г продукта</Label>
 
         <Label Height="30" Margin="0,60,0,0" VerticalAlignment="Top" Foreground="#FF252423" FontSize="15" FontStyle="Italic"
-               HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Ингридиенты:">
+               HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Ингредиенты:">
             </Label>
 
         <DataGrid Height="150" Width="450" Background="#0B7FAB" Margin="42,95,157.6,284.6" HeadersVisibility="None"

@@ -244,6 +244,7 @@ namespace Diabet.net.View_Models
                 if (password.Length < 8)
                 {
                     ErrorMes = Properties.Resources.charac;
+                    fl = false;
                 }
                 if (password == String.Empty || password == null || lastname == String.Empty || lastname == null || gender == null || gender == String.Empty ||
                     purpose_of_use == String.Empty || purpose_of_use == null || age == null || age == String.Empty || height == null || height == String.Empty ||

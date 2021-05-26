@@ -67,7 +67,7 @@ namespace Diabet.net.View_Models
                 }
                 catch (SystemException e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     ErrorMes = Properties.Resources.errordata;
                 }
 

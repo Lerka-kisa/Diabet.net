@@ -22,6 +22,13 @@ namespace Diabet.net.View_Models
             }
         }
 
+        public ICommand open_Stat => new DelegateCommand(Open_Stat);
+        private void Open_Stat()
+        {
+            Statictic = new StatisticsPage();
+            CurrentPage = Statictic;
+        }
+
         public ICommand close => new DelegateCommand(Close);
         public void Close()
         {
@@ -84,12 +91,7 @@ namespace Diabet.net.View_Models
             CurrentPage = Main;
         }
 
-        public ICommand open_Stat => new DelegateCommand(Open_Stat);
-        private void Open_Stat()
-        {
-            Statictic = new StatisticsPage();
-            CurrentPage = Statictic;
-        }
+
 
         public ICommand open_Stat_Blood => new DelegateCommand(Open_Stat_Blood);
         private void Open_Stat_Blood()

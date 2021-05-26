@@ -6,10 +6,10 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Diabet.net.Views"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="500" Width="850" ResizeMode="NoResize" WindowStyle="None">
+        Title="AdminWindow" Height="500" Width="800" ResizeMode="NoResize" WindowStyle="None">
     <Grid Background="#E9723D">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -17,14 +17,17 @@
             <Separator Opacity="0" Height="20"/>
             <Separator Height="50" Opacity="0" Margin="0,2,-0.4,2"/>
 
-            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Одобрить" Command="{Binding open_Approve}" />
-            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Продукты" Command="{Binding open_AllProduct}"  />
-            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Рецепты" Command="{Binding open_AllRecipe}" />
-            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Добавить рецепт" Command="{Binding open_AddRecipe}" />
+            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Одобрить" Command="{Binding open_Approve}" Margin="25,0,25,0" />
+            <Separator Opacity="0" Height="3"/>
+            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Продукты" Command="{Binding open_AllProduct}" Margin="25,0,25,0"  />
+            <Separator Opacity="0" Height="3"/>
+            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Рецепты" Command="{Binding open_AllRecipe}" Margin="25,0,25,0" />
+            <Separator Opacity="0" Height="3"/>
+            <Button Background="#F4D75E" Foreground="#FF252423" Height="30" Content="Добавить рецепт" Command="{Binding open_AddRecipe}" Margin="25,0,25,0" />
 
-            <Separator Height="252" Margin="0,2,-0.4,2" Opacity="0"/>
+            <Separator Height="234" Margin="0,2" Opacity="0"/>
             <DockPanel>
-                <Button Command="{Binding logout}" Width="50" Margin="140,0,0,0"  Background="#F4D75E">
+                <Button Command="{Binding logout}" Width="50" Margin="70,0,0,0"  Background="#F4D75E">
                     <materialDesign:PackIcon Kind="UserMultipleMinus"  Foreground="#FF252423"/>
                 </Button>
                 <Button Width="50" Margin="0,0,0,0" Command="{Binding exit}" Background="#F4D75E">
