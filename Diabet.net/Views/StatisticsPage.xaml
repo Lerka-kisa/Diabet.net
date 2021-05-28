@@ -21,7 +21,7 @@
                 <lvc:Axis FontSize="13" Title="Вес(кг)" Foreground="#EDEFF2" Labels="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis FontSize="13" Foreground="#EDEFF2" Labels="{Binding Labels}"></lvc:Axis>
+                <lvc:Axis FontSize="13" Foreground="#EDEFF2" Labels="{Binding LabelsMass}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 

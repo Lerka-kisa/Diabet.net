@@ -54,15 +54,18 @@ namespace Diabet.net.View_Models
         public void Add()
         {
             if (Name_Product == String.Empty || Name_Product == null || Cal_Product == String.Empty || Cal_Product == null || Protein_Product == String.Empty || Protein_Product == null
-                                             || Fat_Product == String.Empty || Fat_Product == null || Carb_Product == String.Empty || Carb_Product == null)
-
+                                        || Fat_Product == String.Empty || Fat_Product == null || Carb_Product == String.Empty || Carb_Product == null)
                 ErrorMes = Properties.Resources.emptyfield;
+            if (Name_Product.Length>70)
+                ErrorMes = "Название слишком большое";
 
-            else { 
-                dB_NewFood.AddProductInApproval(Name_Product, Cal_Product, Protein_Product, Fat_Product, Carb_Product);
+            if(dB_NewFood.AddProductInApproval(Name_Product, Cal_Product, Protein_Product, Fat_Product, Carb_Product))
+            {
                 Clear();
                 ErrorMes = Properties.Resources.approve;
             }
+            else
+                ErrorMes = Properties.Resources.errordata;   
         }
 
         public ICommand addadmin => new DelegateCommand(AddAdmin);
@@ -75,7 +78,6 @@ namespace Diabet.net.View_Models
 
             else
             {
-                //dB_NewFood.AddProductInApproval(Name_Product, Cal_Product, Protein_Product, Fat_Product, Carb_Product);
                 dB_NewFood.AddProduct(Name_Product, Cal_Product.Replace("ккал", ""), Protein_Product.Replace("г", ""), Fat_Product.Replace("г", ""), Carb_Product.Replace("г", ""));
                 Clear();
                 ErrorMes = Properties.Resources.approve;

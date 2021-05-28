@@ -70,7 +70,7 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Не менее 8 символов.
+        ///   Ищет локализованную строку, похожую на Пароль не менее 8 символов.
         /// </summary>
         internal static string charac {
             get {

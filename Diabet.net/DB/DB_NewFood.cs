@@ -9,9 +9,9 @@ namespace Diabet.net.DB
 {
     class DB_NewFood
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
-        public void AddProductInApproval(string name, string cal, string p, string f, string c)
+        public bool AddProductInApproval(string name, string cal, string p, string f, string c)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
@@ -35,10 +35,13 @@ namespace Diabet.net.DB
                     command.Parameters["@carbs_product"].Value = c;
 
                     command.ExecuteNonQuery();
+                    
+                    return true;
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
+                    return false;
                 }
             }
         }
@@ -76,7 +79,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -114,7 +117,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
         }
@@ -148,7 +151,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
         }
@@ -178,7 +181,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }

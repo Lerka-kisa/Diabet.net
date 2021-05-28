@@ -241,19 +241,21 @@ namespace Diabet.net.View_Models
                 login = login.Substring(0, x1);
                 bool fl = true;
 
-                if (password.Length < 8)
-                {
-                    ErrorMes = Properties.Resources.charac;
-                    fl = false;
-                }
+                
                 if (password == String.Empty || password == null || lastname == String.Empty || lastname == null || gender == null || gender == String.Empty ||
                     purpose_of_use == String.Empty || purpose_of_use == null || age == null || age == String.Empty || height == null || height == String.Empty ||
                     activity == String.Empty || activity == null || firstname == null || firstname == String.Empty || sugar == null || sugar == String.Empty)
                 {
                     fl = false;
                     ErrorMes = Properties.Resources.emptyfield;
+                    goto END;
                 }
-
+                if (password.Length < 8)
+                {
+                    fl = false;
+                    ErrorMes = Properties.Resources.charac;
+                    goto END;
+                }
                 bool IsDone = true;
                 if (fl && canreg)
                 {
@@ -274,8 +276,9 @@ namespace Diabet.net.View_Models
                     ErrorMes = Properties.Resources.existserr;
                     login = "";
                 }
-                canreg = true;
-                flag = false;
+                END:
+                    canreg = true;
+                    flag = false;
             }
             catch (SystemException)
             {

@@ -8,7 +8,7 @@ namespace Diabet.net.DB
     class DB
     {
         //private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=KP_DataBase; Integrated Security=True";
-        private const string StringConnection = "server=LEKRA_SH;Trusted_Connection=Yes;DataBase=PART;";
+        private const string StringConnection = "server=LEKRA_SH;Trusted_Connection=Yes;DataBase=Diabet.net;";
 
         public static SqlConnection Get_DB_Connection()
         { 

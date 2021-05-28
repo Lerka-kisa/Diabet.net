@@ -27,11 +27,5 @@ namespace Diabet.net.Views
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        private void TextBox_PreviewTextInput_2(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("^[0-9]+|^[,]+");
-            e.Handled = !regex.IsMatch(e.Text);
-        }
-
     }
 }

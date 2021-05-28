@@ -13,7 +13,7 @@ namespace Diabet.net.View_Models
         DB_AddInsulin dB = new DB_AddInsulin();
         DateTime today = DateTime.Today;
         int type;
-        public ObservableCollection<Product> AllApproveProduct { get; set; }
+        //public ObservableCollection<Product> AllApproveProduct { get; set; }
         public AddInsulinViewModel(MainPageViewModel obj, int _type)
         {
             Obj = obj;

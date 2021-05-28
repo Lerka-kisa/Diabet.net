@@ -11,7 +11,8 @@ namespace Diabet.net.View_Models
     class StatisticsViewModel : ViewModelBase
     {
         public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
+        public string[] LabelsMass { get; set; }
+        public string[] LabelsBlood { get; set; }
         public Func<double, string> YFormatter { get; set; }
         public DataBaseUser dbu = new DataBaseUser();
         public SolidColorBrush MyColorForFill;
@@ -25,7 +26,7 @@ namespace Diabet.net.View_Models
             {
                 MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
                 MyColorForStroke = orange;
-                Labels = GetDateParam(Properties.Settings.Default.IdUser,1);
+                LabelsMass = GetDateParam(Properties.Settings.Default.IdUser,1);
                 SeriesCollection = new SeriesCollection
                 {
                     new LineSeries{
@@ -41,7 +42,7 @@ namespace Diabet.net.View_Models
             {
                 MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
                 MyColorForStroke = yellow;
-                Labels = GetDateParam(Properties.Settings.Default.IdUser,2);
+                LabelsBlood = GetDateParam(Properties.Settings.Default.IdUser,2);
                 SeriesCollection = new SeriesCollection
                 {
                     new LineSeries{

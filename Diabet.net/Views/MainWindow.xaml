@@ -28,17 +28,16 @@
         <StackPanel Grid.Column="0" Orientation="Vertical">
 
             <Separator Width="125" Opacity="0" Height="10"/>
+            <Button Command="{Binding open_Main}" Background="#0B7FAB" Width="50" Height="50" Margin="10,0">
+                <materialDesign:PackIcon Kind="Bar" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
+            </Button>
+            <Separator Opacity="0" Height="5"/>
             <Button Command="{Binding open_InfoUser}" Height="50" Width="50" Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="FileUser" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
-
-            <Separator Opacity="0" Height="5"/>
+            <Separator Opacity="0" Height="5" />
             <Button Command="{Binding open_Recipe}" Height="50"  Width="50"  Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="Cookie" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
-            </Button>
-            <Separator Opacity="0" Height="5" />
-            <Button Command="{Binding open_Main}" Background="#0B7FAB" Width="50" Height="50">
-                <materialDesign:PackIcon Kind="Bar" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
             <Separator Opacity="0" Height="5"/>
             <Button Command="{Binding open_Stat_Blood}" Background="#0B7FAB" Width="50" Height="50">

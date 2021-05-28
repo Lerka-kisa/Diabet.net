@@ -8,7 +8,7 @@ namespace Diabet.net.DB
 {
     class DB_AddInsulin
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public void AddInsulin(string id_user, string date, int id_type, string insulin)
         {

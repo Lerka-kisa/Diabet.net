@@ -9,7 +9,7 @@ namespace Diabet.net.DB
 {
     class DB_AddFood
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public string GetTypeOfFoodById(int id_type)
         {

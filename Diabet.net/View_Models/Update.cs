@@ -12,6 +12,7 @@ namespace Diabet.net.View_Models
         DataBaseUser dbu = new DataBaseUser();
         DB_Main db = new DB_Main();
         DateTime today = DateTime.Today;
+        DateTime todaytime = DateTime.Now;
         UserPageViewModel activUser;
         MainPageViewModel Obj;
         string ID_user = Properties.Settings.Default.IdUser;
@@ -120,7 +121,7 @@ namespace Diabet.net.View_Models
             }
             catch (SystemException e)
             {
-                MessageBox.Show(e.Message);
+                //MessageBox.Show(e.Message);
                 ErrorMes = Properties.Resources.errordata;
             }
 
@@ -239,7 +240,7 @@ namespace Diabet.net.View_Models
                 }
                 catch (SystemException e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     ErrorMes = Properties.Resources.errordata;
                 }
 

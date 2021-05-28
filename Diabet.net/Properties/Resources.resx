@@ -121,7 +121,7 @@
     <value>Продукт отправлен на одобрение</value>
   </data>
   <data name="charac" xml:space="preserve">
-    <value>Не менее 8 символов</value>
+    <value>Пароль не менее 8 символов</value>
   </data>
   <data name="d" xml:space="preserve">
     <value>d</value>

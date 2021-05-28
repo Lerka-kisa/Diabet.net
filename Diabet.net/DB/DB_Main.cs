@@ -9,7 +9,7 @@ namespace Diabet.net.DB
 {
     class DB_Main
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         #region Вода
         public bool GetDateForWater(string id_user, string date)

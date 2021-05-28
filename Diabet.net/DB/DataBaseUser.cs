@@ -10,8 +10,7 @@ namespace Diabet.net.DB
 {
     class DataBaseUser
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=KP_DataBase; Integrated Security=True";
-
+        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public bool GiveUserByLoginAndPassword(string login, string password)
         {
@@ -37,7 +36,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -82,7 +81,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -116,7 +115,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -145,21 +144,25 @@ namespace Diabet.net.DB
                     while (info.Read())
                     {
                         date = info["Date_of_Change"];
-                        if (i == 1)
-                        {
-                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                            i++;
-                        }
-                        else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
-                        {
-                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        }
+                        spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        i++;
+                        //if (i == 1)
+                        //{
+                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        //    i++;
+                        //}
+                        //else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
+                        //{
+                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        //}
                     }
+                    int ih = 5;
                     return spam;
+
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -167,8 +170,6 @@ namespace Diabet.net.DB
 
         public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, string activity, int daily_calories, string sugar)
         {
-
-
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
@@ -212,7 +213,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -244,7 +245,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -323,7 +324,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -356,7 +357,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -385,7 +386,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -442,7 +443,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -471,7 +472,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -500,7 +501,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
 
@@ -508,9 +509,6 @@ namespace Diabet.net.DB
         }
         #endregion
 
-
-
-        /*****/
         internal List<string> GetDateFromHistoryBlood(string id_user)
         {
             List<string> spam = new List<string>();
@@ -521,7 +519,7 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select Date_of_Change From History_Blood_Sugar Where id_user = @id_user;";
+                    command.CommandText = @"Select Date_of_Change From History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change;";
                     command.Parameters.Add("@id_user", SqlDbType.Int);
 
                     command.Parameters["@id_user"].Value = id_user;
@@ -532,21 +530,23 @@ namespace Diabet.net.DB
                     while (info.Read())
                     {
                         date = info["Date_of_Change"];
-                        if (i == 1)
-                        {
-                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                            i++;
-                        }
-                        else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
-                        {
-                            spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        }
+                        spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        i++;
+                        //if (i == 1)
+                        //{
+                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        //    i++;
+                        //}
+                        //else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
+                        //{
+                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        //}
                     }
                     return spam;
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -563,7 +563,7 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select blood_shugar From History_Blood_Sugar Where id_user = @id_user;";
+                    command.CommandText = @"Select* From History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change;";
                     command.Parameters.Add("@id_user", SqlDbType.Int);
 
                     command.Parameters["@id_user"].Value = id_user;
@@ -590,11 +590,10 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
         }
-        /****/
     }
 }
