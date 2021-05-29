@@ -173,13 +173,17 @@ weight real not null
 
 Select sum (weight) insulin From Daily_Insulin Where id_user = 3 and now_date='12.05.2021' and id_type_of_insulin=1
 
-
+alter table History_Blood_Sugar drop column Date_of_Change
+alter table History_Blood_Sugar add Date_of_Change datetime
+drop table History_Blood_Sugar
 create table History_Blood_Sugar
 (
-Date_of_Change date, 
+Date_of_Change datetime, 
 id_user int,
 blood_shugar real
 );
+
+
 
 insert into  Users  ( login,   password, is_admin, First_Name, Last_Name )
 	values	( 'Lerka', '5442488l', 1,'Админ', 'Админский' );
@@ -187,3 +191,5 @@ insert into  Users  ( login,   password, is_admin, First_Name, Last_Name )
 select count(*) count_product from Products_Awaiting_Approval
 
 
+Select* From History_Blood_Sugar Where id_user = 3 Order by Date_of_Change;
+Select* From History Where id_user = 3 Order by Date_of_Change;

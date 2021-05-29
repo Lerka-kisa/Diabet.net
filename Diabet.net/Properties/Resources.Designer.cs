@@ -61,11 +61,29 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Продукт добавлен.
+        /// </summary>
+        internal static string addproduct {
+            get {
+                return ResourceManager.GetString("addproduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Продукт отправлен на одобрение.
         /// </summary>
         internal static string approve {
             get {
                 return ResourceManager.GetString("approve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название слишком большое.
+        /// </summary>
+        internal static string bigname {
+            get {
+                return ResourceManager.GetString("bigname", resourceCulture);
             }
         }
         

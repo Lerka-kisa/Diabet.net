@@ -1,5 +1,6 @@
 --use KP_DataBase
 
+drop trigger Users_History
 create trigger Users_History
 on Users
 after update, insert  
@@ -17,6 +18,9 @@ as
 		end
 	end
 
+
+drop trigger Users_History_Blood
+go
 create trigger Users_History_Blood
 on Users
 after update, insert  

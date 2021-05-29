@@ -122,7 +122,7 @@ namespace Diabet.net.DB
             }
         }
 
-        public void AddProduct(string name, string cal, string p, string f, string c)
+        public bool AddProduct(string name, string cal, string p, string f, string c)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
@@ -148,10 +148,12 @@ namespace Diabet.net.DB
 
                     command.ExecuteNonQuery();
 
+                    return true;
                 }
                 catch (Exception e)
                 {
                     //MessageBox.Show(e.Message);
+                    return false;
                 }
             }
         }

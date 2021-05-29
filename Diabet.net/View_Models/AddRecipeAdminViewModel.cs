@@ -2,6 +2,7 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ namespace Diabet.net.View_Models
     class AddRecipeAdminViewModel : ViewModelBase
     {
         public ObservableCollection<Ingredients> ingredients { get; set; }
+        DB_AddFood dB_AddFood = new DB_AddFood();
 
         public AddRecipeAdminViewModel()
         {
@@ -130,25 +132,44 @@ namespace Diabet.net.View_Models
         public ICommand new_recipe => new DelegateCommand(New_Recipe);
         private void New_Recipe()
         {
-            DB_AddFood dB_AddFood = new DB_AddFood();
-            if(dB_AddFood.AddRecipe(Name_Recipe, Cal_Recipe, Protein_Recipe, Fat_Recipe, Carb_Recipe, Description))
-            {
-                string id_recipe = dB_AddFood.GetIdRecipeByName(Name_Recipe);
-                foreach(var i in ingredients)
-                {
-                    dB_AddFood.AddIngred(id_recipe, i.ID_Product, i.Mass);
-                }
+            bool check1 = false;
+            bool check2 = false;
 
-                Name_Recipe = "";
-                Cal_Recipe = "";
-                Protein_Recipe = "";
-                Fat_Recipe = "";
-                Carb_Recipe = "";
-                Description = "";
-                ingredients.Clear();
+            if (Name_Recipe == String.Empty || Name_Recipe == null || Cal_Recipe == String.Empty || Cal_Recipe == null || Protein_Recipe == String.Empty || Protein_Recipe == null
+                                    || Fat_Recipe == String.Empty || Fat_Recipe == null || Carb_Recipe == String.Empty || Carb_Recipe == null || Description == null || Description == String.Empty || ingredients.Count <= 0)
+                ErrorMes = Properties.Resources.emptyfield;
+            else check1 = true;
+            if (check1)
+            {
+                if (Name_Recipe.Length > 50)
+                    ErrorMes = Properties.Resources.bigname;
+                else check2 = true;
             }
-           
-        }
+                
+
+            if (check1 && check2)
+            {
+                if (dB_AddFood.AddRecipe(Name_Recipe, Cal_Recipe, Protein_Recipe, Fat_Recipe, Carb_Recipe, Description))
+                {
+                    string id_recipe = dB_AddFood.GetIdRecipeByName(Name_Recipe);
+                    foreach (var i in ingredients)
+                    {
+                        dB_AddFood.AddIngred(id_recipe, i.ID_Product, i.Mass);
+                    }
+
+                    Name_Recipe = "";
+                    Cal_Recipe = "";
+                    Protein_Recipe = "";
+                    Fat_Recipe = "";
+                    Carb_Recipe = "";
+                    Description = "";
+                    ingredients.Clear();
+                    ErrorMes = "";
+                }
+                else
+                    ErrorMes = Properties.Resources.errordata;
+            }
+            }
 
         public ICommand clearForm => new DelegateCommand(ClearForm);
         private void ClearForm()
@@ -161,5 +182,7 @@ namespace Diabet.net.View_Models
             Description = "";
             ingredients.Clear();
         }
+
+
     }
 }

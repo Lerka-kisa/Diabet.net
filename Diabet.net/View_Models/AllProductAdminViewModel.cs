@@ -2,6 +2,7 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -80,13 +81,29 @@ namespace Diabet.net.View_Models
         public ICommand new_ingr => new DelegateCommand(New_Ingr);
         private void New_Ingr()
         {
-            if (ALL_Ingredients == null)
-                ALL_Ingredients = new ObservableCollection<Ingredients>() { new Ingredients() { Name_Product = All_Product[Index].Name, ID_Product = All_Product[Index].ID, Mass = Mass, ID_Recipe = 0 } };
+            if (mass == null || mass == String.Empty)
+                ErrorMes = "Введите массу ингридиента";
             else
-                ALL_Ingredients.Add(new Ingredients() { Name_Product = All_Product[Index].Name, ID_Product = All_Product[Index].ID, Mass = Mass, ID_Recipe=0});
+            {
+                if (ALL_Ingredients == null)
+                    ALL_Ingredients = new ObservableCollection<Ingredients>() { new Ingredients() { Name_Product = All_Product[Index].Name, ID_Product = All_Product[Index].ID, Mass = Mass, ID_Recipe = 0 } };
+                else
+                    ALL_Ingredients.Add(new Ingredients() { Name_Product = All_Product[Index].Name, ID_Product = All_Product[Index].ID, Mass = Mass, ID_Recipe = 0 });
 
-            
-            Close();
+                Close();
+            }
+           
+        }
+
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
+            }
         }
 
         public ICommand back => new DelegateCommand(Close);

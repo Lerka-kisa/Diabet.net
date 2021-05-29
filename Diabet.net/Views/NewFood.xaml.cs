@@ -13,7 +13,7 @@ namespace Diabet.net.Views
         NewFoodViewModel n;
         public NewFood(MainPageViewModel obj)
         {
-            n = new NewFoodViewModel(obj);
+            n = new NewFoodViewModel(obj,1);
             InitializeComponent();
             DataContext = n;
         }

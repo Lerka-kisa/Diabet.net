@@ -27,8 +27,7 @@ namespace Diabet.net.View_Models
                 MyColorForFill = new SolidColorBrush(Color.FromArgb(56, 244, 215, 94));
                 MyColorForStroke = orange;
                 LabelsMass = GetDateParam(Properties.Settings.Default.IdUser,1);
-                SeriesCollection = new SeriesCollection
-                {
+                SeriesCollection = new SeriesCollection{
                     new LineSeries{
                         Title = Properties.Settings.Default.User,
                         Values = GetMassParam(Properties.Settings.Default.IdUser),
@@ -55,13 +54,10 @@ namespace Diabet.net.View_Models
                 };
             }
             YFormatter = value => value.ToString("C");
-
             ((LineSeries)SeriesCollection[0]).Stroke = MyColorForStroke;
             ((LineSeries)SeriesCollection[0]).Fill = MyColorForFill;
         }
-
-        private ChartValues<double> GetMassParam(string idUser)
-        {
+        private ChartValues<double> GetMassParam(string idUser){
             ChartValues<double> Item = dbu.GetMassFromHistory(idUser);
             return Item;
         }

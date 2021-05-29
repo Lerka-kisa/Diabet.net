@@ -9,35 +9,22 @@ namespace Diabet.net.View_Models
     public class MainViewModel : ViewModelBase
     {
         private Page currentpage;
-        public Page CurrentPage
-        {
-            get
-            {
-                return currentpage;
-            }
-            set
-            {
+        public Page CurrentPage{
+            get {return currentpage;}
+            set {
                 this.currentpage = value;
                 RaisePropertiesChanged(nameof(CurrentPage));
             }
         }
-
         public ICommand open_Stat => new DelegateCommand(Open_Stat);
-        private void Open_Stat()
-        {
+        private void Open_Stat(){
             Statictic = new StatisticsPage();
             CurrentPage = Statictic;
         }
-
         public ICommand close => new DelegateCommand(Close);
-        public void Close()
-        {
-            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-            {
-                if (window.DataContext == this)
-                {
-                    window.Close();
-                }
+        public void Close(){
+            foreach (System.Windows.Window window in System.Windows.Application.Current.Windows){
+                if (window.DataContext == this) {window.Close();}
             }
         }
 

@@ -37,7 +37,7 @@
         <Button Command="{Binding addadmin}" Background="#E9723D" Width="100" Margin="225,-20,75,50.4" Grid.Row="1"
             Content="Добавить" Foreground="#FF252423"/>
 
-        <TextBlock Text="{Binding ErrorMes}" Foreground="Red" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="85,59,85,56"
+        <TextBlock Text="{Binding ErrorMes}" Foreground="Red" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="85,30,85,20"
                 TextAlignment="Left" TextDecorations="Underline" Grid.Row="1" />
 
 

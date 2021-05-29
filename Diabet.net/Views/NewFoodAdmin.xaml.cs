@@ -13,7 +13,7 @@ namespace Diabet.net.Views
         NewFoodViewModel n;
         public NewFoodAdmin(MainPageViewModel obj)
         {
-            n = new NewFoodViewModel(obj);
+            n = new NewFoodViewModel(obj,2);
             InitializeComponent();
             DataContext = n;
         }
@@ -28,11 +28,6 @@ namespace Diabet.net.Views
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

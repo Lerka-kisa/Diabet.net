@@ -22,6 +22,7 @@
             </Button.Background>
             <materialDesign:PackIcon Kind="Add" Foreground="#0B7FAB" Width="17" Height="17" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.933,1.181" />
         </Button>
+        
 
         <DataGrid Background="#E9723D" Height="150" Margin="33,89,189,261" HeadersVisibility="None" IsReadOnly="True" AutoGenerateColumns="False"
                   ItemsSource="{Binding ingredients, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -67,5 +68,7 @@
                 <SolidColorBrush Color="#F4D75E" />
             </Button.Background>
         </Button>
+        <TextBlock Text="{Binding ErrorMes}" Foreground="#F4D75E" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="308,248,12,230"
+                   TextAlignment="Left" TextDecorations="Underline" />
     </Grid>
 </Page>

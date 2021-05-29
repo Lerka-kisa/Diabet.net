@@ -13,18 +13,20 @@
         <Button Command="{Binding search_product}" Width="70" Height="30" Margin="257,10,173,209.6" Background="#EDEFF2" RenderTransformOrigin="-0.831,0.404">
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB" />
         </Button>
-        <DataGrid Background="#E9723D" Margin="27,62,27,66.6" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid Background="#E9723D" Margin="27,62,27,74" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                    SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="None" 
                   FontSize="10"  AutoGenerateColumns="False" IsReadOnly="True"  >
             <DataGrid.Columns>
                 <DataGridTextColumn    Binding="{Binding Name}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Text="{Binding Mass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="114" HorizontalAlignment="Left" Margin="363,10,0,209.6" materialDesign:HintAssist.Hint="вес"
+        <TextBox Text="{Binding Mass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="114" HorizontalAlignment="Left" Margin="363,10,0,209.6" materialDesign:HintAssist.Hint="вес, г"
                  Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput1" />
-        <Button Command="{Binding back}" Height="30" Margin="100,227,288,20" Background="#F4D75E" Foreground="#FF252423" RenderTransformOrigin="-0.831,0.404"
+        <TextBlock Text="{Binding ErrorMes}" Foreground="#F4D75E" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="27,211,143,48"
+                   TextAlignment="Left" TextDecorations="Underline" />
+        <Button Command="{Binding back}" Height="30" Margin="100,237,288,13" Background="#F4D75E" Foreground="#FF252423" RenderTransformOrigin="-0.831,0.404"
                 Content="Выйти"/>
-        <Button Command="{Binding new_ingr}" Height="30" Margin="288,227,100,20" Background="#F4D75E" Foreground="#FF252423" RenderTransformOrigin="-0.831,0.404"
+        <Button Command="{Binding new_ingr}" Height="30" Margin="288,237,100,13" Background="#F4D75E" Foreground="#FF252423" RenderTransformOrigin="-0.831,0.404"
                 Content="Добавить"/>
     </Grid>
 </Window>

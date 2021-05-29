@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addproduct" xml:space="preserve">
+    <value>Продукт добавлен</value>
+  </data>
   <data name="approve" xml:space="preserve">
     <value>Продукт отправлен на одобрение</value>
+  </data>
+  <data name="bigname" xml:space="preserve">
+    <value>Название слишком большое</value>
   </data>
   <data name="charac" xml:space="preserve">
     <value>Пароль не менее 8 символов</value>
