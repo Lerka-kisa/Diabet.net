@@ -15,7 +15,7 @@
             <Rectangle Fill="#0B7FAB" Height="20" VerticalAlignment="Top"/>
             <Button Command="{Binding close}" Height="20" Width="40" Margin="348,0,12,309" Background="#E9723D"/>
         <Label Height="40" Margin="0,25,0,264.6" Content="{Binding Type_of_food}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="19" FontStyle="Italic" Foreground="#E9723D"/>
-        <TextBox Text="{Binding Search_TextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="300" HorizontalAlignment="Left" Margin="10,65,0,234.6" materialDesign:HintAssist.Hint="введите название продукта"
+        <TextBox Text="{Binding Search_TextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="300" HorizontalAlignment="Left" Margin="10,65,0,234.6" materialDesign:HintAssist.Hint="Введите название продукта"
             Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" />
         <Button Command="{Binding search_product}" Width="70" Height="29" Margin="320,65,10,234.6" Background="#EDEFF2" RenderTransformOrigin="0.457,0.343">
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB" />

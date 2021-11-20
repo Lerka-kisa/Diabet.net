@@ -3,13 +3,17 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Windows;
 
 namespace Diabet.net.DB
 {
     class DB_AddFood
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
+        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
+        //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public string GetTypeOfFoodById(int id_type)
         {
@@ -54,11 +58,11 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description From Recipe";
+                    command.CommandText = @"Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description, screen_img From Recipe";
 
 
                     SqlDataReader info = command.ExecuteReader();
-                    object p = -1, cal_food = -1, f_food = -1, c_food = 1, p_food = -1, i = -1, d = -1;
+                    object p = -1, cal_food = -1, f_food = -1, c_food = 1, p_food = -1, i = -1, d = -1, s = -1;
 
                     while (info.Read())
                     {
@@ -67,10 +71,13 @@ namespace Diabet.net.DB
                         p_food = info["protein_recipe"];
                         f_food = info["fat_recipe"];
                         c_food = info["carbs_recipe"];
+                        s = info["screen_img"];
                         i = info["id_recipe"];
                         d = info["description"];
-                        spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Description = Convert.ToString(d) });
-
+                        
+                        spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Description = Convert.ToString(d), Screenimg = ObjectToByteArray(s) });
+                        ////else
+                        ////    spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Description = Convert.ToString(d)});
                     }
 
                     return spam;
@@ -222,7 +229,7 @@ namespace Diabet.net.DB
             }
             }
 
-        internal bool AddRecipe(string name_Recipe, string cal_Recipe, string protein_Recipe, string fat_Recipe, string carb_Recipe, string description)
+        internal bool AddRecipe(string name_Recipe, string cal_Recipe, string protein_Recipe, string fat_Recipe, string carb_Recipe, string description, byte[] screenimg)
         {
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
@@ -231,7 +238,7 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, carbs_recipe, description ) VALUES (@name_recipe,@calorific_recipe,@protein_recipe, @fat_recipe, @carbs_recipe, @description)";
+                    command.CommandText = @"INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, carbs_recipe, description, screen_img ) VALUES (@name_recipe,@calorific_recipe,@protein_recipe, @fat_recipe, @carbs_recipe, @description, @screen_img)";
 
                     command.Parameters.Add("@name_recipe", SqlDbType.NVarChar, 70);
                     command.Parameters.Add("@calorific_recipe", SqlDbType.SmallInt);
@@ -239,6 +246,7 @@ namespace Diabet.net.DB
                     command.Parameters.Add("@fat_recipe", SqlDbType.Real);
                     command.Parameters.Add("@carbs_recipe", SqlDbType.Real);
                     command.Parameters.Add("@description", SqlDbType.Text);
+                    command.Parameters.Add("@screen_img", SqlDbType.Binary);
 
 
                     command.Parameters["@name_recipe"].Value = name_Recipe;
@@ -247,7 +255,7 @@ namespace Diabet.net.DB
                     command.Parameters["@fat_recipe"].Value = fat_Recipe;
                     command.Parameters["@carbs_recipe"].Value = carb_Recipe;
                     command.Parameters["@description"].Value = description;
-
+                    command.Parameters["@screen_img"].Value = screenimg;
 
 
                     command.ExecuteNonQuery();
@@ -272,12 +280,12 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe From Recipe Where name_recipe Like @search_TextBox";
+                    command.CommandText = @"Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, screen_img From Recipe Where name_recipe Like @search_TextBox";
 
                     command.Parameters.AddWithValue("@search_TextBox", search_TextBox + "%");
 
                     SqlDataReader info = command.ExecuteReader();
-                    object p = -1, cal_food = -1, f_food = -1, c_food = 1, p_food = -1, i = -1;
+                    object p = -1, cal_food = -1, f_food = -1, c_food = 1, p_food = -1, i = -1, s = -1;
 
                     while (info.Read())
                     {
@@ -285,9 +293,10 @@ namespace Diabet.net.DB
                         cal_food = info["calorific_recipe"];
                         p_food = info["protein_recipe"];
                         f_food = info["fat_recipe"];
+                        s = info["screen_img"];
                         c_food = info["carbs_recipe"];
                         i = info["id_recipe"];
-                        spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г") });
+                        spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Screenimg = ObjectToByteArray(s) });
 
                     }
 
@@ -477,5 +486,15 @@ namespace Diabet.net.DB
             }
         }
 
+        public static byte[] ObjectToByteArray(Object obj)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            using (var ms = new MemoryStream())
+            {
+                bf.Serialize(ms, obj);
+                return ms.ToArray();
+            }
+        }
     }
+
 }

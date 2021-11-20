@@ -92,9 +92,9 @@
                     <Button.Background>
                         <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                     </Button.Background>
-                    <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
+                    <Image HorizontalAlignment="Center" Source="C:\University\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\glassofwater_84019.ico" Height="25" Width="22" RenderTransformOrigin="-0.152,0.47" />
                 </Button>
-                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="166,25,472,15" RenderTransformOrigin="-8.25,0.333" />
+                <Image Height="10" Width="12" Source="C:\University\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="166,25,472,15" RenderTransformOrigin="-8.25,0.333" />
 
                 <Label VerticalContentAlignment="Center" FontSize="14" Margin="207,5,135,4">
                     <Label.Foreground>
@@ -112,9 +112,9 @@
                     <Button.Background>
                         <SolidColorBrush Color="{DynamicResource Blue_color}"/>
                     </Button.Background>
-                    <Image HorizontalAlignment="Center" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\pill.ico" Height="23" Width="25" RenderTransformOrigin="-0.152,0.47" />
+                    <Image HorizontalAlignment="Center" Source="C:\University\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\pill.ico" Height="23" Width="25" RenderTransformOrigin="-0.152,0.47" />
                 </Button>
-                <Image Height="10" Width="12" Source="D:\Доки\Уник\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="369,15,269,25" />
+                <Image Height="10" Width="12" Source="C:\University\2 курс\2 сем\Сourse_project(С#)\Diabet.net\Diabet.net\Views\Resources\plusadditionsigncircle_85721.ico" Margin="369,15,269,25" />
 
                 <Label VerticalContentAlignment="Center" FontSize="14" Margin="404,5,-6,4">
                     <Label.Foreground>

@@ -57,13 +57,19 @@
         <TextBox Padding="2, 0,0,0"  Height="30" TextWrapping ="Wrap" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Углеводы(на100г)"  
                 materialDesign:TransitionAssist.DisableTransitions="True" Background="#EDEFF2" Margin="430,209,43,261" PreviewTextInput="TextBox_PreviewTextInput_2"
                 Text="{Binding Carb_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button  Content="Очистить" Height="Auto" Foreground="#FF252423" BorderBrush="{x:Null}" Margin="77,457,372,15" Command="{Binding clearForm}">
+        <Button  Content="Очистить" Height="Auto" Foreground="#FF252423" BorderBrush="{x:Null}" Margin="41,457,458,15" Command="{Binding clearForm}">
             <Button.Background>
                 <SolidColorBrush Color="#F4D75E"/>
             </Button.Background>
         </Button>
 
-        <Button  Command="{Binding new_recipe}" Content="Добавить рецепт" Foreground="#FF252423"  Height="Auto" BorderBrush="{x:Null}" Margin="308,457,43,15" >
+        <Button  Content="Добавить изображение" Height="Auto" Foreground="#EE252423" BorderBrush="{x:Null}" Margin="162,457,241,15" Command="{Binding addPicture}">
+            <Button.Background>
+                <SolidColorBrush Color="#EDEFF2"/>
+            </Button.Background>
+        </Button>
+
+        <Button  Command="{Binding new_recipe}" Content="Добавить рецепт" Foreground="#FF252423"  Height="Auto" BorderBrush="{x:Null}" Margin="378,457,43,15" >
             <Button.Background >
                 <SolidColorBrush Color="#F4D75E" />
             </Button.Background>

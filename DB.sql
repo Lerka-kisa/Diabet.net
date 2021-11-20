@@ -58,35 +58,40 @@ alter table Users add blood_sugar real null
 alter table Users add notifications bit
 alter table Products drop column name_product
 
-create table Products
-(
-id_product int identity(1,1) primary key,
-name_product nvarchar(20),
-calorific_product int,
-protein_product real,
-fat_product real, 
-carbs_product real
+create table Products(
+	id_product int identity(1,1) primary key,
+	name_product nvarchar(20) unique,
+	calorific_product int,
+	protein_product real,
+	fat_product real, 
+	carbs_product real
 );
 
+ALTER TABLE Products
+ADD UNIQUE (name_product);
+alter table Products 
+	alter column name_product nvarchar(20) not null 
 select * from Products 
 
 Select name_product, calorific_product,protein_product,fat_product,carbs_product From Products
 
 alter table Recipe add description nvarchar(500) null
 alter table Recipe drop column description
-alter table Recipe add name_recipe nvarchar(50) 
-alter table Recipe drop column name_recipe
+
 select * from Recipe
-create table Recipe
-(
-id_recipe int identity(1,1) primary key,
-name_recipe nvarchar(50),
-calorific_recipe int,
-protein_recipe real,
-fat_recipe real, 
-carbs_recipe real
+create table Recipe(
+	id_recipe int identity(1,1) primary key,
+	name_recipe nvarchar(50),
+	calorific_recipe int,
+	protein_recipe real,
+	fat_recipe real, 
+	carbs_recipe real,
+	description nvarchar(500) NULL,
+	screen_img varbinary(max) NULL
 );
 drop table Recipe
+alter table Recipe 
+	add screen_img varbinary(max) NULL
 
 drop table Prod_Rec
 create table Prod_Rec
@@ -105,7 +110,7 @@ type_of_food nvarchar(20)
 );
 insert into Type_of_Food (type_of_food) values ('Завтрак'),('Обед'),('Ужин'), ('Перекус');
 
- alter table Products add name_product nvarchar(50)
+alter table Products add name_product nvarchar(50)
 alter table Daily_Activity drop column now_date_time
 select * from Daily_Food where id_user = 21 and id_type_of_food = 1 and now_date = CONVERT (date, SYSDATETIME()) 
 select * from Daily_Food

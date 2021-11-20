@@ -10,7 +10,8 @@ namespace Diabet.net.DB
 {
     class DataBaseUser
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
+        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
+        //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public bool GiveUserByLoginAndPassword(string login, string password)
         {
@@ -41,50 +42,6 @@ namespace Diabet.net.DB
                 }
             }
 
-        }
-
-        internal ChartValues<double> GetMassFromHistory(string id_user)
-        {
-            ChartValues<double> spam = new ChartValues<double>();
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Select Weight From History Where id_user = @id_user;";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    SqlDataReader info = command.ExecuteReader();
-                    object date = -1;
-                    int i = 1;
-
-                    while (info.Read())
-                    {
-                        date = info["Weight"];
-                        if (i == 1)
-                        {
-                            spam.Add(Convert.ToDouble(date));
-                            i++;
-                        }
-                        else if (spam.IndexOf(Convert.ToDouble(date)) == -1)
-                        {
-                            spam.Add(Convert.ToDouble(date));
-                        }
-
-                    }
-
-                    return spam;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return spam;
-                }
-            }
         }
 
         internal bool GetIsAdminUser(string id_user)
@@ -123,6 +80,54 @@ namespace Diabet.net.DB
 
         }
 
+        internal ChartValues<double> GetMassFromHistory(string id_user)
+        {
+            ChartValues<double> spam = new ChartValues<double>();
+
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlCon;
+                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
+                                            FROM History Where id_user = @id_user Order by Date_of_Change desc)
+                                            SELECT Weight FROM SRC ORDER BY Date_of_Change";                    
+                    command.Parameters.Add("@id_user", SqlDbType.Int);
+
+                    command.Parameters["@id_user"].Value = id_user;
+                    SqlDataReader info = command.ExecuteReader();
+                    object date = -1;
+                    int i = 1;
+
+                    while (info.Read())
+                    {
+                        date = info["Weight"];
+                        if (i == 1)
+                        {
+                            spam.Add(Convert.ToDouble(date));
+                            i++;
+                        }
+                        else if (spam.IndexOf(Convert.ToDouble(date)) == -1)
+                        {
+                            spam.Add(Convert.ToDouble(date));
+                        }
+
+                    }
+
+                    return spam;
+                }
+                catch (Exception e)
+                {
+                    //MessageBox.Show(e.Message);
+                    return spam;
+                }
+            }
+        }
+
+
+
         internal List<string> GetDateFromHistory(string id_user)
         {
             List<string> spam = new List<string>();
@@ -133,9 +138,10 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select Date_of_Change From History Where id_user = @id_user;";
+                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
+                                            FROM History Where id_user = @id_user Order by Date_of_Change desc)
+                                            SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change"; 
                     command.Parameters.Add("@id_user", SqlDbType.Int);
-
                     command.Parameters["@id_user"].Value = id_user;
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
@@ -146,17 +152,7 @@ namespace Diabet.net.DB
                         date = info["Date_of_Change"];
                         spam.Add(Convert.ToDateTime(date).ToShortDateString());
                         i++;
-                        //if (i == 1)
-                        //{
-                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        //    i++;
-                        //}
-                        //else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
-                        //{
-                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        //}
                     }
-                    int ih = 5;
                     return spam;
 
                 }
@@ -509,6 +505,7 @@ namespace Diabet.net.DB
         }
         #endregion
 
+        #region Statistic of blood
         internal List<string> GetDateFromHistoryBlood(string id_user)
         {
             List<string> spam = new List<string>();
@@ -519,7 +516,9 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select Date_of_Change From History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change;";
+                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
+                                            FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
+                                            SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change";
                     command.Parameters.Add("@id_user", SqlDbType.Int);
 
                     command.Parameters["@id_user"].Value = id_user;
@@ -532,15 +531,6 @@ namespace Diabet.net.DB
                         date = info["Date_of_Change"];
                         spam.Add(Convert.ToDateTime(date).ToShortDateString());
                         i++;
-                        //if (i == 1)
-                        //{
-                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        //    i++;
-                        //}
-                        //else if (spam.IndexOf(Convert.ToDateTime(date).ToShortDateString()) == -1)
-                        //{
-                        //    spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        //}
                     }
                     return spam;
                 }
@@ -563,7 +553,9 @@ namespace Diabet.net.DB
                     sqlCon.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlCon;
-                    command.CommandText = @"Select* From History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change;";
+                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
+                                            FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
+                                            SELECT blood_shugar FROM SRC ORDER BY Date_of_Change";
                     command.Parameters.Add("@id_user", SqlDbType.Int);
 
                     command.Parameters["@id_user"].Value = id_user;
@@ -595,5 +587,6 @@ namespace Diabet.net.DB
                 }
             }
         }
+        #endregion
     }
 }

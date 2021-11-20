@@ -2,9 +2,13 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
+using System.Windows.Media.Imaging;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 namespace Diabet.net.View_Models
 {
@@ -23,6 +27,7 @@ namespace Diabet.net.View_Models
             Protein_Recipe = SelectedRecipe.Protein;
             Fat_Recipe = SelectedRecipe.Fat;
             Carb_Recipe = SelectedRecipe.Carbs;
+            Screenimg = SelectedRecipe.Screenimg;
             Recipe = GetIngtedientsForRecipe(SelectedRecipe.ID);
             boss_page = obj2;
         }
@@ -118,6 +123,34 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Description_Recipe));
             }
         }
+        /*17.11*/
+        private BitmapImage _screenimg;
+        public BitmapImage _Screenimg
+        {
+            get
+            {
+                return ByteToBitmapImage(Screenimg);
+            }
+                set
+            {
+                this._screenimg = _Screenimg;
+                RaisePropertiesChanged(nameof(_Screenimg));
+            }
+        }
+
+        private byte[] screenimg;
+        public byte[] Screenimg
+        {
+            get
+            {
+                return screenimg;
+            }
+            set
+            {
+                this.screenimg = value;
+                RaisePropertiesChanged(nameof(Screenimg));
+            }
+        }
         #endregion
 
         public ICommand back => new DelegateCommand(Back);
@@ -126,5 +159,23 @@ namespace Diabet.net.View_Models
             Page Recipes = new AllRecipePage(boss_page);
             boss_page.CurrentPage = Recipes;
         }
+        public static BitmapImage ByteToBitmapImage(byte[] imageData)
+        {
+            if (imageData == null || imageData.Length == 0) return null;
+            var image = new BitmapImage();
+            using (var mem = new MemoryStream(imageData))
+            {
+                mem.Position = 0;
+                image.BeginInit();
+                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = null;
+                image.StreamSource = mem;
+                image.EndInit();
+            }
+            image.Freeze();
+            return image;
+        }
+
     }
 }

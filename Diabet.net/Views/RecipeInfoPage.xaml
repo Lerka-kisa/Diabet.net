@@ -10,76 +10,80 @@
       Title="RecipeInfoPage">
 
     <Grid Background="#F4D75E">
-            <Label VerticalAlignment="Top" Height="35" Margin="0,0,-0.4,0" Foreground="#FFCB4D3F" FontSize="21" FontStyle="Italic"
+        <Label VerticalAlignment="Top" Height="35" Margin="0,0,-0.4,0" Foreground="#FFCB4D3F" FontSize="21" FontStyle="Italic"
                HorizontalContentAlignment="Center" Content="{Binding Name_Recipe}" Padding="0,0,0,5"></Label>
-            <Label Height="25" Margin="0,35,0,0" VerticalAlignment="Top" Width="90" HorizontalAlignment="Left"
+        <Label Height="25" Margin="0,35,0,0" VerticalAlignment="Top" Width="90" HorizontalAlignment="Left"
                Padding="10,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">Калорийность:</Label>
 
-            <Label Height="25" Margin="90,35,0,0" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left"
+        <Label Height="25" Margin="90,35,0,0" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left"
                Padding="2,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic" 
                Content="{Binding Cal_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
 
-            <Label Height="25" Margin="135,35,0,0" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left"
+        <Label Height="25" Margin="135,35,0,0" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left"
                Padding="10,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">Белки:</Label>
 
-            <Label Height="25" Margin="180,35,0,0" VerticalAlignment="Top" Width="33" HorizontalAlignment="Left"
+        <Label Height="25" Margin="180,35,0,0" VerticalAlignment="Top" Width="33" HorizontalAlignment="Left"
                Padding="2,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic"
                Content="{Binding Protein_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
 
-            <Label Height="25" Margin="210,35,0,0" VerticalAlignment="Top" Width="41" HorizontalAlignment="Left"
+        <Label Height="25" Margin="210,35,0,0" VerticalAlignment="Top" Width="41" HorizontalAlignment="Left"
                Padding="10,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">Жиры:</Label>
 
-            <Label Height="25" Margin="255,35,0,0" VerticalAlignment="Top" Width="30" HorizontalAlignment="Left"
+        <Label Height="25" Margin="255,35,0,0" VerticalAlignment="Top" Width="30" HorizontalAlignment="Left"
                Padding="1,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic"
                Content="{Binding Fat_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
 
-            <Label Height="25" Margin="285,35,0,0" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left"
+        <Label Height="25" Margin="285,35,0,0" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left"
                Padding="5,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">Углеводы:</Label>
 
-            <Label Height="25" Margin="344,35,0,0" VerticalAlignment="Top" Width="40" HorizontalAlignment="Left"
+        <Label Height="25" Margin="344,35,0,0" VerticalAlignment="Top" Width="40" HorizontalAlignment="Left"
                Padding="2,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic"
                Content="{Binding Carb_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
 
-            <Label Height="25" Margin="385,35,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left"
+        <Label Height="25" Margin="385,35,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left"
                Padding="0,8,0,0" Foreground="#FF252423" FontSize="12" FontStyle="Italic">на 100г продукта</Label>
 
         <Label Height="30" Margin="0,60,0,0" VerticalAlignment="Top" Foreground="#FF252423" FontSize="15" FontStyle="Italic"
                HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Ингредиенты:">
-            </Label>
+        </Label>
 
-        <DataGrid Height="150" Width="450" Background="#0B7FAB" Margin="42,95,157.6,284.6" HeadersVisibility="None"
+        <DataGrid Height="150" Background="#0B7FAB" Margin="27,96,305,284" HeadersVisibility="None"
                   ItemsSource="{Binding Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"
                   GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFCB4D3F" FontSize="10"
                   CanUserResizeColumns="False">
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn  Width="*" Binding="{Binding Name_Product}"></DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding Mass }"></DataGridTextColumn>
-                </DataGrid.Columns>
+            <DataGrid.Columns>
+                <DataGridTextColumn  Width="*" Binding="{Binding Name_Product}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding Mass }"></DataGridTextColumn>
+            </DataGrid.Columns>
 
-            </DataGrid>
+        </DataGrid>
+
+        <Label Height="151" Margin="385,90,0,0" VerticalAlignment="Top" Width="237" HorizontalAlignment="Left"
+               Padding="2,8,0,0" 
+               Content="{Binding Screenimg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
 
         <Label Height="30"  Margin="0,246,-0.4,0" VerticalAlignment="Top" Foreground="#FF252423" FontSize="15" FontStyle="Italic"
                HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Приготовление:"></Label>
 
-            <!--<ScrollViewer  Height="150" Width="550" Margin="42,276,57.6,73.6" VerticalScrollBarVisibility="Visible" >-->
+        <!--<ScrollViewer  Height="150" Width="550" Margin="42,276,57.6,73.6" VerticalScrollBarVisibility="Visible" >-->
         <TextBox Height="180" Width="550" Background="#0B7FAB" Padding="2,2,2,2" IsReadOnly="True"
                      Margin="42,276,57.6,73.6"
                Text="{Binding Description_Recipe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                Foreground="#EDEFF2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                ScrollViewer.VerticalScrollBarVisibility="Auto" 
                TextWrapping="WrapWithOverflow"></TextBox>
-            <!--</ScrollViewer>-->
+        <!--</ScrollViewer>-->
 
 
         <Button VerticalAlignment="Bottom" Margin="0,0,0,20" Width="250" Foreground="#FF252423" Background="#E9723D"
                 Content="Назад" Command="{Binding back}">
 
-            </Button>
+        </Button>
 
 
-        </Grid>
-    </Page>
+    </Grid>
+</Page>
 
     

@@ -2,8 +2,10 @@
 using Diabet.net.DB;
 using Diabet.net.Models;
 using Diabet.net.Views;
+using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
 
@@ -108,6 +110,17 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Carb_Recipe));
             }
         }
+
+        private byte[] screenimg;
+        public byte[] Screenimg
+        {
+            get => screenimg;
+            set
+            {
+                screenimg = value;
+                RaisePropertiesChanged(nameof(Screenimg));
+            }
+        }
         #endregion
 
         private string errorMes;
@@ -146,10 +159,10 @@ namespace Diabet.net.View_Models
                 else check2 = true;
             }
                 
-
             if (check1 && check2)
             {
-                if (dB_AddFood.AddRecipe(Name_Recipe, Cal_Recipe, Protein_Recipe, Fat_Recipe, Carb_Recipe, Description))
+                byte[] a = {2,3,4} ;
+                if (dB_AddFood.AddRecipe(Name_Recipe, Cal_Recipe, Protein_Recipe, Fat_Recipe, Carb_Recipe, Description, Screenimg))
                 {
                     string id_recipe = dB_AddFood.GetIdRecipeByName(Name_Recipe);
                     foreach (var i in ingredients)
@@ -169,7 +182,47 @@ namespace Diabet.net.View_Models
                 else
                     ErrorMes = Properties.Resources.errordata;
             }
+        }
+
+        private byte[] OpenImageDialog()
+        {
+            var openFileDialog = new OpenFileDialog { Filter = @"Image files (*.jpg,*.png,*.mp4)|*.jpg;*.png;*.mp4" };
+            byte[] binArray = null;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                binArray = System.IO.File.ReadAllBytes(openFileDialog.FileName);
             }
+            else
+            {
+                return null;
+            }
+            return binArray;
+        }
+
+        public static byte[] ImageToByte(Bitmap bitmap)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(bitmap, typeof(byte[]));
+        }
+
+        public ICommand addPicture => new DelegateCommand(AddPicture);
+        private void AddPicture()
+        {
+                byte[] binArray = OpenImageDialog();
+                if (binArray == null) return;
+                //if ((binArray.Length / 1024) > 1024)
+                //{
+                //    ErrorMes = "Файл больше мегабайта";
+                //    return;
+                //}
+                else
+                {
+                    screenimg = binArray;
+                    ErrorMes = "Изображение добавлено";
+                }
+        }
+    
+    
 
         public ICommand clearForm => new DelegateCommand(ClearForm);
         private void ClearForm()
@@ -182,7 +235,5 @@ namespace Diabet.net.View_Models
             Description = "";
             ingredients.Clear();
         }
-
-
     }
 }

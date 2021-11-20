@@ -9,7 +9,8 @@ namespace Diabet.net.DB
 {
     class DB_NewFood
     {
-        private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
+        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
+        //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         public bool AddProductInApproval(string name, string cal, string p, string f, string c)
         {
