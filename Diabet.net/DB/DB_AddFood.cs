@@ -3,9 +3,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Windows;
 
 namespace Diabet.net.DB

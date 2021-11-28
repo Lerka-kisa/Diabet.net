@@ -260,7 +260,7 @@ namespace Diabet.net.View_Models
                 if (fl && canreg)
                 {
                     DataBaseUser spam = new DataBaseUser();
-                    string Pass = DB.DB.Hash(password).ToString();
+                    string Pass = DataBaseUser.Hash(password).ToString();
                     IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, activity, daily_calories, sugar);
                     if (IsDone)
                     {
