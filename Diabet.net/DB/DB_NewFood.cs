@@ -12,28 +12,24 @@ namespace Diabet.net.DB
         private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
         //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
+        //+
         public bool AddProductInApproval(string name, string cal, string p, string f, string c)
         {
+            string sqlExpression = "AddProductInApproval";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"INSERT INTO Products_Awaiting_Approval (name_product, calorific_product, protein_product, fat_product, carbs_product ) VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)";
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters.Add("@name_product", SqlDbType.NVarChar, 70);
-                    command.Parameters.Add("@calorific_product", SqlDbType.Int);
-                    command.Parameters.Add("@protein_product", SqlDbType.Real);
-                    command.Parameters.Add("@fat_product", SqlDbType.Real);
-                    command.Parameters.Add("@carbs_product", SqlDbType.Real);
-
-                    command.Parameters["@name_product"].Value = name;
-                    command.Parameters["@calorific_product"].Value = cal;
-                    command.Parameters["@protein_product"].Value = p;
-                    command.Parameters["@fat_product"].Value = f;
-                    command.Parameters["@carbs_product"].Value = c;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@name_product", Value = name });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@calorific_product", Value = cal });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@protein_product", Value = p });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@fat_product", Value = f });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@carbs_product", Value = c });
 
                     command.ExecuteNonQuery();
                     
@@ -47,18 +43,19 @@ namespace Diabet.net.DB
             }
         }
 
+        //+
         internal ObservableCollection<Product> GetAllApproveProduct()
         {
+            string sqlExpression = "GetAllApproveProduct";
+
             ObservableCollection<Product> spam = new ObservableCollection<Product>();
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Select id_product, name_product, calorific_product,protein_product,fat_product,carbs_product From Products_Awaiting_Approval";
-
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     SqlDataReader info = command.ExecuteReader();
                     object p = -1, cal_food = -1, f_food = -1, c_food = 1, p_food = -1, i = -1;
@@ -72,11 +69,9 @@ namespace Diabet.net.DB
                         f_food = info["fat_product"];
                         c_food = info["carbs_product"];
                         spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г") });
-
                     }
 
                     return spam;
-
                 }
                 catch (Exception e)
                 {
@@ -86,35 +81,26 @@ namespace Diabet.net.DB
             }
         }
 
+        //+
         internal void DeleteFromApproveProduct(string name, string cal, string p, string f, string c)
         {
+            string sqlExpression = "DeleteFromApproveProduct";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Delete From Products_Awaiting_Approval Where name_product = @name_product and calorific_product = @calorific_product and protein_product = @protein_product and fat_product = @fat_product and carbs_product = @carbs_product";
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters.Add("@name_product", SqlDbType.NVarChar, 70);
-                    command.Parameters.Add("@calorific_product", SqlDbType.Int);
-                    command.Parameters.Add("@protein_product", SqlDbType.Real);
-                    command.Parameters.Add("@fat_product", SqlDbType.Real);
-                    command.Parameters.Add("@carbs_product", SqlDbType.Real);
-
-
-                    command.Parameters["@name_product"].Value = name;
-                    command.Parameters["@calorific_product"].Value = cal;
-                    command.Parameters["@protein_product"].Value = p;
-                    command.Parameters["@fat_product"].Value = f;
-                    command.Parameters["@carbs_product"].Value = c;
-
-
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@name_product", Value = name });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@calorific_product", Value = cal });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@protein_product", Value = p });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@fat_product", Value = f });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@carbs_product", Value = c });
 
                     command.ExecuteNonQuery();
-
-
                 }
                 catch (Exception e)
                 {
@@ -123,64 +109,28 @@ namespace Diabet.net.DB
             }
         }
 
+        //+
         public bool AddProduct(string name, string cal, string p, string f, string c)
         {
+            string sqlExpression = "AddProduct";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"INSERT INTO Products (name_product, calorific_product, protein_product, fat_product, carbs_product ) VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)";
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters.Add("@name_product", SqlDbType.NVarChar, 70);
-                    command.Parameters.Add("@calorific_product", SqlDbType.Int);
-                    command.Parameters.Add("@protein_product", SqlDbType.Real);
-                    command.Parameters.Add("@fat_product", SqlDbType.Real);
-                    command.Parameters.Add("@carbs_product", SqlDbType.Real);
-
-
-                    command.Parameters["@name_product"].Value = name;
-                    command.Parameters["@calorific_product"].Value = cal;
-                    command.Parameters["@protein_product"].Value = p;
-                    command.Parameters["@fat_product"].Value = f;
-                    command.Parameters["@carbs_product"].Value = c;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@name_product", Value = name });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@calorific_product", Value = cal });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@protein_product", Value = p });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@fat_product", Value = f });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@carbs_product", Value = c });
 
                     command.ExecuteNonQuery();
 
                     return true;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return false;
-                }
-            }
-        }
-
-        public bool GetAddProduct()
-        {
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"select count(*) count_product from Products_Awaiting_Approval";
-
-                    SqlDataReader info = command.ExecuteReader();
-                    int w = -1;
-                    bool a = false;
-                    while (info.Read())
-                    {
-                        w = (int)info["count_product"];
-                        if (w!=0) a = true; 
-                        break;
-                    }
-                    return a;
-
                 }
                 catch (Exception e)
                 {
