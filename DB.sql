@@ -198,3 +198,17 @@ select count(*) count_product from Products_Awaiting_Approval
 
 Select* From History_Blood_Sugar Where id_user = 3 Order by Date_of_Change;
 Select* From History Where id_user = 3 Order by Date_of_Change;
+INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, carbs_recipe, description, screen_img ) VALUES ('арвола',21,11, 34, 34, 'варврол',887)
+
+Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description, screen_img From Recipe
+
+INSER INTO Документы(Название, Содержимое)
+	SELECT 'Техническое задание', BulkColumn
+	FROM OpenRowSet
+		(
+		BULK N'S:\Файлы\Техническое задание.pdf', 
+		SINGLE_BLOB
+		)AS Файл
+
+
+

@@ -47,12 +47,12 @@
             <Button Width="50" Height="50" Command="{Binding open_Stat}" Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="ChartLineStacked" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
-            <Separator Opacity="0" Height="5"/>
+            <Separator Opacity="0" Height="115"/>
             <Button Command="{Binding logout}" Height="50" Width="50"  Background="#0B7FAB">
                 <materialDesign:PackIcon Kind="UserMultipleMinus" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
             <Separator Opacity="0" Height="5"/>
-            <Button Command="{Binding exit}" Height="50" Width="50"  Background="#0B7FAB">
+            <Button Command="{Binding exit}" Height="50" Width="50"  Background="#0B7FAB" Margin="10,0">
                 <materialDesign:PackIcon Kind="LogoutVariant" Width="40" Height="40" Margin="-13" Foreground="#EDEFF2"/>
             </Button>
 

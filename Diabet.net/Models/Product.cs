@@ -1,4 +1,6 @@
-﻿namespace Diabet.net.Models
+﻿using System.Windows.Media.Imaging;
+
+namespace Diabet.net.Models
 {
     public class Product
     {

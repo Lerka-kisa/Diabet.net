@@ -35,29 +35,24 @@ namespace Diabet.net.View_Models
         public ICommand add_product => new DelegateCommand(Add_Product);
         private void Add_Product()
         {
-            if (dB_NewFood.GetAddProduct()) 
+            if (0<Index && Index< AllApproveProduct.Count)
             {
                 dB_NewFood.AddProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
                 dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
                 AllApproveProduct.RemoveAt(Index);
             }
             else ErrorMes = Properties.Resources.emptytable;
-
-            
         }
 
         public ICommand delete_product => new DelegateCommand(Delete_Product);
         private void Delete_Product()
         {
-            if (dB_NewFood.GetAddProduct())
+            if (0 <= Index && Index < AllApproveProduct.Count)
             {
                 dB_NewFood.DeleteFromApproveProduct(AllApproveProduct[Index].Name, AllApproveProduct[Index].Calorific.Replace("ккал", ""), AllApproveProduct[Index].Protein.Replace("г", ""), AllApproveProduct[Index].Fat.Replace("г", ""), AllApproveProduct[Index].Carbs.Replace("г", ""));
                 AllApproveProduct.RemoveAt(Index);
             }
             else ErrorMes = Properties.Resources.emptytable;
-
-
-
         }
 
         private int MyToInt(string str)

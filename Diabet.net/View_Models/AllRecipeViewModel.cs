@@ -66,15 +66,30 @@ namespace Diabet.net.View_Models
                 ObservableCollection<Product> Item;
                 Item = dB_AddFood.GetSearchRecipe(Search_TextBox);
                 foreach (var i in Item)
-                All_Recipe.Add(i);
+                    All_Recipe.Add(i);
+                Search_TextBox = null;
             }
         }
 
         public ICommand open_info_recipe => new DelegateCommand(OpenInfoRecipe);
         private void OpenInfoRecipe()
         {
-          Page RecipeInfo = new RecipeInfoPage(All_Recipe[Index], Obj);
-          Obj.CurrentPage = RecipeInfo;  
+            if (0 <= Index && Index < All_Recipe.Count)
+            {
+                Page RecipeInfo = new RecipeInfoPage(All_Recipe[Index], Obj);
+                Obj.CurrentPage = RecipeInfo;
+            }
+            else ErrorMes = Properties.Resources.emptytable;
+        }
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
+            }
         }
     }
 }

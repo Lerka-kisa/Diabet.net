@@ -23,11 +23,13 @@
                   SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn   Width="*" Binding="{Binding Name}"></DataGridTextColumn>
-                </DataGrid.Columns>
+            <DataGrid.Columns>
+                <DataGridTextColumn   Width="*" Binding="{Binding Name}"></DataGridTextColumn>
+            </DataGrid.Columns>
 
-            </DataGrid>
+        </DataGrid>
+        <TextBlock Text="{Binding ErrorMes}" Foreground="Red" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="25,445,18,65"
+                   TextAlignment="Left" TextDecorations="Underline" />
         <Button Foreground="#FF252423" Background="#E9723D" Height="40" Width="300" VerticalAlignment="Bottom" Content="Показать полностью" Margin="0,0,0,25"
                 VerticalContentAlignment="Center" Command="{Binding open_info_recipe}"/>
         </Grid>

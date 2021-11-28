@@ -115,7 +115,7 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Таблица пуста, нет продуктов для одобрения.
+        ///   Ищет локализованную строку, похожую на Выберите элемент.
         /// </summary>
         internal static string emptytable {
             get {

@@ -184,6 +184,7 @@ namespace Diabet.net.View_Models
                 Item = dB_AddFood.GetSearchRecipe(Search_TextBox);
                 foreach (var i in Item)
                     All_Product.Add(i);
+                Search_TextBox = null;
             }
         }
 

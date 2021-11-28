@@ -60,9 +60,11 @@
 
         </DataGrid>
 
-        <Label Height="151" Margin="385,90,0,0" VerticalAlignment="Top" Width="237" HorizontalAlignment="Left"
+<!---        <Label Height="151" Margin="385,90,0,0" VerticalAlignment="Top" Width="237" HorizontalAlignment="Left"
                Padding="2,8,0,0" 
                Content="{Binding Screenimg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
+        -->
+        <Image VerticalAlignment="Top" Margin="385,90,10,280" Source="{Binding _Screenimg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Height="30"  Margin="0,246,-0.4,0" VerticalAlignment="Top" Foreground="#FF252423" FontSize="15" FontStyle="Italic"
                HorizontalContentAlignment="Left" Padding="10,5,0,0" Content="Приготовление:"></Label>

@@ -61,6 +61,7 @@ namespace Diabet.net.View_Models
                 ObservableCollection<Product> Item = dB_AddFood.GetSearchProduct(Search_TextBox);
                 foreach (var i in Item)
                     All_Product.Add(i);
+                Search_TextBox = null;
             }
         }
 

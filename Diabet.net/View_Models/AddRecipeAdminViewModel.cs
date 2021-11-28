@@ -148,8 +148,13 @@ namespace Diabet.net.View_Models
             bool check1 = false;
             bool check2 = false;
 
-            if (Name_Recipe == String.Empty || Name_Recipe == null || Cal_Recipe == String.Empty || Cal_Recipe == null || Protein_Recipe == String.Empty || Protein_Recipe == null
-                                    || Fat_Recipe == String.Empty || Fat_Recipe == null || Carb_Recipe == String.Empty || Carb_Recipe == null || Description == null || Description == String.Empty || ingredients.Count <= 0)
+            if (Name_Recipe == String.Empty || Name_Recipe == null || 
+                Cal_Recipe == String.Empty || Cal_Recipe == null || 
+                Protein_Recipe == String.Empty || Protein_Recipe == null || 
+                Fat_Recipe == String.Empty || Fat_Recipe == null || 
+                Carb_Recipe == String.Empty || Carb_Recipe == null || 
+                Description == null || Description == String.Empty ||
+                Screenimg == null || ingredients.Count <= 0)
                 ErrorMes = Properties.Resources.emptyfield;
             else check1 = true;
             if (check1)
@@ -161,7 +166,6 @@ namespace Diabet.net.View_Models
                 
             if (check1 && check2)
             {
-                byte[] a = {2,3,4} ;
                 if (dB_AddFood.AddRecipe(Name_Recipe, Cal_Recipe, Protein_Recipe, Fat_Recipe, Carb_Recipe, Description, Screenimg))
                 {
                     string id_recipe = dB_AddFood.GetIdRecipeByName(Name_Recipe);
@@ -178,6 +182,7 @@ namespace Diabet.net.View_Models
                     Description = "";
                     ingredients.Clear();
                     ErrorMes = "";
+                    Screenimg = null;
                 }
                 else
                     ErrorMes = Properties.Resources.errordata;
@@ -234,6 +239,8 @@ namespace Diabet.net.View_Models
             Carb_Recipe = "";
             Description = "";
             ingredients.Clear();
+            Screenimg = null;
+            ErrorMes = "";
         }
     }
 }
