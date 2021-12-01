@@ -351,4 +351,162 @@ drop procedure dbo.UpdatePurposeUser
 drop procedure dbo.UpdateSugarUser
 drop procedure dbo.UpdateDailyCalUser
 
---------
+--------DB_Main
+go
+Create procedure dbo.GetDateForWater
+	@id_user int,
+	@now_date date
+as 
+	Select id_user From Daily_Water Where now_date = @now_date and id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetWater
+	@id_user int,
+	@now_date date
+as 
+	Select water From Daily_Water Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.AddWater
+	@id_user int,
+	@water real
+as 
+	INSERT INTO Daily_Water (id_user, water) VALUES (@id_user, @water)
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateWater
+	@id_user int,
+	@water real,
+	@now_date date
+as 
+	Update Daily_Water Set water = @water Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDateForPill
+	@id_user int,
+	@now_date date
+as 
+	Select id_user From Daily_Pill Where now_date = @now_date and id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetPill
+	@id_user int,
+	@now_date date
+as 
+	Select pill From Daily_Pill Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.AddPill
+	@id_user int,
+	@pill real
+as 
+	INSERT INTO Daily_Pill (id_user, pill) VALUES (@id_user,@pill)
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdatePill
+	@id_user int,
+	@pill real,
+	@now_date date
+as 
+	Update Daily_Pill Set pill = @pill Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDailyCalInTableUser
+	@id_user int
+as 
+	Select Daily_Calories From Users Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDateForDailyCal
+	@id_user int,
+	@now_date date
+as 
+	Select id_user From Daily_Cal Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDailyCal
+	@id_user int,
+	@now_date date
+as 
+	Select daily_cal From Daily_Cal Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.AddDailyCal
+	@id_user int,
+	@daily_cal int
+as 
+	INSERT INTO Daily_Cal (id_user, daily_cal ) VALUES (@id_user, @daily_cal)
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateDailyCal
+	@id_user int,
+	@daily_cal int,
+	@now_date date
+as 
+	Update Daily_Cal Set daily_cal = @daily_cal Where id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetNameFoodByIdType
+	@id_user int,
+	@id_type_of_food int,
+	@now_date date
+as 
+	Select id_product, id_recipe, weight From Daily_Food Where id_type_of_food = @id_type_of_food and id_user = @id_user and now_date = @now_date
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetNameProductById
+	@id_product int
+as 
+	Select name_product From Products Where id_product = @id_product
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetNameRecipeById
+	@id_recipe int
+as 
+	Select name_recipe From Recipe Where id_recipe = @id_recipe
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetIngtedients
+	@id_recipe int
+as 
+	Select id_product, weight_product From Prod_Rec Where id_recipe = @id_recipe
+
+	Select SCOPE_IDENTITY()
+go
+
+drop procedure dbo.GetDateForWater
+drop procedure dbo.GetWater
+drop procedure dbo.AddWater
+drop procedure dbo.UpdateWater
+drop procedure dbo.GetDateForPill
+drop procedure dbo.GetPill
+drop procedure dbo.AddPill
+drop procedure dbo.UpdatePill
+drop procedure dbo.GetDailyCalInTableUser
+drop procedure dbo.GetDateForDailyCal
+drop procedure dbo.GetDailyCal
+drop procedure dbo.AddDailyCal
+drop procedure dbo.UpdateDailyCal
+drop procedure dbo.GetNameFoodByIdType
+drop procedure dbo.GetNameProductById
+drop procedure dbo.GetNameRecipeById
+drop procedure dbo.GetIngtedients
+----------
+
+
