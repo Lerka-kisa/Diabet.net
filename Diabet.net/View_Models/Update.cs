@@ -35,7 +35,6 @@ namespace Diabet.net.View_Models
             {
                 this.up_weight = value;
                 RaisePropertiesChanged(nameof(Up_Weight));
-
             }
         }
 
@@ -48,22 +47,19 @@ namespace Diabet.net.View_Models
                 ErrorMes = Properties.Resources.olddata;
             else
             {
-
                 try
                 {
                     if (dbu.UpdateMassUser(ID_user, Convert.ToDouble(Up_Weight)))
                     {
                         activUser.Weight = Up_Weight;
                         int remain_cal = db.GetDailyCal(ID_user, today.ToString());
-                        int new_cal = 0;
                         int now_day_cal = activUser.D_Cal;
                         int eat_cal = now_day_cal - remain_cal;
 
-                        new_cal = GetNewDayCal(activUser.Gender, activUser.Purpose_of_Use, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
+                        int new_cal = GetNewDayCal(activUser.Gender, activUser.Purpose_of_Use, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
                         db.UpdateDailyCal(ID_user, today.ToString(), new_cal - eat_cal);
                         if (dbu.UpdateDailyCalUser(ID_user, new_cal))
                             Close();
-
                     }
                 }
                 catch (SystemException e)
@@ -154,31 +150,35 @@ namespace Diabet.net.View_Models
             }
             else
             {
-                activUser.Purpose_of_Use = Up_Purpose;
-                string new_purpose = "";
-                if (Up_Purpose == "Сбросить вес")
-                    new_purpose = "1";
-                else if (Up_Purpose == "Поддерживать вес")
-                    new_purpose = "2";
-                else
-                    new_purpose = "3";
-
-                if (dbu.UpdatePurposeUser(ID_user, new_purpose))
+                try
                 {
-                    int remain_cal = db.GetDailyCal(ID_user, today.ToString());
-                    int new_cal = 0;
-                    int now_day_cal = activUser.D_Cal;
-                    int eat_cal = now_day_cal - remain_cal;
+                    activUser.Purpose_of_Use = Up_Purpose;
+                    string new_purpose = "";
+                    if (Up_Purpose == "Сбросить вес")
+                        new_purpose = "1";
+                    else if (Up_Purpose == "Поддерживать вес")
+                        new_purpose = "2";
+                    else
+                        new_purpose = "3";
 
-                    new_cal = GetNewDayCal(activUser.Gender, new_purpose, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
-                    db.UpdateDailyCal(ID_user, today.ToString(), new_cal - eat_cal);
-                    if (dbu.UpdateDailyCalUser(ID_user, new_cal))
-                        Close();
+                    if (dbu.UpdatePurposeUser(ID_user, new_purpose))
+                    {
+                        int remain_cal = db.GetDailyCal(ID_user, today.ToString());
+                        int now_day_cal = activUser.D_Cal;
+                        int eat_cal = now_day_cal - remain_cal;
 
+                        int new_cal = GetNewDayCal(activUser.Gender, new_purpose, this.GetActivity(activUser.Activity), activUser.Height, activUser.Weight, activUser.Age);
+                        db.UpdateDailyCal(ID_user, today.ToString(), new_cal - eat_cal);
+                        if (dbu.UpdateDailyCalUser(ID_user, new_cal))
+                            Close();
+                    }
+                }
+                catch (SystemException e)
+                {
+                    //MessageBox.Show(e.Message);
+                    ErrorMes = Properties.Resources.errordata;
                 }
             }
-
-
         }
         #endregion
 
@@ -271,7 +271,6 @@ namespace Diabet.net.View_Models
                     result = (int)((Convert.ToDouble(weight) * 10 + Convert.ToDouble(height) * 6.25 - Convert.ToDouble(age) * 5 + 5) * activity);
                     return result;
                 }
-
             }
             else
             {

@@ -261,7 +261,8 @@ namespace Diabet.net.View_Models
                 {
                     DataBaseUser spam = new DataBaseUser();
                     string Pass = DataBaseUser.Hash(password).ToString();
-                    IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, activity, daily_calories, sugar);
+                    double act = System.Convert.ToDouble(activity);
+                    IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, (float)act, daily_calories, sugar);
                     if (IsDone)
                     {
                         AuthorizationWindow t = new AuthorizationWindow();

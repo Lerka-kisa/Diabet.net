@@ -190,7 +190,8 @@ Create procedure dbo.AddProduct
 	@fat_product real, 
 	@carbs_product real
 as 
-	INSERT INTO Products (name_product, calorific_product, protein_product, fat_product, carbs_product ) VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)
+	INSERT INTO Products (name_product, calorific_product, protein_product, fat_product, carbs_product ) 
+		VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)
 
 	Select SCOPE_IDENTITY()
 go
@@ -199,3 +200,155 @@ drop procedure dbo.AddProductInApproval
 drop procedure dbo.GetAllApproveProduct
 drop procedure dbo.DeleteFromApproveProduct
 drop procedure dbo.AddProduct
+
+----DataBaseUser
+Create procedure dbo.GiveUserByLoginAndPassword
+	@login nvarchar(20),
+	@password nvarchar(100)
+as 
+	Select count(*) From Users Where login = @login and password = @password
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetIsAdminUser
+	@id_user int
+as 
+	Select is_admin From Users Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetMassFromHistory
+	@id_user int
+as 
+	WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
+    FROM History Where id_user = @id_user Order by Date_of_Change desc)
+    SELECT Weight FROM SRC ORDER BY Date_of_Change
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDateFromHistory
+	@id_user int
+as 
+	WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
+    FROM History Where id_user = @id_user Order by Date_of_Change desc)
+    SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetBloodFromHistory
+	@id_user int
+as 
+	WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
+    FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
+    SELECT blood_shugar FROM SRC ORDER BY Date_of_Change
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetDateFromHistoryBlood
+	@id_user int
+as 
+	WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
+    FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
+    SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.AddUser
+	@login nvarchar(20),
+	@password nvarchar(100),
+	@is_admin bit,
+	@First_Name nvarchar(20),
+	@Last_Name nvarchar(20),  
+	@Height real, 
+	@Weight real, 
+	@Daily_Calories smallint, 
+	@Age int, 
+	@Gender nvarchar(5), 
+	@Activity float, 
+	@Purpose_of_Use smallint, 
+	@Sugar real
+as 
+	INSERT INTO Users (login, password, is_admin, First_Name, Last_Name,  Height, Weight, Daily_Calories,  Age, Gender, Activity, Purpose_of_Use, blood_sugar) 
+		VALUES (@login,@password,@is_admin,@First_Name,@Last_Name,  @Height, @Weight, @Daily_Calories, @Age, @Gender, @Activity, @Purpose_of_Use, @Sugar)
+	
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetIdUserByLogin
+	@login nvarchar(20)
+as 
+	Select id_user From Users Where login = @login
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetUserInfo
+	@id_user int
+as 
+	Select  login, First_Name, Last_Name, Height, Weight, Daily_Calories, Age, Gender, Activity, Purpose_of_Use From Users Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.GetSugar
+	@id_user int
+as 
+	Select blood_sugar From Users Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateAgeUser
+	@id_user int,
+	@age int
+as 
+	Update Users Set Age = @age Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateMassUser
+	@id_user int,
+	@weight real
+as 
+	Update Users Set Weight = @weight Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdatePurposeUser
+	@id_user int,
+	@Purpose_of_Use smallint
+as 
+	Update Users Set Purpose_of_Use = @Purpose_of_Use Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateSugarUser
+	@id_user int,
+	@blood_sugar real
+as 
+	Update Users Set blood_sugar = @blood_sugar Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+Create procedure dbo.UpdateDailyCalUser
+	@id_user int,
+	@daily_cal smallint
+as 
+	Update Users Set Daily_Calories = @daily_cal Where id_user = @id_user
+
+	Select SCOPE_IDENTITY()
+go
+
+drop procedure dbo.GiveUserByLoginAndPassword
+drop procedure dbo.GetIsAdminUser
+drop procedure dbo.GetMassFromHistory
+drop procedure dbo.GetDateFromHistory
+drop procedure dbo.GetBloodFromHistory
+drop procedure dbo.GetDateFromHistoryBlood
+drop procedure dbo.AddUser
+drop procedure dbo.GetIdUserByLogin
+drop procedure dbo.GetUserInfo
+drop procedure dbo.GetSugar
+drop procedure dbo.UpdateAgeUser
+drop procedure dbo.UpdateMassUser
+drop procedure dbo.UpdatePurposeUser
+drop procedure dbo.UpdateSugarUser
+drop procedure dbo.UpdateDailyCalUser
+
+--------

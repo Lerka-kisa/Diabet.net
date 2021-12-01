@@ -1,25 +1,25 @@
 use master; 
 create database KP_DataBase;
 
-use KP_DataBase
+use [Diabet.net]
 
 select * from Products_Awaiting_Approval
 drop table Products_Awaiting_Approval
+
 create table Products_Awaiting_Approval
 (
-id_product int identity(1,1) primary key,
-name_product nvarchar(70),
-calorific_product int,
-protein_product real,
-fat_product real, 
-carbs_product real
+	id_product int identity(1,1) primary key,
+	name_product nvarchar(20),
+	calorific_product int,
+	protein_product real,
+	fat_product real, 
+	carbs_product real
 );
 
 Delete From Products_Awaiting_Approval Where name_product = @name_product and calorific_product = @calorific_product and protein_product = @protein_product and fat_product = @fat_product and carbs_product = @carbs_product
 
 select id_user, login, First_Name, Last_Name, Height, Weight,Daily_Calories, Age, Gender, Activity,Purpose_of_Use From Users Where id_user=21  ;
-alter table Users add Gender nvarchar(5)
-alter table Users drop column The_Goals_Weight
+
 select * from Users
 
 delete from Users where  id_user = '20'-- and id_user = '15' and id_user = '16' and id_user = '17' and id_user = '18' and id_user = '19' and id_user = '20'
@@ -28,34 +28,34 @@ Select count(*) From Users Where login = 'Lerka' and password = '5442488l';
 drop table Users
 create table Users
 (
-id_user int  Identity (1,1) primary key,
-login  nvarchar(20) not null unique,
-password  nvarchar(100) not null,
-is_admin bit not null, --0-user, 1-superuser
-First_Name nvarchar(20) not null,
-Last_Name nvarchar(20) not null,
-Height real ,
-Weight real,
-Daily_Calories smallint,
-Age int,
-Gender nvarchar(5), --0-male, 1-female,
-Activity float ,
-Purpose_of_Use smallint
+	id_user int  Identity (1,1) primary key,
+	login  nvarchar(20) not null unique,
+	password  nvarchar(100) not null,
+	is_admin bit not null, --0-user, 1-superuser
+	First_Name nvarchar(20) not null,
+	Last_Name nvarchar(20) not null,
+	Height real ,
+	Weight real,
+	Daily_Calories smallint,
+	Age int,
+	Gender nvarchar(5), --0-male, 1-female,
+	Activity float ,
+	Purpose_of_Use smallint,
+	blood_sugar real null
 );
 
-
+alter table Users column Activity nvarcar(5)
 create table History
 (
-Date_of_Change date, 
-id_user int,
-Weight real
+	Date_of_Change date, 
+	id_user int,
+	Weight real
 );
  
  drop table Recipe
 
 alter table Products add name_product nvarchar(50)
-alter table Users add blood_sugar real null
-alter table Users add notifications bit
+
 alter table Products drop column name_product
 
 create table Products(
@@ -96,9 +96,9 @@ alter table Recipe
 drop table Prod_Rec
 create table Prod_Rec
 (
-id_recipe int foreign key (id_recipe) references Recipe(id_recipe),
-id_product int foreign key (id_product) references Products(id_product),
-weight_product smallint
+	id_recipe int foreign key (id_recipe) references Recipe(id_recipe),
+	id_product int foreign key (id_product) references Products(id_product),
+	weight_product smallint
 );
 
 select * from Prod_Rec
@@ -116,12 +116,13 @@ select * from Daily_Food where id_user = 21 and id_type_of_food = 1 and now_date
 select * from Daily_Food
 select * from Daily_Cal
 delete from Daily_Cal where id_user = 22
+
 create table Daily_Cal
 (
-id int identity(1,1) primary key,
-id_user int foreign key (id_user) references Users(id_user),
-daily_cal int,
-now_date date default CONVERT (date, SYSDATETIME()) not null
+	id int identity(1,1) primary key,
+	id_user int foreign key (id_user) references Users(id_user),
+	daily_cal int,
+	now_date date default CONVERT (date, SYSDATETIME()) not null
 )
 
 select * from Daily_Food
@@ -202,13 +203,7 @@ INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, c
 
 Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description, screen_img From Recipe
 
-INSER INTO Документы(Название, Содержимое)
-	SELECT 'Техническое задание', BulkColumn
-	FROM OpenRowSet
-		(
-		BULK N'S:\Файлы\Техническое задание.pdf', 
-		SINGLE_BLOB
-		)AS Файл
+
 
 
 

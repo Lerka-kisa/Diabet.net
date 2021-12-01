@@ -15,21 +15,22 @@ namespace Diabet.net.DB
         private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
         //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
+        //+
         public bool GiveUserByLoginAndPassword(string login, string password)
         {
+            string sqlExpression = "GiveUserByLoginAndPassword";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Select count(*) From Users Where login = @login and password = @password";
-                    command.Parameters.Add("@login", SqlDbType.NVarChar, 20);
-                    command.Parameters.Add("@password", SqlDbType.NVarChar, 100);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@login"].Value = login;
-                    command.Parameters["@password"].Value = password;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
+
                     object count = command.ExecuteScalar();
                     if (Convert.ToInt32(count) > 0)
                     {
@@ -46,20 +47,21 @@ namespace Diabet.net.DB
 
         }
 
+        //+
         internal bool GetIsAdminUser(string id_user)
         {
+            string sqlExpression = "GetIsAdminUser";
 
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Select is_admin From Users Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object id = -1;
                     while (info.Read())
@@ -78,12 +80,13 @@ namespace Diabet.net.DB
                     return false;
                 }
             }
-
-
         }
 
+        //+
         internal ChartValues<double> GetMassFromHistory(string id_user)
         {
+            string sqlExpression = "GetMassFromHistory";
+
             ChartValues<double> spam = new ChartValues<double>();
 
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
@@ -91,14 +94,11 @@ namespace Diabet.net.DB
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
-                                            FROM History Where id_user = @id_user Order by Date_of_Change desc)
-                                            SELECT Weight FROM SRC ORDER BY Date_of_Change";                    
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
                     int i = 1;
@@ -115,9 +115,7 @@ namespace Diabet.net.DB
                         {
                             spam.Add(Convert.ToDouble(date));
                         }
-
                     }
-
                     return spam;
                 }
                 catch (Exception e)
@@ -128,23 +126,22 @@ namespace Diabet.net.DB
             }
         }
 
-
-
+        //+
         internal List<string> GetDateFromHistory(string id_user)
         {
+            string sqlExpression = "GetDateFromHistory";
+
             List<string> spam = new List<string>();
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, Weight
-                                            FROM History Where id_user = @id_user Order by Date_of_Change desc)
-                                            SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change"; 
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters["@id_user"].Value = id_user;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
                     int i = 1;
@@ -156,7 +153,6 @@ namespace Diabet.net.DB
                         i++;
                     }
                     return spam;
-
                 }
                 catch (Exception e)
                 {
@@ -166,44 +162,32 @@ namespace Diabet.net.DB
             }
         }
 
-        public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, string activity, int daily_calories, string sugar)
+        //+
+        public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, float activity, int daily_calories, string sugar)
         {
+            string sqlExpression = "AddUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"INSERT INTO Users (login, password, is_admin, First_Name, Last_Name,  Height, Weight, Daily_Calories,  Age, Gender, Activity, Purpose_of_Use, blood_sugar) VALUES (@login,@password,@is_admin,@First_Name,@Last_Name,  @Height, @Weight, @Daily_Calories, @Age, @Gender, @Activity, @Purpose_of_Use, @Sugar)";
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters.Add("@login", SqlDbType.NVarChar, 20);
-                    command.Parameters.Add("@password", SqlDbType.NVarChar, 100);
-                    command.Parameters.Add("@is_admin", SqlDbType.Bit);
-                    command.Parameters.Add("@First_Name", SqlDbType.NVarChar, 20);
-                    command.Parameters.Add("@Last_Name", SqlDbType.NVarChar, 20);
-                    command.Parameters.Add("@Height", SqlDbType.Real);
-                    command.Parameters.Add("@Weight", SqlDbType.Real);
-                    command.Parameters.Add("@Daily_Calories", SqlDbType.SmallInt);
-                    command.Parameters.Add("@Age", SqlDbType.SmallInt);
-                    command.Parameters.Add("@Gender", SqlDbType.NVarChar, 5);
-                    command.Parameters.Add("@Activity", SqlDbType.Float);
-                    command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
-                    command.Parameters.Add("@Sugar", SqlDbType.Real);
-
-                    command.Parameters["@login"].Value = login;
-                    command.Parameters["@password"].Value = password;
-                    command.Parameters["@is_admin"].Value = 0;
-                    command.Parameters["@First_Name"].Value = firstname;
-                    command.Parameters["@Last_Name"].Value = lastname;
-                    command.Parameters["@Height"].Value = height;
-                    command.Parameters["@Weight"].Value = weight;
-                    command.Parameters["@Daily_Calories"].Value = daily_calories;
-                    command.Parameters["@Age"].Value = age;
-                    command.Parameters["@Gender"].Value = gender;
-                    command.Parameters["@Activity"].Value = activity;
-                    command.Parameters["@Purpose_of_Use"].Value = purpose_of_use;
-                    command.Parameters["@Sugar"].Value = sugar;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@is_admin", Value = 0 });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@First_Name", Value = firstname });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Last_Name", Value = lastname });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Height", Value = height });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Weight", Value = weight });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Daily_Calories", Value = daily_calories });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Age", Value = age });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Gender", Value = gender });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Activity", Value = activity });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Purpose_of_Use", Value = purpose_of_use });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Sugar", Value = sugar });
 
                     command.ExecuteNonQuery();
 
@@ -211,27 +195,27 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    //MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message);
                     return false;
                 }
-
             }
-
         }
 
+        //+
         public string GetIdUserByLogin(string login)
         {
+            string sqlExpression = "GetIdUserByLogin";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"Select id_user From Users Where login = @login";
-                    command.Parameters.Add("@login", SqlDbType.NVarChar, 20);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@login"].Value = login;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
+
                     SqlDataReader info = command.ExecuteReader();
                     object id = -1;
                     while (info.Read())
@@ -247,23 +231,24 @@ namespace Diabet.net.DB
                     return "";
                 }
             }
-
         }
 
+        //+
         public Users GetUserInfo(string id_user)
         {
+            string sqlExpression = "GetUserInfo";
+
             Users spam = new Users();
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"select  login, First_Name, Last_Name, Height, Weight,Daily_Calories, Age, Gender, Activity,Purpose_of_Use From Users Where id_user=@id_user ;";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object l = -1, fn = -1, ln = -1, h = 1, w = -1, dc = -1, a = -1;
                     string g = "", activ = "", p = "";
@@ -315,43 +300,40 @@ namespace Diabet.net.DB
                             Activity = activ,
                             Purpose_of_Use = p
                         };
-
                     }
-
                     return spam;
                 }
                 catch (Exception e)
                 {
-                    //MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message);
                     return spam;
                 }
             }
-
         }
 
+        //+
         public string GetSugar(string id_user)
         {
+            string sqlExpression = "GetSugar";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
-                        sqlCon.Open();
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = sqlCon;
-                        command.CommandText = @"Select blood_sugar From Users Where id_user = @id_user";
-                        command.Parameters.Add("@id_user", SqlDbType.Int);
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                        command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
 
-
-                        SqlDataReader info = command.ExecuteReader();
-                        object w = -1;
-                        while (info.Read())
-                        {
-                            w = info["blood_sugar"];
-                            break;
-                        }
-                        return Convert.ToString(w);
+                    SqlDataReader info = command.ExecuteReader();
+                    object w = -1;
+                    while (info.Read())
+                    {
+                        w = info["blood_sugar"];
+                        break;
+                    }
+                    return Convert.ToString(w);
                 }
                 catch (Exception e)
                 {
@@ -361,23 +343,23 @@ namespace Diabet.net.DB
             }
         }
 
+        //+
         #region Updating user data
+        //+
         public bool UpdateAgeUser(string id_user, short age)
         {
+            string sqlExpression = "UpdateAgeUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.CommandText = @"Update Users Set Age = @age Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@age", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@age"].Value = age;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@age", Value = age });
 
                     command.ExecuteNonQuery();
                     return true;
@@ -387,26 +369,24 @@ namespace Diabet.net.DB
                     //MessageBox.Show(e.Message);
                     return false;
                 }
-
             }
         }
 
-        public bool UpdateMassUser(string id_user, double mass)
+        //+
+        public bool UpdateMassUser(string id_user, double weight)
         {
+            string sqlExpression = "UpdateMassUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.CommandText = @"Update Users Set Weight = @mass Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@mass", SqlDbType.Real);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@mass"].Value = mass;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@weight", Value = weight });
 
                     command.ExecuteNonQuery();
                     return true;
@@ -415,26 +395,24 @@ namespace Diabet.net.DB
                 {
                     return false;
                 }
-
             }
         }
         
+        //+
         internal bool UpdatePurposeUser(string id_user, string new_purpose)
         {
+            string sqlExpression = "UpdatePurposeUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.CommandText = @"Update Users Set Purpose_of_Use = @Purpose_of_Use Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@Purpose_of_Use", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@Purpose_of_Use"].Value = new_purpose;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@Purpose_of_Use", Value = new_purpose });
 
                     command.ExecuteNonQuery();
                     return true;
@@ -444,26 +422,24 @@ namespace Diabet.net.DB
                     //MessageBox.Show(e.Message);
                     return false;
                 }
-
             }
         }
         
+        //+
         public bool UpdateSugarUser(string id_user, double sugar)
         {
+            string sqlExpression = "UpdateSugarUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.CommandText = @"Update Users Set blood_sugar = @blood_sugar Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@blood_sugar", SqlDbType.Real);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@blood_sugar"].Value = sugar;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@blood_sugar", Value = sugar });
 
                     command.ExecuteNonQuery();
                     return true;
@@ -473,26 +449,24 @@ namespace Diabet.net.DB
                     //MessageBox.Show(e.Message);
                     return false;
                 }
-
             }
         }
         
+        //+
         public bool UpdateDailyCalUser(string id_user, int daily_cal)
         {
+            string sqlExpression = "UpdateDailyCalUser";
+
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.CommandText = @"Update Users Set Daily_Calories = @daily_cal Where id_user = @id_user";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
-                    command.Parameters.Add("@daily_cal", SqlDbType.SmallInt);
-
-                    command.Parameters["@id_user"].Value = id_user;
-                    command.Parameters["@daily_cal"].Value = daily_cal;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@daily_cal", Value = daily_cal });
 
                     command.ExecuteNonQuery();
                     return true;
@@ -502,28 +476,28 @@ namespace Diabet.net.DB
                     //MessageBox.Show(e.Message);
                     return false;
                 }
-
             }
         }
         #endregion
 
+        //+
         #region Statistic of blood
+        //+
         internal List<string> GetDateFromHistoryBlood(string id_user)
         {
+            string sqlExpression = "GetDateFromHistoryBlood";
+
             List<string> spam = new List<string>();
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
             {
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
-                                            FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
-                                            SELECT Date_of_Change FROM SRC ORDER BY Date_of_Change";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
                     int i = 1;
@@ -544,8 +518,11 @@ namespace Diabet.net.DB
             }
         }
 
+        //+
         internal ChartValues<double> GetBloodFromHistory(string id_user)
         {
+            string sqlExpression = "GetBloodFromHistory";
+
             ChartValues<double> spam = new ChartValues<double>();
 
             using (SqlConnection sqlCon = new SqlConnection(StringConnection))
@@ -553,14 +530,11 @@ namespace Diabet.net.DB
                 try
                 {
                     sqlCon.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlCon;
-                    command.CommandText = @"WITH SRC AS (SELECT TOP (10) Date_of_Change, blood_shugar
-                                            FROM History_Blood_Sugar Where id_user = @id_user Order by Date_of_Change desc)
-                                            SELECT blood_shugar FROM SRC ORDER BY Date_of_Change";
-                    command.Parameters.Add("@id_user", SqlDbType.Int);
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    command.Parameters["@id_user"].Value = id_user;
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
                     int i = 1;
@@ -577,9 +551,7 @@ namespace Diabet.net.DB
                         {
                             spam.Add(Convert.ToDouble(date));
                         }
-
                     }
-
                     return spam;
                 }
                 catch (Exception e)

@@ -57,13 +57,13 @@
 
         <ComboBox  Text="{Binding purpose_of_use}" Padding="2, 0,0,0" VerticalContentAlignment="Center" Height="30" materialDesign:HintAssist.Hint="Моя цель"  Background="#EDEFF2" Margin="20,292,221,228" >
             <ComboBoxItem>
-                Понизить ежедневный уровень сахара
+                Сбросить вес
             </ComboBoxItem>
             <ComboBoxItem>
-                Поддерживать здоровый уровень сахара
+                Поддерживать вес
             </ComboBoxItem>
             <ComboBoxItem>
-                Повысить ежедневный уровень сахара
+                Набрать вес
             </ComboBoxItem>
         </ComboBox>
 

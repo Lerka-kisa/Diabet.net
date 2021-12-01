@@ -102,8 +102,7 @@ namespace Diabet.net.DB
                     SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    SqlParameter type = new SqlParameter{ ParameterName = "@id_type", Value = id_type };
-                    command.Parameters.Add(type);
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_type", Value = id_type });
 
                     var info = command.ExecuteReader();
                     object d = -1;
