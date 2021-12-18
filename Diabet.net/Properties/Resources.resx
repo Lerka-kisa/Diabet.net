@@ -120,6 +120,9 @@
   <data name="addproduct" xml:space="preserve">
     <value>Продукт добавлен</value>
   </data>
+  <data name="already_there" xml:space="preserve">
+    <value>Такой продукт уже есть</value>
+  </data>
   <data name="approve" xml:space="preserve">
     <value>Продукт отправлен на одобрение</value>
   </data>

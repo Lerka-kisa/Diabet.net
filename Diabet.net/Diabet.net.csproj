@@ -51,6 +51,7 @@
     <Compile Include="DB\DB_AddInsulin.cs" />
     <Compile Include="DB\DB_Main.cs" />
     <Compile Include="DB\DB_NewFood.cs" />
+    <Compile Include="DB\DB_Unauthuser.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Product.cs" />

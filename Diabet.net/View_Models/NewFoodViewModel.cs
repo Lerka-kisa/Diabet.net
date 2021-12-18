@@ -86,24 +86,31 @@ namespace Diabet.net.View_Models
             bool check2 = false;
             if (Name_Product == String.Empty || Name_Product == null || Cal_Product == String.Empty || Cal_Product == null || Protein_Product == String.Empty || Protein_Product == null
                                              || Fat_Product == String.Empty || Fat_Product == null || Carb_Product == String.Empty || Carb_Product == null)
+            {
                 ErrorMes = Properties.Resources.emptyfield;
+                return;
+            }
             else check1 = true;
 
-            if (check1&&Name_Product.Length > 20)
+            if (check1 && Name_Product.Length > 20)
+            {
                 ErrorMes = Properties.Resources.bigname;
+                return;
+            }
             else check2 = true;
 
             if (check1 && check2)
             {
-                if (dB_NewFood.AddProduct(Name_Product, Cal_Product.Replace("ккал", ""), Protein_Product.Replace("г", ""), Fat_Product.Replace("г", ""), Carb_Product.Replace("г", "")))
+                if (dB_NewFood.AddProductInProduct(Name_Product, Cal_Product.Replace("ккал", ""), Protein_Product.Replace("г", ""), Fat_Product.Replace("г", ""), Carb_Product.Replace("г", "")))
                 {
                     Clear();
                     ErrorMes = Properties.Resources.addproduct;
                 }
                 else
-                    ErrorMes = Properties.Resources.errordata;
+                    ErrorMes = Properties.Resources.already_there;
             }
-            
+            else
+                ErrorMes = Properties.Resources.errordata;
         }
 
         #region Data from the form.

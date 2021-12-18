@@ -8,6 +8,7 @@ namespace Diabet.net.Views
     /// </summary>
     public partial class AdminWindow : Window
     {
+        
         MainWindowAdminViewModel m;
         public AdminWindow()
         {

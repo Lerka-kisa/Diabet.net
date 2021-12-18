@@ -9,7 +9,8 @@ namespace Diabet.net.DB
 {
     class DB_Main
     {
-        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
+        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; User=User; Password = User";
+        //private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
         //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         //+
@@ -34,19 +35,17 @@ namespace Diabet.net.DB
                     object d = -1;
                     while (info.Read())
                     {
-                        d = info["id_user"];
+                        d = info["water"];
                         break;
                     }
                     if (Convert.ToInt32(d) == -1)
                         return false;
-                    else if (Convert.ToString(d) == id_user)
+                    else 
                         return true;
-                    else
-                        return false;
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -81,7 +80,7 @@ namespace Diabet.net.DB
                     }
                     else
                     {
-                        AddWater(id_user);
+                        UpdateWater(id_user, date, 0);
                         return Convert.ToString(0);
                     }  
                 }
@@ -89,31 +88,6 @@ namespace Diabet.net.DB
                 {
                     MessageBox.Show(e.Message);
                     return "";
-                }
-            }
-        }
-
-        //+
-        public void AddWater(string id_user)
-        {
-            string sqlExpression = "AddWater";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@water", Value = 0 });
-
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -170,19 +144,17 @@ namespace Diabet.net.DB
                     object d = -1;
                     while (info.Read())
                     {
-                        d = info["id_user"];
+                        d = info["pill"];
                         break;
                     }
                     if (Convert.ToInt32(d) == -1)
                         return false;
-                    else if (Convert.ToString(d) == id_user)
+                    else 
                         return true;
-                    else
-                        return false;
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -217,7 +189,7 @@ namespace Diabet.net.DB
                     }
                     else
                     {
-                        AddPill(id_user);
+                        UpdatePill(id_user, date, 0);
                         return Convert.ToString(0);
                     }
                 }
@@ -229,31 +201,6 @@ namespace Diabet.net.DB
             }
         }
         
-        //+
-        public void AddPill(string id_user)
-        {
-            string sqlExpression = "AddPill";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@pill", Value = 0 });
-
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-            }
-        }
-
         //+
         public bool UpdatePill(string id_user, string date, float pill)
         {

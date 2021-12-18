@@ -259,8 +259,8 @@ namespace Diabet.net.View_Models
                 bool IsDone = true;
                 if (fl && canreg)
                 {
-                    DataBaseUser spam = new DataBaseUser();
-                    string Pass = DataBaseUser.Hash(password).ToString();
+                    DB_Unauthuser spam = new DB_Unauthuser();
+                    string Pass = DB_Unauthuser.Hash(password).ToString();
                     double act = System.Convert.ToDouble(activity);
                     IsDone = spam.AddUser(login, Pass, firstname, lastname, purpose_of_use, gender, age, height, weight, (float)act, daily_calories, sugar);
                     if (IsDone)

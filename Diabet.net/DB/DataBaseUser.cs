@@ -12,80 +12,14 @@ namespace Diabet.net.DB
 {
     class DataBaseUser
     {
-        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
+        private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; User=User; Password = User";
+        //private const string StringConnection = @"Data Source=.\SQLEXPRESS;Initial Catalog=Diabet.net; Integrated Security=True";
         //private const string StringConnection = @"Data Source=LEKRA_SH;Initial Catalog=Diabet.net; Integrated Security=True";
 
         //+
-        public bool GiveUserByLoginAndPassword(string login, string password)
+        internal ChartValues<double> GetInfoFromHistory(string id_user, bool type)
         {
-            string sqlExpression = "GiveUserByLoginAndPassword";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
-
-                    object count = command.ExecuteScalar();
-                    if (Convert.ToInt32(count) > 0)
-                    {
-                        return true;
-                    }
-                    return false;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return false;
-                }
-            }
-
-        }
-
-        //+
-        internal bool GetIsAdminUser(string id_user)
-        {
-            string sqlExpression = "GetIsAdminUser";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
-
-                    SqlDataReader info = command.ExecuteReader();
-                    object id = -1;
-                    while (info.Read())
-                    {
-                        id = info["is_admin"];
-                        break;
-                    }
-                    if (Convert.ToInt32(id) == 1)
-                        return true;
-                    else
-                        return false;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return false;
-                }
-            }
-        }
-
-        //+
-        internal ChartValues<double> GetMassFromHistory(string id_user)
-        {
-            string sqlExpression = "GetMassFromHistory";
+            string sqlExpression = "GetInfoFromHistory";
 
             ChartValues<double> spam = new ChartValues<double>();
 
@@ -98,6 +32,7 @@ namespace Diabet.net.DB
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@type", Value = type });
 
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
@@ -105,7 +40,10 @@ namespace Diabet.net.DB
 
                     while (info.Read())
                     {
-                        date = info["Weight"];
+                        if (type)
+                            date = info["Weight"];
+                        else 
+                            date = info["blood_shugar"];
                         if (i == 1)
                         {
                             spam.Add(Convert.ToDouble(date));
@@ -127,7 +65,7 @@ namespace Diabet.net.DB
         }
 
         //+
-        internal List<string> GetDateFromHistory(string id_user)
+        internal List<string> GetDateFromHistory(string id_user, bool type)
         {
             string sqlExpression = "GetDateFromHistory";
 
@@ -141,6 +79,7 @@ namespace Diabet.net.DB
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@type", Value = type });
 
                     SqlDataReader info = command.ExecuteReader();
                     object date = -1;
@@ -149,7 +88,7 @@ namespace Diabet.net.DB
                     while (info.Read())
                     {
                         date = info["Date_of_Change"];
-                        spam.Add(Convert.ToDateTime(date).ToShortDateString());
+                        spam.Add(Convert.ToDateTime(date).ToLongDateString());
                         i++;
                     }
                     return spam;
@@ -158,77 +97,6 @@ namespace Diabet.net.DB
                 {
                     //MessageBox.Show(e.Message);
                     return spam;
-                }
-            }
-        }
-
-        //+
-        public bool AddUser(string login, string password, string firstname, string lastname, string purpose_of_use, string gender, string age, string height, string weight, float activity, int daily_calories, string sugar)
-        {
-            string sqlExpression = "AddUser";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@is_admin", Value = 0 });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@First_Name", Value = firstname });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Last_Name", Value = lastname });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Height", Value = height });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Weight", Value = weight });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Daily_Calories", Value = daily_calories });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Age", Value = age });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Gender", Value = gender });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Activity", Value = activity });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Purpose_of_Use", Value = purpose_of_use });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@Sugar", Value = sugar });
-
-                    command.ExecuteNonQuery();
-
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    return false;
-                }
-            }
-        }
-
-        //+
-        public string GetIdUserByLogin(string login)
-        {
-            string sqlExpression = "GetIdUserByLogin";
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@login", Value = login });
-
-                    SqlDataReader info = command.ExecuteReader();
-                    object id = -1;
-                    while (info.Read())
-                    {
-                        id = info["id_user"];
-                        break;
-                    }
-                    return Convert.ToString(id);
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return "";
                 }
             }
         }
@@ -479,101 +347,5 @@ namespace Diabet.net.DB
             }
         }
         #endregion
-
-        //+
-        #region Statistic of blood
-        //+
-        internal List<string> GetDateFromHistoryBlood(string id_user)
-        {
-            string sqlExpression = "GetDateFromHistoryBlood";
-
-            List<string> spam = new List<string>();
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
-
-                    SqlDataReader info = command.ExecuteReader();
-                    object date = -1;
-                    int i = 1;
-
-                    while (info.Read())
-                    {
-                        date = info["Date_of_Change"];
-                        spam.Add(Convert.ToDateTime(date).ToShortDateString());
-                        i++;
-                    }
-                    return spam;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return spam;
-                }
-            }
-        }
-
-        //+
-        internal ChartValues<double> GetBloodFromHistory(string id_user)
-        {
-            string sqlExpression = "GetBloodFromHistory";
-
-            ChartValues<double> spam = new ChartValues<double>();
-
-            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
-            {
-                try
-                {
-                    sqlCon.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@id_user", Value = id_user });
-
-                    SqlDataReader info = command.ExecuteReader();
-                    object date = -1;
-                    int i = 1;
-
-                    while (info.Read())
-                    {
-                        date = info["blood_shugar"];
-                        if (i == 1)
-                        {
-                            spam.Add(Convert.ToDouble(date));
-                            i++;
-                        }
-                        else if (spam.IndexOf(Convert.ToDouble(date)) == -1)
-                        {
-                            spam.Add(Convert.ToDouble(date));
-                        }
-                    }
-                    return spam;
-                }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(e.Message);
-                    return spam;
-                }
-            }
-        }
-        #endregion
-
-        public static string Hash(string input)
-        {
-            byte[] hash = Encoding.ASCII.GetBytes(input);
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] hashenc = md5.ComputeHash(hash);
-            string output = "";
-            foreach (var b in hashenc)
-            {
-                output += b.ToString("x2");
-            }
-            return output;
-        }
     }
 }

@@ -58,12 +58,12 @@ namespace Diabet.net.View_Models
             ((LineSeries)SeriesCollection[0]).Fill = MyColorForFill;
         }
         private ChartValues<double> GetMassParam(string idUser){
-            ChartValues<double> Item = dbu.GetMassFromHistory(idUser);
+            ChartValues<double> Item = dbu.GetInfoFromHistory(idUser,true);
             return Item;
         }
         private ChartValues<double> GetBloodParam(string idUser)
         {
-            ChartValues<double> Item = dbu.GetBloodFromHistory(idUser);
+            ChartValues<double> Item = dbu.GetInfoFromHistory(idUser, false);
             return Item;
         }
         private string[] GetDateParam(string idUser, int Type)
@@ -71,11 +71,11 @@ namespace Diabet.net.View_Models
             List<string> Item = new List<string>();
             if (Type == 1) 
             {
-                Item = dbu.GetDateFromHistory(idUser);
+                Item = dbu.GetDateFromHistory(idUser, true);
             }
             if (Type == 2)
             {
-                Item = dbu.GetDateFromHistoryBlood(idUser);
+                Item = dbu.GetDateFromHistory(idUser, false);
             }
             string[] a = new string[Item.Count];
             int i = 0;

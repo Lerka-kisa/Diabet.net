@@ -70,6 +70,15 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Такой продукт уже есть.
+        /// </summary>
+        internal static string already_there {
+            get {
+                return ResourceManager.GetString("already_there", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Продукт отправлен на одобрение.
         /// </summary>
         internal static string approve {
