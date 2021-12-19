@@ -13,6 +13,7 @@ namespace Diabet.net.View_Models
     {
         public ObservableCollection<Product> All_Product { get; set; }
         DB_AddFood dB_AddFood = new DB_AddFood();
+        DB_NewFood dB_NewFood = new DB_NewFood();
         public ObservableCollection<Ingredients> ALL_Ingredients;
         private MainPageViewModel Obj;
 
@@ -34,6 +35,21 @@ namespace Diabet.net.View_Models
                 this.search_textbox = value;
                 RaisePropertiesChanged(nameof(Search_TextBox));
             }
+        }
+
+        public ICommand delete_product => new DelegateCommand(Delete_Product);
+        private void Delete_Product()
+        {
+            if (0 <= Index && Index < All_Product.Count)
+            {
+                if (dB_NewFood.DeleteProduct(All_Product[Index].ID))
+                {
+                    All_Product.RemoveAt(Index);
+                    ErrorMes = "";
+                }
+                else ErrorMes = Properties.Resources.notdelp;
+            }
+            else ErrorMes = Properties.Resources.emptytable;
         }
 
         private string mass;
@@ -93,7 +109,6 @@ namespace Diabet.net.View_Models
 
                 Close();
             }
-           
         }
 
         private string errorMes;
@@ -127,5 +142,6 @@ namespace Diabet.net.View_Models
             win.Show();
             Close();
         }
+
     }
  }

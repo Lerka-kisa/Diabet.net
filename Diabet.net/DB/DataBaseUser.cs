@@ -173,7 +173,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }

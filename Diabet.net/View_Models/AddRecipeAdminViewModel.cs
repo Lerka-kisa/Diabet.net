@@ -191,7 +191,7 @@ namespace Diabet.net.View_Models
 
         private byte[] OpenImageDialog()
         {
-            var openFileDialog = new OpenFileDialog { Filter = @"Image files (*.jpg,*.png,*.mp4)|*.jpg;*.png;*.mp4" };
+            var openFileDialog = new OpenFileDialog { Filter = @"Image files (*.jpg,*.png)|*.jpg;*.png;" };
             byte[] binArray = null;
             if (openFileDialog.ShowDialog() == true)
             {

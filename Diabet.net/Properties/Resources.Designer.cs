@@ -160,6 +160,24 @@ namespace Diabet.net.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Этот продукт важен для пользователей.
+        /// </summary>
+        internal static string notdelp {
+            get {
+                return ResourceManager.GetString("notdelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователям нужен этот рецепт!.
+        /// </summary>
+        internal static string notdelr {
+            get {
+                return ResourceManager.GetString("notdelr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Обновите данные.
         /// </summary>
         internal static string olddata {

@@ -86,7 +86,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -115,7 +115,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -195,7 +195,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -224,7 +224,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -259,7 +259,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -297,7 +297,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -339,7 +339,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -365,7 +365,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
         }
@@ -391,7 +391,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
         }
@@ -442,7 +442,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -474,7 +474,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -507,7 +507,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -539,7 +539,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -571,7 +571,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }        
@@ -606,7 +606,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }

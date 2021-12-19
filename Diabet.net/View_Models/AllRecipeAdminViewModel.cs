@@ -10,6 +10,7 @@ namespace Diabet.net.View_Models
     {
         public ObservableCollection<Product> All_Recipe { get; set; }
         DB_AddFood dB_AddFood = new DB_AddFood();
+        DB_NewFood dB_NewFood = new DB_NewFood();
 
         public AllRecipeAdminViewModel()
         {
@@ -29,7 +30,20 @@ namespace Diabet.net.View_Models
                 RaisePropertiesChanged(nameof(Search_TextBox));
             }
         }
-
+        public ICommand delete_recipe => new DelegateCommand(Delete_Recipe);
+        private void Delete_Recipe()
+        {
+            if (0 <= Index && Index < All_Recipe.Count)
+            {
+                if (dB_NewFood.DeleteRecipe(All_Recipe[Index].ID))
+                { 
+                    All_Recipe.RemoveAt(Index);
+                    ErrorMes = "";
+                }
+                else ErrorMes = Properties.Resources.notdelr;
+            }
+            else ErrorMes = Properties.Resources.emptytable;
+        }
         public ICommand search_product => new DelegateCommand(Search_Product);
         private void Search_Product()
         {
@@ -42,6 +56,29 @@ namespace Diabet.net.View_Models
                 foreach (var i in Item)
                     All_Recipe.Add(i);
                 Search_TextBox = null;
+            }
+        }
+        private int index;
+        public int Index
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                this.index = value;
+                RaisePropertiesChanged(nameof(Index));
+            }
+        }
+        private string errorMes;
+        public string ErrorMes
+        {
+            get { return errorMes; }
+            set
+            {
+                this.errorMes = value;
+                RaisePropertiesChanged(nameof(ErrorMes));
             }
         }
     }

@@ -150,6 +150,12 @@
   <data name="nosuchuser" xml:space="preserve">
     <value>Неверный пароль либо логин</value>
   </data>
+  <data name="notdelp" xml:space="preserve">
+    <value>Этот продукт важен для пользователей</value>
+  </data>
+  <data name="notdelr" xml:space="preserve">
+    <value>Пользователям нужен этот рецепт!</value>
+  </data>
   <data name="olddata" xml:space="preserve">
     <value>Обновите данные</value>
   </data>

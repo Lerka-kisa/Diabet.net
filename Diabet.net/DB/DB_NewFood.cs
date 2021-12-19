@@ -104,7 +104,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return false;
                 }
             }
@@ -130,7 +130,64 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
+                }
+            }
+        }
+
+        internal bool DeleteProduct(int id)
+        {
+            string sqlExpression = "DeleteProduct";
+
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    //MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+        }
+        internal bool DeleteRecipe(int id)
+        {
+            string sqlExpression = "DeleteRecipe";
+
+            using (SqlConnection sqlCon = new SqlConnection(StringConnection))
+            {
+                try
+                {
+                    sqlCon.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, sqlCon);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+
+                    SqlDataReader info = command.ExecuteReader();
+                    object p = -1;
+                    while (info.Read())
+                    {
+                        p = info["count"];
+                    }
+                    if (Convert.ToInt32(p) == 0)
+                        return true;
+                    else
+                        return false;
+                }
+                catch (Exception e)
+                {
+                    //MessageBox.Show(e.Message);
+                    return false;
                 }
             }
         }

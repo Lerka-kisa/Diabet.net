@@ -19,7 +19,7 @@
             <materialDesign:PackIcon Kind="CloudSearchOutline" Foreground="#0B7FAB"/>
         </Button>
 
-        <DataGrid Height="350" Background="#E9723D" Width="500" Margin="50,94,50,56" ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid Background="#E9723D" Width="500" Margin="50,94" ItemsSource="{Binding All_Recipe, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                    AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
             <DataGrid.Columns>
@@ -29,8 +29,9 @@
                 <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Углеводы" Binding="{Binding Carbs}"></DataGridTextColumn>
             </DataGrid.Columns>
-
-
         </DataGrid>
+        <TextBlock Text="{Binding ErrorMes}" Foreground="White" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="25,406,25,65"
+                   TextAlignment="Left" TextDecorations="Underline" />
+        <Button Background="#F4D75E" Height="40" Margin="335,434,50,26" Foreground="#FF252423" Content="Удалить" Command="{Binding delete_recipe}"/>
     </Grid>
 </Page>

@@ -42,15 +42,25 @@ namespace Diabet.net.DB
                         i = info["id_recipe"];
                         d = info["description"];
 
-                        spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Description = Convert.ToString(d), Screenimg = (byte[])s });
-                        ////else
-                        ////    spam.Add(new Product() { ID = Convert.ToInt32(i), Name = Convert.ToString(p), Calorific = Convert.ToString(cal_food + "ккал"), Protein = Convert.ToString(p_food + "г"), Fat = Convert.ToString(f_food + "г"), Carbs = Convert.ToString(c_food + "г"), Description = Convert.ToString(d)});
+                        spam.Add(new Product() 
+                            { 
+                                ID = Convert.ToInt32(i), 
+                                Name = Convert.ToString(p), 
+                                Calorific = Convert.ToString(cal_food + "ккал"), 
+                                Protein = Convert.ToString(p_food + "г"), 
+                                Fat = Convert.ToString(f_food + "г"), 
+                                Carbs = Convert.ToString(c_food + "г"), 
+                                Description = Convert.ToString(d), 
+                                Screenimg = (byte[])s 
+                            }
+                        );
                     }
                     return spam;
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    
+
                     return spam;
                 }
             }
@@ -86,7 +96,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -119,7 +129,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -148,7 +158,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
         }
@@ -176,7 +186,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
 
             }
@@ -203,7 +213,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                 }
             }
             }
@@ -276,7 +286,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -317,7 +327,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return spam;
                 }
             }
@@ -350,7 +360,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -383,7 +393,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return "";
                 }
             }
@@ -416,7 +426,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
@@ -449,7 +459,7 @@ namespace Diabet.net.DB
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    //MessageBox.Show(e.Message);
                     return 0;
                 }
             }
