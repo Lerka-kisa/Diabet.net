@@ -1,26 +1,27 @@
 use [Diabet.net]
 ----DB_AddFood
 go
-Create procedure dbo.GetTypeOfFoodById
+Create or alter procedure dbo.GetTypeOfFoodById
 	@id_type int
 as 
 	Select type_of_food From Type_of_Food Where id_type = @id_type
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetRecipe
+Create or alter procedure dbo.GetRecipe
 as 
-	Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description, screen_img From Recipe
+	Select id_recipe, name_recipe, calorific_recipe,protein_recipe,
+			fat_recipe,carbs_recipe, description, screen_img From Recipe
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetProduct
+Create or alter procedure dbo.GetProduct
 as 
 	Select id_product, name_product, calorific_product,protein_product,fat_product,carbs_product From Products
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddProductInDailyFood
+Create or alter procedure dbo.AddProductInDailyFood
 	@id_user int,
 	@id_product int,
 	@weight int, 
@@ -31,7 +32,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddRecipeInDailyFood
+Create or alter procedure dbo.AddRecipeInDailyFood
 	@id_user int,
 	@id_recipe int,
 	@weight int, 
@@ -42,7 +43,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddIngred
+Create or alter procedure dbo.AddIngred
 	@id_recipe int, 
 	@id_product int, 
 	@weight_product int
@@ -51,7 +52,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddRecipe
+Create or alter procedure dbo.AddRecipe
 	@name_recipe nvarchar(50),
 	@calorific_recipe int,
 	@protein_recipe real, 
@@ -60,46 +61,47 @@ Create procedure dbo.AddRecipe
 	@description nvarchar(500), 
 	@screen_img varbinary(max)
 as 
-	INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, carbs_recipe, description, screen_img ) VALUES (@name_recipe,@calorific_recipe,@protein_recipe, @fat_recipe, @carbs_recipe, @description, @screen_img)
+	INSERT INTO Recipe (name_recipe, calorific_recipe, protein_recipe, fat_recipe, carbs_recipe, description, screen_img ) 
+	VALUES (@name_recipe,@calorific_recipe,@protein_recipe, @fat_recipe, @carbs_recipe, @description, @screen_img)
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetSearchRecipe
+Create or alter procedure dbo.GetSearchRecipe
 	@search_TextBox nvarchar(50)
 as 
 	Select id_recipe, name_recipe, calorific_recipe,protein_recipe,fat_recipe,carbs_recipe, description, screen_img From Recipe Where name_recipe Like @search_TextBox
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetSearchProduct
+Create or alter procedure dbo.GetSearchProduct
 	@search_TextBox nvarchar(50)
 as 
 	Select id_product, name_product, calorific_product,protein_product,fat_product,carbs_product From Products Where name_product Like @search_TextBox
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetIdRecipeByName
+Create or alter procedure dbo.GetIdRecipeByName
 	@name_recipe nvarchar(50)
 as 
 	Select id_recipe From Recipe Where name_recipe = @name_recipe
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetIdProductByName
+Create or alter procedure dbo.GetIdProductByName
 	@name_product nvarchar(20)
 as 
 	Select id_product From Products Where name_product = @name_product
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetCalProductByID
+Create or alter procedure dbo.GetCalProductByID
 	@id_product int
 as 
 	Select calorific_product From Products Where id_product = @id_product
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetCalRecipeByID
+Create or alter procedure dbo.GetCalRecipeByID
 	@id_recipe int
 as 
 	Select calorific_recipe From Recipe Where id_recipe = @id_recipe
@@ -126,7 +128,7 @@ drop procedure dbo.GetCalRecipeByID
 use [Diabet.net]
 ----DB_AddInsulin
 go
-Create procedure dbo.AddInsulin
+Create or alter procedure dbo.AddInsulin
 	@id_user int,
 	@weight int, 
 	@id_type_of_insulin int, 
@@ -136,7 +138,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetInsulin
+Create or alter procedure dbo.GetInsulin
 	@id_user int,
 	@now_date date,
 	@id_type_of_insulin int
@@ -145,7 +147,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetDateForInsulin
+Create or alter procedure dbo.GetDateForInsulin
 	@now_date date,
 	@id_user int
 as 
@@ -163,31 +165,32 @@ drop procedure dbo.GetDateForInsulin
 use [Diabet.net]
 ---DB_NewFood
 go
-Create procedure dbo.AddProductInApproval
+Create or alter procedure dbo.AddProductInApproval
 	@name_product nvarchar(20),
 	@calorific_product int,
 	@protein_product real, 
 	@fat_product real, 
 	@carbs_product real
 as 
-	INSERT INTO Products_Awaiting_Approval (name_product, calorific_product, protein_product, fat_product, carbs_product ) VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)
+	INSERT INTO Products_Awaiting_Approval (name_product, calorific_product, protein_product, fat_product, carbs_product ) 
+	VALUES (@name_product,@calorific_product,@protein_product, @fat_product, @carbs_product)
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetAllApproveProduct
+Create or alter procedure dbo.GetAllApproveProduct
 as 
 	Select id_product, name_product, calorific_product,protein_product,fat_product,carbs_product From Products_Awaiting_Approval
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.DeleteFromApproveProduct
+Create or alter procedure dbo.DeleteFromApproveProduct
 	@id int
 as 
 	Delete From Products_Awaiting_Approval Where id_product = @id
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.ApprovalProduct
+Create or alter procedure dbo.ApprovalProduct
 	@id int
 as 
 	INSERT INTO Products (name_product, calorific_product, protein_product, fat_product, carbs_product ) 
@@ -195,7 +198,7 @@ as
 		
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddProductInProduct
+Create or alter procedure dbo.AddProductInProduct
 	@name_product nvarchar(20),
 	@calorific_product int,
 	@protein_product real, 
@@ -206,6 +209,29 @@ as
 
 	Select SCOPE_IDENTITY()
 go
+Create or alter procedure dbo.DeleteProduct
+	@id int
+as 
+	Delete From Products Where id_product = @id
+
+	Select SCOPE_IDENTITY()
+go
+Create or alter procedure dbo.DeleteRecipe
+	@id int
+as 
+	begin tran;
+	begin try
+	  Delete From Prod_Rec Where id_recipe = @id
+	Delete From Recipe Where id_recipe = @id
+	commit;
+	end try
+	begin catch
+	  rollback;
+	end catch
+	select count(*) [count] from Recipe where id_recipe = @id
+
+	Select SCOPE_IDENTITY()
+go
 ---Dropping---
 /*
 drop procedure dbo.AddProductInApproval
@@ -213,12 +239,14 @@ drop procedure dbo.GetAllApproveProduct
 drop procedure dbo.DeleteFromApproveProduct
 drop procedure dbo.AddProduct
 drop procedure dbo.AddProductInProduct
+drop procedure dbo.DeleteProduct
+drop procedure dbo.DeleteRecipe
 */
 
 use [Diabet.net]
 ----DataBaseUser
 go
-Create procedure dbo.GiveUserByLoginAndPassword
+Create or alter procedure dbo.GiveUserByLoginAndPassword
 	@login nvarchar(20),
 	@password nvarchar(100)
 as 
@@ -226,14 +254,14 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetIsAdminUser
+Create or alter procedure dbo.GetIsAdminUser
 	@id_user int
 as 
 	Select is_admin From Users Where id_user = @id_user
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetInfoFromHistory
+Create or alter procedure dbo.GetInfoFromHistory
 	@id_user int, 
 	@type bit
 as 
@@ -271,7 +299,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.AddUser
+Create or alter procedure dbo.AddUser
 	@login nvarchar(20),
 	@password nvarchar(100),
 	@is_admin bit,
@@ -291,28 +319,28 @@ as
 	
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetIdUserByLogin
+Create or alter procedure dbo.GetIdUserByLogin
 	@login nvarchar(20)
 as 
 	Select id_user From Users Where login = @login
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetUserInfo
+Create or alter procedure dbo.GetUserInfo
 	@id_user int
 as 
 	Select  login, First_Name, Last_Name, Height, Weight, Daily_Calories, Age, Gender, Activity, Purpose_of_Use From Users Where id_user = @id_user
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetSugar
+Create or alter procedure dbo.GetSugar
 	@id_user int
 as 
 	Select blood_sugar From Users Where id_user = @id_user
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.UpdateAgeUser
+Create or alter procedure dbo.UpdateAgeUser
 	@id_user int,
 	@age int
 as 
@@ -320,7 +348,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.UpdateMassUser
+Create or alter procedure dbo.UpdateMassUser
 	@id_user int,
 	@weight real
 as 
@@ -328,7 +356,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.UpdatePurposeUser
+Create or alter procedure dbo.UpdatePurposeUser
 	@id_user int,
 	@Purpose_of_Use smallint
 as 
@@ -336,7 +364,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.UpdateSugarUser
+Create or alter procedure dbo.UpdateSugarUser
 	@id_user int,
 	@blood_sugar real
 as 
@@ -344,7 +372,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.UpdateDailyCalUser
+Create or alter procedure dbo.UpdateDailyCalUser
 	@id_user int,
 	@daily_cal smallint
 as 
@@ -422,7 +450,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetDailyCalInTableUser
+Create or alter procedure dbo.GetDailyCalInTableUser
 	@id_user int
 as 
 	Select Daily_Calories From Users Where id_user = @id_user
@@ -462,7 +490,7 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetNameFoodByIdType
+Create or alter procedure dbo.GetNameFoodByIdType
 	@id_user int,
 	@id_type_of_food int,
 	@now_date date
@@ -471,28 +499,27 @@ as
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetNameProductById
+Create or alter procedure dbo.GetNameProductById
 	@id_product int
 as 
 	Select name_product From Products Where id_product = @id_product
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetNameRecipeById
+Create or alter procedure dbo.GetNameRecipeById
 	@id_recipe int
 as 
 	Select name_recipe From Recipe Where id_recipe = @id_recipe
 
 	Select SCOPE_IDENTITY()
 go
-Create procedure dbo.GetIngtedients
+Create or alter procedure dbo.GetIngtedients
 	@id_recipe int
 as 
 	Select id_product, weight_product From Prod_Rec Where id_recipe = @id_recipe
 
 	Select SCOPE_IDENTITY()
 go
-
 ---Dropping---
 /*
 drop procedure dbo.GetDateForWater
@@ -512,5 +539,4 @@ drop procedure dbo.GetNameRecipeById
 drop procedure dbo.GetIngtedients
 */
 ----------
-
 

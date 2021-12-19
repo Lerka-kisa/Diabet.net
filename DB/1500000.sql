@@ -24,8 +24,8 @@ Begin
 	FOR XML PATH('')
 	);
 End;
-
 go
+
 Create Procedure InsertAppProd AS
 Begin
 

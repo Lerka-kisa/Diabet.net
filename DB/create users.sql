@@ -84,6 +84,8 @@ GRANT EXECUTE ON OBJECT::[dbo].[AddProductInProduct] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[AddRecipe] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[ApprovalProduct] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[DeleteFromApproveProduct] TO Admin_role;
+GRANT EXECUTE ON OBJECT::[dbo].[DeleteProduct] TO Admin_role;
+GRANT EXECUTE ON OBJECT::[dbo].[DeleteRecipe] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[GetAllApproveProduct] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[GetCalProductByID] TO Admin_role;
 GRANT EXECUTE ON OBJECT::[dbo].[GetCalRecipeByID] TO Admin_role;

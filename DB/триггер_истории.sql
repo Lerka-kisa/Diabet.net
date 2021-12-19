@@ -1,7 +1,8 @@
---use KP_DataBase
+use [Diabet.net]
 
-drop trigger Users_History
-create trigger Users_History
+--drop trigger Users_History
+go
+create or alter trigger Users_History
 on Users
 after update, insert  
 as 
@@ -18,10 +19,9 @@ as
 		end
 	end
 
-
-drop trigger Users_History_Blood
+--drop trigger Users_History_Blood
 go
-create trigger Users_History_Blood
+create or alter trigger Users_History_Blood
 on Users
 after update, insert  
 as 
