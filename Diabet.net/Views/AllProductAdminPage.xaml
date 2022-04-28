@@ -20,7 +20,7 @@ Padding="5,0,0,0" Background="#EDEFF2" VerticalContentAlignment="Center" >
         </Button>
 
         <DataGrid Width="500" Background="#E9723D" Margin="50,94,50,99" ItemsSource="{Binding All_Product, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                   AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                   AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="DataGrid_SelectionChanged" >
 
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Название"  Binding="{Binding Name}"></DataGridTextColumn>
